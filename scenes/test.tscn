@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://b8fbhtajkx38v"]
+
+[ext_resource type="Script" uid="uid://csmfqdei32qoa" path="res://scripts/path_follow.gd" id="1_bl13t"]
+[ext_resource type="PackedScene" uid="uid://crny86l3gtlp3" path="res://models/placeholder_bunny/placeholder_bunny.tscn" id="1_errlg"]
+[ext_resource type="Script" uid="uid://dtwhchf2wnite" path="res://scripts/player_controller.gd" id="3_iyx0m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_errlg"]
+sky_top_color = Color(0.4117647, 0.7411765, 0.8235294, 1)
+sky_horizon_color = Color(1.5751512, 1.62221, 1.6173081, 1)
+ground_bottom_color = Color(0.92941177, 0.7882353, 0.6862745, 1)
+ground_horizon_color = Color(1.5751512, 1.62221, 1.6173081, 1)
+
+[sub_resource type="Sky" id="Sky_bl13t"]
+sky_material = SubResource("ProceduralSkyMaterial_errlg")
+
+[sub_resource type="Environment" id="Environment_iyx0m"]
+background_mode = 2
+sky = SubResource("Sky_bl13t")
+tonemap_mode = 2
+fog_light_color = Color(0.92941177, 0.7882353, 0.6862745, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_errlg"]
+albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl13t"]
+disable_ambient_light = true
+albedo_color = Color(0.92941177, 0.7882353, 0.6862745, 1)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iyx0m"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="Curve3D" id="Curve3D_errlg"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 90, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, -45, 0, 15, -100, 0, 0, 45, 4.78, 0, 0, 75, 15, -200, 90, 0, 0, -90, 0, 0, 0, 15, -400, 0, 0, 0, 0, 0, 0, -75, 15, -200, 0, 0, 0, 0, 0, 90, -75, 15, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[node name="Node3D" type="Node3D" unique_id=1248648863]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1657036575]
+environment = SubResource("Environment_iyx0m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1935229494]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(1, 0.9490196, 0.8784314, 1)
+shadow_enabled = true
+
+[node name="Environment" type="Node3D" parent="." unique_id=2145347219]
+
+[node name="TestRock" type="CSGBox3D" parent="Environment" unique_id=310518993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.216, 15, -71.935)
+material_override = SubResource("StandardMaterial3D_errlg")
+size = Vector3(5, 30, 5)
+
+[node name="TestRock2" type="CSGBox3D" parent="Environment" unique_id=446207844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.308666, 15, -160.02293)
+material_override = SubResource("StandardMaterial3D_errlg")
+size = Vector3(5, 30, 5)
+
+[node name="TestRock3" type="CSGBox3D" parent="Environment" unique_id=930063641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.542377, 15, -160.02293)
+material_override = SubResource("StandardMaterial3D_errlg")
+size = Vector3(5, 30, 5)
+
+[node name="TestRock4" type="CSGBox3D" parent="Environment" unique_id=1117107442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.359364, 15, -56.35273)
+material_override = SubResource("StandardMaterial3D_errlg")
+size = Vector3(5, 30, 5)
+
+[node name="TestRock5" type="CSGBox3D" parent="Environment" unique_id=1462559977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.359364, 15, -290.24924)
+material_override = SubResource("StandardMaterial3D_errlg")
+size = Vector3(5, 30, 5)
+
+[node name="TestRock6" type="CSGBox3D" parent="Environment" unique_id=336158989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.155632, 15, -413.94916)
+material_override = SubResource("StandardMaterial3D_errlg")
+size = Vector3(5, 30, 5)
+
+[node name="GroundPlane" type="MeshInstance3D" parent="Environment" unique_id=1184410278]
+material_override = SubResource("StandardMaterial3D_bl13t")
+mesh = SubResource("PlaneMesh_iyx0m")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=178873394]
+curve = SubResource("Curve3D_errlg")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1728537859]
+transform = Transform3D(0.99999654, 0, 0, 0, 1, 0, 0, 0, 0.99999654, 0, 15, 0)
+script = ExtResource("1_bl13t")
+speed = 30.0
+
+[node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D" unique_id=1969398204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+current = true
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Path3D/PathFollow3D/Camera3D" unique_id=1738638233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+script = ExtResource("3_iyx0m")
+
+[node name="placeholder_bunny" parent="Path3D/PathFollow3D/Camera3D/CharacterBody3D" unique_id=1397911438 instance=ExtResource("1_errlg")]
+transform = Transform3D(1, 0, 0, 0, 0.17402634, 0.984741, 0, -0.984741, 0.17402634, 0, 0, 0)

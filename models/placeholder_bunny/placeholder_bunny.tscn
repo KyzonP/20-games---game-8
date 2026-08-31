@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://crny86l3gtlp3"]
+
+[ext_resource type="PackedScene" uid="uid://cvi2djmr7tvsf" path="res://models/placeholder_bunny/Bunny2.0.gltf" id="1_rf23v"]
+
+[node name="placeholder_bunny" unique_id=1397911438 instance=ExtResource("1_rf23v")]
+
+[node name="Right Arm" parent="." index="3" unique_id=1188417009]
+transform = Transform3D(4.222196e-08, -1.1313344e-08, -1, -0.25881913, -0.9659258, 0, -0.9659258, 0.25881913, -4.371139e-08, 0, 2.734, -0.39)
+
+[node name="Left Arm" parent="." index="4" unique_id=1928034964]
+transform = Transform3D(0, 0, -1, -0.25544572, -0.9668234, 0, -0.9668234, 0.25544572, 0, 0, 2.7340379, -0.3929386)
