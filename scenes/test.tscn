@@ -22,6 +22,9 @@ fog_light_color = Color(0.92941177, 0.7882353, 0.6862745, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_errlg"]
 albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_74lek"]
+size = Vector3(5, 30, 5)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl13t"]
 disable_ambient_light = true
 albedo_color = Color(0.92941177, 0.7882353, 0.6862745, 1)
@@ -38,7 +41,10 @@ _data = {
 }
 point_count = 6
 
-[node name="Node3D" type="Node3D" unique_id=1248648863]
+[sub_resource type="BoxShape3D" id="BoxShape3D_iyx0m"]
+size = Vector3(6.9826202, 1.5612793, 0.9602051)
+
+[node name="Game" type="Node3D" unique_id=1248648863]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1657036575]
 environment = SubResource("Environment_iyx0m")
@@ -55,30 +61,72 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.216, 15, -71.935)
 material_override = SubResource("StandardMaterial3D_errlg")
 size = Vector3(5, 30, 5)
 
+[node name="Area3D" type="Area3D" parent="Environment/TestRock" unique_id=250888495]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TestRock/Area3D" unique_id=1909950526]
+shape = SubResource("BoxShape3D_74lek")
+
 [node name="TestRock2" type="CSGBox3D" parent="Environment" unique_id=446207844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.2115, 15, -160.02293)
 material_override = SubResource("StandardMaterial3D_errlg")
 size = Vector3(5, 30, 5)
+
+[node name="Area3D" type="Area3D" parent="Environment/TestRock2" unique_id=1707786370]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TestRock2/Area3D" unique_id=1313085775]
+shape = SubResource("BoxShape3D_74lek")
 
 [node name="TestRock3" type="CSGBox3D" parent="Environment" unique_id=930063641]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.542377, 15, -160.02293)
 material_override = SubResource("StandardMaterial3D_errlg")
 size = Vector3(5, 30, 5)
 
+[node name="Area3D" type="Area3D" parent="Environment/TestRock3" unique_id=1066146930]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TestRock3/Area3D" unique_id=568589463]
+shape = SubResource("BoxShape3D_74lek")
+
 [node name="TestRock4" type="CSGBox3D" parent="Environment" unique_id=1117107442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.359364, 15, -56.35273)
 material_override = SubResource("StandardMaterial3D_errlg")
 size = Vector3(5, 30, 5)
+
+[node name="Area3D" type="Area3D" parent="Environment/TestRock4" unique_id=2001186060]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TestRock4/Area3D" unique_id=880961701]
+shape = SubResource("BoxShape3D_74lek")
 
 [node name="TestRock5" type="CSGBox3D" parent="Environment" unique_id=1462559977]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.359364, 15, -290.24924)
 material_override = SubResource("StandardMaterial3D_errlg")
 size = Vector3(5, 30, 5)
 
+[node name="Area3D" type="Area3D" parent="Environment/TestRock5" unique_id=1020210255]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TestRock5/Area3D" unique_id=1045032529]
+shape = SubResource("BoxShape3D_74lek")
+
 [node name="TestRock6" type="CSGBox3D" parent="Environment" unique_id=336158989]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.155632, 15, -413.94916)
 material_override = SubResource("StandardMaterial3D_errlg")
 size = Vector3(5, 30, 5)
+
+[node name="Area3D" type="Area3D" parent="Environment/TestRock6" unique_id=8829826]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TestRock6/Area3D" unique_id=1581926017]
+shape = SubResource("BoxShape3D_74lek")
 
 [node name="GroundPlane" type="MeshInstance3D" parent="Environment" unique_id=1184410278]
 material_override = SubResource("StandardMaterial3D_bl13t")
@@ -93,11 +141,36 @@ script = ExtResource("1_bl13t")
 
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D" unique_id=1969398204]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-current = true
 
 [node name="Player" type="Area3D" parent="Path3D/PathFollow3D/Camera3D" unique_id=62724389]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+collision_mask = 28
 script = ExtResource("3_iyx0m")
 
 [node name="placeholder_bunny" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=1397911438 instance=ExtResource("1_errlg")]
 transform = Transform3D(1, 0, 0, 0, 0.17402634, 0.984741, 0, -0.984741, 0.17402634, 0, 0, 0)
+
+[node name="VehicleShape" type="Node3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=889900076]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Path3D/PathFollow3D/Camera3D/Player/VehicleShape" unique_id=1162023139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.5)
+size = Vector3(7, 0.25, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Path3D/PathFollow3D/Camera3D/Player/VehicleShape" unique_id=1737505656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.5)
+size = Vector3(7, 0.25, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Path3D/PathFollow3D/Camera3D/Player/VehicleShape" unique_id=1690029444]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, 0, -1)
+radius = 0.25
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Path3D/PathFollow3D/Camera3D/Player/VehicleShape" unique_id=368538995]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 0, -1)
+radius = 0.25
+
+[node name="FirePoint" type="Node3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=1674397703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32980156, -2.4611635)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=2014821380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017623901, 0.256958, -0.50476074)
+shape = SubResource("BoxShape3D_iyx0m")
