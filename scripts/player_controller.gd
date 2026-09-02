@@ -75,4 +75,5 @@ func fireBullet() -> void:
 	bullet.playerBullet()
 	
 func collide(_area) -> void:
-	print("wow")
+	if _area.is_in_group("Bullet"):
+		print("Shot")

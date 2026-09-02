@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://csmfqdei32qoa" path="res://scripts/path_follow.gd" id="1_bl13t"]
 [ext_resource type="PackedScene" uid="uid://crny86l3gtlp3" path="res://models/placeholder_bunny/placeholder_bunny.tscn" id="1_errlg"]
+[ext_resource type="Script" uid="uid://uhw03c4iv7r0" path="res://scripts/game.gd" id="1_j5jx5"]
 [ext_resource type="Script" uid="uid://dtwhchf2wnite" path="res://scripts/player_controller.gd" id="3_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://bo4ktkono442i" path="res://scenes/enemy.tscn" id="4_74lek"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_errlg"]
 sky_top_color = Color(0.4117647, 0.7411765, 0.8235294, 1)
@@ -44,7 +46,9 @@ point_count = 6
 [sub_resource type="BoxShape3D" id="BoxShape3D_iyx0m"]
 size = Vector3(6.9826202, 1.5612793, 0.9602051)
 
-[node name="Game" type="Node3D" unique_id=1248648863]
+[node name="Game" type="Node3D" unique_id=1248648863 node_paths=PackedStringArray("player")]
+script = ExtResource("1_j5jx5")
+player = NodePath("Path3D/PathFollow3D/Camera3D/Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1657036575]
 environment = SubResource("Environment_iyx0m")
@@ -141,8 +145,9 @@ script = ExtResource("1_bl13t")
 
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D" unique_id=1969398204]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+current = true
 
-[node name="Player" type="Area3D" parent="Path3D/PathFollow3D/Camera3D" unique_id=62724389]
+[node name="Player" type="Area3D" parent="Path3D/PathFollow3D/Camera3D" unique_id=62724389 groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 collision_mask = 28
 script = ExtResource("3_iyx0m")
@@ -168,9 +173,12 @@ radius = 0.25
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 0, -1)
 radius = 0.25
 
-[node name="FirePoint" type="Node3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=1674397703]
+[node name="FirePoint" type="Marker3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=2129934683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32980156, -2.4611635)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=2014821380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017623901, 0.256958, -0.50476074)
 shape = SubResource("BoxShape3D_iyx0m")
+
+[node name="Enemy" parent="." unique_id=2107312701 instance=ExtResource("4_74lek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -150)

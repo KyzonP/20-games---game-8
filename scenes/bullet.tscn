@@ -9,7 +9,7 @@ albedo_color = Color(1, 0, 0, 1)
 height = 1.0
 radius = 0.1
 
-[node name="Bullet" type="Area3D" unique_id=1214280318]
+[node name="Bullet" type="Area3D" unique_id=1214280318 groups=["Bullet"]]
 collision_layer = 0
 collision_mask = 28
 script = ExtResource("1_mkf8s")
