@@ -4,12 +4,15 @@ extends Area3D
 @export var speed : float = 5.0
 @export var fire_rate : float = 1.0
 @export var fire_distance : float = 100.0
+@export var points_value : int = 10
 var fire_timer : float = 0.0
 var target : Area3D
 var shooting : bool = false
 
 @onready var fire_point = find_child("FirePoint")
 @onready var targeting = find_child("Targeting")
+
+signal defeated(enemy_node)
 
 # Bullets
 var bulletObject = load("res://scenes/bullet.tscn")
@@ -19,6 +22,8 @@ func _ready():
 	targeting.playerFound.connect(_enable_shooting)
 	targeting.playerLost.connect(_disable_shooting)
 	EventBus.give_player.connect(_set_target)
+	
+	EventBus.request_player.emit()
 
 func _physics_process(delta):
 	if global_position.distance_to(target.global_position) <= fire_distance and shooting:
@@ -36,6 +41,8 @@ func _shoot():
 	bullet.enemyBullet()
 	
 func destroy():
+	defeated.emit(self)
+	EventBus.score_increased.emit(points_value)
 	queue_free()
 
 func collide(_area):

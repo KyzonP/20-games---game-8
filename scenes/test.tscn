@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://csmfqdei32qoa" path="res://scripts/path_follow.gd" id="1_bl13t"]
 [ext_resource type="PackedScene" uid="uid://crny86l3gtlp3" path="res://models/placeholder_bunny/placeholder_bunny.tscn" id="1_errlg"]
 [ext_resource type="Script" uid="uid://uhw03c4iv7r0" path="res://scripts/game.gd" id="1_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/ground_plane.tscn" id="2_jcd4p"]
 [ext_resource type="Script" uid="uid://dtwhchf2wnite" path="res://scripts/player_controller.gd" id="3_iyx0m"]
-[ext_resource type="PackedScene" uid="uid://bo4ktkono442i" path="res://scenes/enemy.tscn" id="4_74lek"]
+[ext_resource type="PackedScene" uid="uid://bo4ktkono442i" path="res://scenes/turret_enemy.tscn" id="4_74lek"]
+[ext_resource type="PackedScene" uid="uid://3hkf45g43jbb" path="res://scenes/enemy_path.tscn" id="6_lpvoh"]
+[ext_resource type="Curve3D" uid="uid://onqsr2i7v8vt" path="res://flight_paths/test_flying_path.tres" id="7_at5dv"]
+[ext_resource type="FontFile" uid="uid://bti7l0s1loqws" path="res://fonts/PrStart.ttf" id="9_uacia"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_errlg"]
 sky_top_color = Color(0.4117647, 0.7411765, 0.8235294, 1)
@@ -27,14 +31,6 @@ albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_74lek"]
 size = Vector3(5, 30, 5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl13t"]
-disable_ambient_light = true
-albedo_color = Color(0.92941177, 0.7882353, 0.6862745, 1)
-uv1_triplanar = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_iyx0m"]
-size = Vector2(1000, 1000)
-
 [sub_resource type="Curve3D" id="Curve3D_errlg"]
 closed = true
 _data = {
@@ -46,9 +42,15 @@ point_count = 6
 [sub_resource type="BoxShape3D" id="BoxShape3D_iyx0m"]
 size = Vector3(6.9826202, 1.5612793, 0.9602051)
 
-[node name="Game" type="Node3D" unique_id=1248648863 node_paths=PackedStringArray("player")]
+[sub_resource type="Curve3D" id="Curve3D_at5dv"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 25, 0, 0, -45, 40, -40, -25, 0, 0, 25, 0, 0, 0, 0, -40, 25, 0, 0, 0, 0, 0, 45, -40, -40),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="Game" type="Node3D" unique_id=1248648863]
 script = ExtResource("1_j5jx5")
-player = NodePath("Path3D/PathFollow3D/Camera3D/Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1657036575]
 environment = SubResource("Environment_iyx0m")
@@ -132,9 +134,7 @@ collision_mask = 15
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TestRock6/Area3D" unique_id=1581926017]
 shape = SubResource("BoxShape3D_74lek")
 
-[node name="GroundPlane" type="MeshInstance3D" parent="Environment" unique_id=1184410278]
-material_override = SubResource("StandardMaterial3D_bl13t")
-mesh = SubResource("PlaneMesh_iyx0m")
+[node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("2_jcd4p")]
 
 [node name="Path3D" type="Path3D" parent="." unique_id=178873394]
 curve = SubResource("Curve3D_errlg")
@@ -176,9 +176,64 @@ radius = 0.25
 [node name="FirePoint" type="Marker3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=2129934683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32980156, -2.4611635)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=2014821380]
+[node name="Collider" type="CollisionShape3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=2014821380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017623901, 0.256958, -0.50476074)
 shape = SubResource("BoxShape3D_iyx0m")
 
+[node name="EnemyPath" parent="Path3D/PathFollow3D" unique_id=1281539497 instance=ExtResource("6_lpvoh")]
+curve = SubResource("Curve3D_at5dv")
+speed = 10.0
+pattern_shape = "Diagonal"
+
 [node name="Enemy" parent="." unique_id=2107312701 instance=ExtResource("4_74lek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -150)
+
+[node name="Enemy2" parent="." unique_id=832552012 instance=ExtResource("4_74lek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.88542, 18.48024, -339.1399)
+
+[node name="Enemy3" parent="." unique_id=805617864 instance=ExtResource("4_74lek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.598473, 31.983673, -446.03113)
+
+[node name="Enemy4" parent="." unique_id=1924002180 instance=ExtResource("4_74lek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.332214, 14.836433, -400.40286)
+
+[node name="Enemy5" parent="." unique_id=753326407 instance=ExtResource("4_74lek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.332214, 4.653328, -243.90504)
+
+[node name="Enemy6" parent="." unique_id=934954825 instance=ExtResource("4_74lek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.085037, 18.123909, -78.5862)
+
+[node name="Enemy7" parent="." unique_id=1332250616 instance=ExtResource("4_74lek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.59816, 4.577034, 56.014893)
+
+[node name="Enemy8" parent="." unique_id=2000836425 instance=ExtResource("4_74lek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.366074, 4.577034, 122.17438)
+
+[node name="EnemyPath" parent="." unique_id=116625000 instance=ExtResource("6_lpvoh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.19917, 32.392532, -169.60616)
+curve = ExtResource("7_at5dv")
+enemyCount = 3
+pattern_shape = "Vertical"
+
+[node name="Area3D" parent="EnemyPath" index="1" unique_id=645709908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.713615, -22.171608, 0)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1043766645]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=159547414]
+offset_right = 174.0
+offset_bottom = 285.0
+
+[node name="ScoreText" type="RichTextLabel" parent="UI/VBoxContainer" unique_id=521861377]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("9_uacia")
+text = "Score : 0"
+fit_content = true
+
+[node name="HealthText" type="RichTextLabel" parent="UI/VBoxContainer" unique_id=2078242767]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("9_uacia")
+text = "Health: 0"
+fit_content = true
+
+[editable path="EnemyPath"]

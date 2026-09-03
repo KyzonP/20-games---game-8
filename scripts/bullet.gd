@@ -1,6 +1,7 @@
 extends Area3D
 
 @export var speed : float = 1.0
+@export var damage : int = 1
 
 func _ready():
 	area_entered.connect(collide)	
@@ -9,6 +10,7 @@ func _ready():
 	
 func playerBullet():
 	set_collision_layer_value(2, true)
+	speed = 2.0
 	
 func enemyBullet():
 	set_collision_layer_value(4, true)

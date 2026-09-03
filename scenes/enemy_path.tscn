@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://3hkf45g43jbb"]
+
+[ext_resource type="Script" uid="uid://mxpaph5tb7pk" path="res://scripts/enemy_path.gd" id="1_fw00r"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fw00r"]
+radius = 7.205676
+
+[node name="EnemyPath" type="Path3D" unique_id=1281539497]
+script = ExtResource("1_fw00r")
+speed = 25.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=1687372054]
+transform = Transform3D(-0.9999999, 0, -8.742253e-08, 0, 0.9999972, 0, 8.742277e-08, 0, -0.99999714, 0, 20, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=645709908]
+process_mode = 3
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=457618432]
+shape = SubResource("SphereShape3D_fw00r")

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cxh63cyj2l34"]
+
+[ext_resource type="Script" uid="uid://dtaw4yl3yjbj3" path="res://scripts/target.gd" id="1_b37e2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2b72u"]
+albedo_color = Color(0.19987267, 0.37428677, 0.5637881, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b37e2"]
+radius = 1.9979117
+
+[node name="Target" type="Area3D" unique_id=637849105]
+script = ExtResource("1_b37e2")
+
+[node name="VehicleShape" type="Node3D" parent="." unique_id=2020896587]
+
+[node name="Targeting" type="CSGSphere3D" parent="VehicleShape" unique_id=1808495652]
+radius = 2.0
+material = SubResource("StandardMaterial3D_2b72u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=265497365]
+shape = SubResource("SphereShape3D_b37e2")
