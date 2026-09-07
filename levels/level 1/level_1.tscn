@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://d1isfs0kr24mo"]
+
+[ext_resource type="Script" uid="uid://uhw03c4iv7r0" path="res://scripts/game.gd" id="1_3h2pi"]
+[ext_resource type="PackedScene" uid="uid://stjwpa14d77h" path="res://scenes/environment/directional_light_3d.tscn" id="1_6wlpe"]
+[ext_resource type="PackedScene" uid="uid://c4bqj3pqyetk2" path="res://scenes/environment/world_environment.tscn" id="2_xmm5s"]
+[ext_resource type="PackedScene" uid="uid://bufc1ci5b0ndu" path="res://scenes/ui.tscn" id="3_5pt6r"]
+[ext_resource type="PackedScene" uid="uid://bbswvxjqxtgid" path="res://scenes/player/player_path.tscn" id="4_5pt6r"]
+[ext_resource type="PackedScene" uid="uid://btiwawn2slaeh" path="res://levels/level 1/region_1.tscn" id="4_xmm5s"]
+
+[sub_resource type="Curve3D" id="Curve3D_5pt6r"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1000, 15, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="level_1" type="Node3D" unique_id=1900694389]
+script = ExtResource("1_3h2pi")
+
+[node name="UI" parent="." unique_id=780951930 instance=ExtResource("3_5pt6r")]
+
+[node name="DirectionalLight3D" parent="." unique_id=363381807 instance=ExtResource("1_6wlpe")]
+directional_shadow_mode = 0
+directional_shadow_max_distance = 1000.0
+
+[node name="WorldEnvironment" parent="." unique_id=2020415190 instance=ExtResource("2_xmm5s")]
+
+[node name="Path3D" parent="." unique_id=750042012 instance=ExtResource("4_5pt6r")]
+curve = SubResource("Curve3D_5pt6r")
+
+[node name="PathFollow3D" parent="Path3D" index="0" unique_id=66500086]
+transform = Transform3D(-4.3711236e-08, 0, -0.9999939, 0, 0.9999976, 0, 0.99999654, 0, -4.3711122e-08, 0, 15, 0)
+
+[node name="Region1" parent="." unique_id=731808048 node_paths=PackedStringArray("next_region") instance=ExtResource("4_xmm5s")]
+next_region = NodePath("")
+
+[editable path="Path3D"]

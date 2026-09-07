@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bufc1ci5b0ndu"]
+
+[ext_resource type="FontFile" uid="uid://bti7l0s1loqws" path="res://fonts/PrStart.ttf" id="1_nt7q6"]
+
+[node name="UI" type="CanvasLayer" unique_id=780951930]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=306863691]
+offset_right = 174.0
+offset_bottom = 285.0
+
+[node name="ScoreText" type="RichTextLabel" parent="VBoxContainer" unique_id=197001532]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_nt7q6")
+text = "Score : 0"
+fit_content = true
+
+[node name="HealthText" type="RichTextLabel" parent="VBoxContainer" unique_id=1892410846]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_nt7q6")
+text = "Health: 0"
+fit_content = true

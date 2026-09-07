@@ -8,7 +8,15 @@ albedo_color = Color(0.19987267, 0.37428677, 0.5637881, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_b37e2"]
 radius = 1.9979117
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b37e2"]
+albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b5a2r"]
+size = Vector3(5, 30, 5)
+
 [node name="Target" type="Area3D" unique_id=637849105]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_b37e2")
 
 [node name="VehicleShape" type="Node3D" parent="." unique_id=2020896587]
@@ -19,3 +27,15 @@ material = SubResource("StandardMaterial3D_2b72u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=265497365]
 shape = SubResource("SphereShape3D_b37e2")
+
+[node name="TestRock" type="CSGBox3D" parent="." unique_id=2013080595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, 0)
+material_override = SubResource("StandardMaterial3D_b37e2")
+size = Vector3(5, 30, 5)
+
+[node name="Area3D" type="Area3D" parent="TestRock" unique_id=416316052]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRock/Area3D" unique_id=296403927]
+shape = SubResource("BoxShape3D_b5a2r")

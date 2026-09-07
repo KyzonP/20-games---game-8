@@ -1,29 +1,14 @@
 [gd_scene format=3 uid="uid://b8fbhtajkx38v"]
 
-[ext_resource type="Script" uid="uid://csmfqdei32qoa" path="res://scripts/path_follow.gd" id="1_bl13t"]
-[ext_resource type="PackedScene" uid="uid://crny86l3gtlp3" path="res://models/placeholder_bunny/placeholder_bunny.tscn" id="1_errlg"]
 [ext_resource type="Script" uid="uid://uhw03c4iv7r0" path="res://scripts/game.gd" id="1_j5jx5"]
-[ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/ground_plane.tscn" id="2_jcd4p"]
-[ext_resource type="Script" uid="uid://dtwhchf2wnite" path="res://scripts/player_controller.gd" id="3_iyx0m"]
-[ext_resource type="PackedScene" uid="uid://bo4ktkono442i" path="res://scenes/turret_enemy.tscn" id="4_74lek"]
-[ext_resource type="PackedScene" uid="uid://3hkf45g43jbb" path="res://scenes/enemy_path.tscn" id="6_lpvoh"]
+[ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/environment/ground_plane.tscn" id="2_jcd4p"]
+[ext_resource type="PackedScene" uid="uid://c4bqj3pqyetk2" path="res://scenes/environment/world_environment.tscn" id="2_uacia"]
+[ext_resource type="PackedScene" uid="uid://bbswvxjqxtgid" path="res://scenes/player/player_path.tscn" id="3_at5dv"]
+[ext_resource type="PackedScene" uid="uid://stjwpa14d77h" path="res://scenes/environment/directional_light_3d.tscn" id="3_yk7ts"]
+[ext_resource type="PackedScene" uid="uid://bo4ktkono442i" path="res://scenes/enemies/turret_enemy.tscn" id="4_74lek"]
+[ext_resource type="PackedScene" uid="uid://3hkf45g43jbb" path="res://scenes/enemies/enemy_path.tscn" id="6_lpvoh"]
 [ext_resource type="Curve3D" uid="uid://onqsr2i7v8vt" path="res://flight_paths/test_flying_path.tres" id="7_at5dv"]
-[ext_resource type="FontFile" uid="uid://bti7l0s1loqws" path="res://fonts/PrStart.ttf" id="9_uacia"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_errlg"]
-sky_top_color = Color(0.4117647, 0.7411765, 0.8235294, 1)
-sky_horizon_color = Color(1.5751512, 1.62221, 1.6173081, 1)
-ground_bottom_color = Color(0.92941177, 0.7882353, 0.6862745, 1)
-ground_horizon_color = Color(1.5751512, 1.62221, 1.6173081, 1)
-
-[sub_resource type="Sky" id="Sky_bl13t"]
-sky_material = SubResource("ProceduralSkyMaterial_errlg")
-
-[sub_resource type="Environment" id="Environment_iyx0m"]
-background_mode = 2
-sky = SubResource("Sky_bl13t")
-tonemap_mode = 2
-fog_light_color = Color(0.92941177, 0.7882353, 0.6862745, 1)
+[ext_resource type="PackedScene" uid="uid://bufc1ci5b0ndu" path="res://scenes/ui.tscn" id="9_uacia"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_errlg"]
 albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
@@ -31,34 +16,12 @@ albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_74lek"]
 size = Vector3(5, 30, 5)
 
-[sub_resource type="Curve3D" id="Curve3D_errlg"]
-closed = true
-_data = {
-"points": PackedVector3Array(0, 0, 90, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, -45, 0, 15, -100, 0, 0, 45, 0, 0, 0, 80, 15, -200, 83.07, 0, 0, -75, 0, 0, 0, 15, -400, 0, 0, 0, 0, 0, 0, -75, 15, -200, 0, 0, 0, 0, 0, 90, -75, 15, 0),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
-}
-point_count = 6
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_iyx0m"]
-size = Vector3(6.9826202, 1.5612793, 0.9602051)
-
-[sub_resource type="Curve3D" id="Curve3D_at5dv"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 25, 0, 0, -45, 40, -40, -25, 0, 0, 25, 0, 0, 0, 0, -40, 25, 0, 0, 0, 0, 0, 45, -40, -40),
-"tilts": PackedFloat32Array(0, 0, 0)
-}
-point_count = 3
-
 [node name="Game" type="Node3D" unique_id=1248648863]
 script = ExtResource("1_j5jx5")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1657036575]
-environment = SubResource("Environment_iyx0m")
+[node name="WorldEnvironment" parent="." unique_id=2020415190 instance=ExtResource("2_uacia")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1935229494]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_color = Color(1, 0.9490196, 0.8784314, 1)
-shadow_enabled = true
+[node name="DirectionalLight3D" parent="." unique_id=363381807 instance=ExtResource("3_yk7ts")]
 
 [node name="Environment" type="Node3D" parent="." unique_id=2145347219]
 
@@ -72,6 +35,18 @@ collision_layer = 16
 collision_mask = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TestRock/Area3D" unique_id=1909950526]
+shape = SubResource("BoxShape3D_74lek")
+
+[node name="TestRock7" type="CSGBox3D" parent="Environment" unique_id=1838589163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 15, -25)
+material_override = SubResource("StandardMaterial3D_errlg")
+size = Vector3(5, 30, 5)
+
+[node name="Area3D" type="Area3D" parent="Environment/TestRock7" unique_id=1518341439]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TestRock7/Area3D" unique_id=1333735185]
 shape = SubResource("BoxShape3D_74lek")
 
 [node name="TestRock2" type="CSGBox3D" parent="Environment" unique_id=446207844]
@@ -99,7 +74,7 @@ collision_mask = 15
 shape = SubResource("BoxShape3D_74lek")
 
 [node name="TestRock4" type="CSGBox3D" parent="Environment" unique_id=1117107442]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.359364, 15, -56.35273)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 15, -25)
 material_override = SubResource("StandardMaterial3D_errlg")
 size = Vector3(5, 30, 5)
 
@@ -136,54 +111,7 @@ shape = SubResource("BoxShape3D_74lek")
 
 [node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("2_jcd4p")]
 
-[node name="Path3D" type="Path3D" parent="." unique_id=178873394]
-curve = SubResource("Curve3D_errlg")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1728537859]
-transform = Transform3D(0.99999654, 0, 0, 0, 0.9999976, 0, 0, 0, 0.9999939, 0, 15, 0)
-script = ExtResource("1_bl13t")
-
-[node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D" unique_id=1969398204]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-current = true
-
-[node name="Player" type="Area3D" parent="Path3D/PathFollow3D/Camera3D" unique_id=62724389 groups=["Player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-collision_mask = 28
-script = ExtResource("3_iyx0m")
-
-[node name="placeholder_bunny" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=1397911438 instance=ExtResource("1_errlg")]
-transform = Transform3D(1, 0, 0, 0, 0.17402634, 0.984741, 0, -0.984741, 0.17402634, 0, 0, 0)
-
-[node name="VehicleShape" type="Node3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=889900076]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Path3D/PathFollow3D/Camera3D/Player/VehicleShape" unique_id=1162023139]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.5)
-size = Vector3(7, 0.25, 1)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Path3D/PathFollow3D/Camera3D/Player/VehicleShape" unique_id=1737505656]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.5)
-size = Vector3(7, 0.25, 1)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Path3D/PathFollow3D/Camera3D/Player/VehicleShape" unique_id=1690029444]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, 0, -1)
-radius = 0.25
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Path3D/PathFollow3D/Camera3D/Player/VehicleShape" unique_id=368538995]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 0, -1)
-radius = 0.25
-
-[node name="FirePoint" type="Marker3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=2129934683]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32980156, -2.4611635)
-
-[node name="Collider" type="CollisionShape3D" parent="Path3D/PathFollow3D/Camera3D/Player" unique_id=2014821380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017623901, 0.256958, -0.50476074)
-shape = SubResource("BoxShape3D_iyx0m")
-
-[node name="EnemyPath" parent="Path3D/PathFollow3D" unique_id=1281539497 instance=ExtResource("6_lpvoh")]
-curve = SubResource("Curve3D_at5dv")
-speed = 10.0
-pattern_shape = "Diagonal"
+[node name="Path3D" parent="." unique_id=750042012 instance=ExtResource("3_at5dv")]
 
 [node name="Enemy" parent="." unique_id=2107312701 instance=ExtResource("4_74lek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -150)
@@ -218,22 +146,6 @@ pattern_shape = "Vertical"
 [node name="Area3D" parent="EnemyPath" index="1" unique_id=645709908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.713615, -22.171608, 0)
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1043766645]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=159547414]
-offset_right = 174.0
-offset_bottom = 285.0
-
-[node name="ScoreText" type="RichTextLabel" parent="UI/VBoxContainer" unique_id=521861377]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("9_uacia")
-text = "Score : 0"
-fit_content = true
-
-[node name="HealthText" type="RichTextLabel" parent="UI/VBoxContainer" unique_id=2078242767]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("9_uacia")
-text = "Health: 0"
-fit_content = true
+[node name="UI" parent="." unique_id=780951930 instance=ExtResource("9_uacia")]
 
 [editable path="EnemyPath"]

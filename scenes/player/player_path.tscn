@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bbswvxjqxtgid"]
+
+[ext_resource type="Script" uid="uid://csmfqdei32qoa" path="res://scripts/path_follow.gd" id="1_saahw"]
+[ext_resource type="Script" uid="uid://dtwhchf2wnite" path="res://scripts/player_controller.gd" id="2_o2rvi"]
+[ext_resource type="PackedScene" uid="uid://crny86l3gtlp3" path="res://models/placeholder_bunny/placeholder_bunny.tscn" id="3_wc5s1"]
+
+[sub_resource type="Curve3D" id="Curve3D_errlg"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 90, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, -45, 0, 15, -100, 0, 0, 45, 0, 0, 0, 80, 15, -200, 83.07, 0, 0, -75, 0, 0, 0, 15, -400, 0, 0, 0, 0, 0, 0, -75, 15, -200, 0, 0, 0, 0, 0, 90, -75, 15, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iyx0m"]
+size = Vector3(6.9826202, 1.5612793, 0.9602051)
+
+[node name="PlayerPath" type="Path3D" unique_id=750042012]
+curve = SubResource("Curve3D_errlg")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=66500086]
+transform = Transform3D(0.99999654, 0, 0, 0, 0.9999976, 0, 0, 0, 0.9999939, 0, 15, 0)
+script = ExtResource("1_saahw")
+
+[node name="Camera3D" type="Camera3D" parent="PathFollow3D" unique_id=1485017049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+current = true
+
+[node name="Player" type="Area3D" parent="PathFollow3D/Camera3D" unique_id=1601872703 groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+collision_mask = 28
+script = ExtResource("2_o2rvi")
+
+[node name="placeholder_bunny" parent="PathFollow3D/Camera3D/Player" unique_id=1397911438 instance=ExtResource("3_wc5s1")]
+transform = Transform3D(1, 0, 0, 0, 0.17402634, 0.984741, 0, -0.984741, 0.17402634, 0, 0, 0)
+
+[node name="VehicleShape" type="Node3D" parent="PathFollow3D/Camera3D/Player" unique_id=299774216]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="PathFollow3D/Camera3D/Player/VehicleShape" unique_id=287055200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.5)
+size = Vector3(7, 0.25, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="PathFollow3D/Camera3D/Player/VehicleShape" unique_id=819371404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.5)
+size = Vector3(7, 0.25, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PathFollow3D/Camera3D/Player/VehicleShape" unique_id=728027769]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, 0, -1)
+radius = 0.25
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="PathFollow3D/Camera3D/Player/VehicleShape" unique_id=1032849184]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 0, -1)
+radius = 0.25
+
+[node name="FirePoint" type="Marker3D" parent="PathFollow3D/Camera3D/Player" unique_id=1155372600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32980156, -2.4611635)
+
+[node name="Collider" type="CollisionShape3D" parent="PathFollow3D/Camera3D/Player" unique_id=1754407093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017623901, 0.256958, -0.50476074)
+shape = SubResource("BoxShape3D_iyx0m")

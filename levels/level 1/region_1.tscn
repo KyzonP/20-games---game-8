@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://btiwawn2slaeh"]
+
+[ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/environment/ground_plane.tscn" id="1_5togp"]
+[ext_resource type="Script" uid="uid://cwj4f1gdf2uh1" path="res://scripts/region_load_unload.gd" id="1_diumx"]
+[ext_resource type="PackedScene" uid="uid://cxh63cyj2l34" path="res://scenes/enemies/target.tscn" id="2_yr2l4"]
+[ext_resource type="PackedScene" uid="uid://3hkf45g43jbb" path="res://scenes/enemies/enemy_path.tscn" id="3_l2kv5"]
+[ext_resource type="Curve3D" uid="uid://cuidfjqwy3w8j" path="res://flight_paths/down_up.tres" id="4_iti6g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5togp"]
+albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yr2l4"]
+size = Vector3(5, 30, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5togp"]
+size = Vector2(1000, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l2kv5"]
+size = Vector3(10, 100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iti6g"]
+size = Vector3(50, 1000, 1000)
+
+[node name="Region1" type="Node3D" unique_id=731808048]
+script = ExtResource("1_diumx")
+
+[node name="Environment" type="Node3D" parent="." unique_id=351178305]
+
+[node name="LeftWall" type="CSGBox3D" parent="Environment" unique_id=1273920893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 15, -25)
+material_override = SubResource("StandardMaterial3D_5togp")
+size = Vector3(1000, 30, 5)
+
+[node name="Area3D" type="Area3D" parent="Environment/LeftWall" unique_id=1602370543]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/LeftWall/Area3D" unique_id=734359246]
+shape = SubResource("BoxShape3D_yr2l4")
+
+[node name="RightWall" type="CSGBox3D" parent="Environment" unique_id=2033686901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 15, 25)
+material_override = SubResource("StandardMaterial3D_5togp")
+size = Vector3(1000, 30, 5)
+
+[node name="Area3D" type="Area3D" parent="Environment/RightWall" unique_id=769722009]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/RightWall/Area3D" unique_id=16900438]
+shape = SubResource("BoxShape3D_yr2l4")
+
+[node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("1_5togp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
+mesh = SubResource("PlaneMesh_5togp")
+
+[node name="TestRock(Landmark)" type="CSGBox3D" parent="." unique_id=1472945439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -250)
+material_override = SubResource("StandardMaterial3D_5togp")
+size = Vector3(5, 30, 5)
+
+[node name="Area3D" type="Area3D" parent="TestRock(Landmark)" unique_id=1314939449]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRock(Landmark)/Area3D" unique_id=844218165]
+shape = SubResource("BoxShape3D_yr2l4")
+
+[node name="Targets" type="Node3D" parent="." unique_id=257118364]
+
+[node name="Target" parent="Targets" unique_id=637849105 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 8.835185, 0)
+
+[node name="Target2" parent="Targets" unique_id=318092932 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 8.835, -15)
+
+[node name="Target3" parent="Targets" unique_id=1061436546 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 8.835, -15)
+
+[node name="Target4" parent="Targets" unique_id=1018476990 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 8.835, 15)
+
+[node name="Target5" parent="Targets" unique_id=2054350516 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 9, 15)
+
+[node name="Target10" parent="Targets" unique_id=782187684 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 625, 9, 0)
+
+[node name="Target6" parent="Targets" unique_id=1400620581 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 13, 0)
+
+[node name="Target9" parent="Targets" unique_id=873018267 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 13, -15)
+
+[node name="Target7" parent="Targets" unique_id=1042617102 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 17, -15)
+
+[node name="Target8" parent="Targets" unique_id=1187579163 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650, 17, 15)
+
+[node name="Target11" parent="Targets" unique_id=1629721719 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 750, 9, 0)
+
+[node name="Target12" parent="Targets" unique_id=380658735 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 775, 13, -15)
+
+[node name="Target13" parent="Targets" unique_id=590422821 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 800, 17, 15)
+
+[node name="Target14" parent="Targets" unique_id=571553991 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 900, 17, 5)
+
+[node name="Target15" parent="Targets" unique_id=1722624209 instance=ExtResource("2_yr2l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 900, 6, -5)
+
+[node name="EnemyPath" parent="." unique_id=1281539497 instance=ExtResource("3_l2kv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 900, 0, 0)
+curve = ExtResource("4_iti6g")
+pattern_shape = "Diagonal"
+enemyTarget = false
+
+[node name="PathFollow3D" parent="EnemyPath" index="0" unique_id=1687372054]
+transform = Transform3D(-4.3711385e-08, 0.9999923, 4.371105e-08, 0, -4.371105e-08, 0.9999923, 0.9999999, 4.371105e-08, 1.9106709e-15, 200, 100, 0)
+
+[node name="Area3D" parent="EnemyPath" index="1" unique_id=645709908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 0, 0)
+
+[node name="CollisionShape3D" parent="EnemyPath/Area3D" index="0" unique_id=457618432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111572266, 0, 0)
+shape = SubResource("BoxShape3D_l2kv5")
+
+[node name="End" type="Area3D" parent="." unique_id=1118434368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1050, 0, 0)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="End" unique_id=1268312845]
+shape = SubResource("BoxShape3D_iti6g")
+
+[node name="Start" type="Area3D" parent="." unique_id=1475882463]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Start" unique_id=1345764603]
+shape = SubResource("BoxShape3D_iti6g")
+
+[editable path="EnemyPath"]

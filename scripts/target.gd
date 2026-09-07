@@ -1,6 +1,7 @@
 extends Area3D
 
 @export var hp : float = 1.0
+@export var points_value : int = 1
 
 signal defeated(enemy_node)
 
@@ -12,7 +13,9 @@ func _ready():
 	
 func destroy():
 	defeated.emit(self)
-	queue_free()
+	EventBus.score_increased.emit(points_value)
+	$VehicleShape.queue_free()
+	$CollisionShape3D.disabled = true
 
 func collide(_area):
 	destroy()

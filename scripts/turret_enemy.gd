@@ -9,6 +9,7 @@ var fire_timer : float = 0.0
 var target : Area3D
 var shooting : bool = false
 
+
 @onready var fire_point = find_child("FirePoint")
 @onready var targeting = find_child("Targeting")
 
@@ -24,10 +25,16 @@ func _ready():
 	EventBus.give_player.connect(_set_target)
 	
 	EventBus.request_player.emit()
+	
+func disable_rotation():
+	targeting.disable()
 
 func _physics_process(delta):
-	if global_position.distance_to(target.global_position) <= fire_distance and shooting:
-		fire_timer += delta
+	if is_instance_valid(target):
+		if global_position.distance_to(target.global_position) <= fire_distance and shooting:
+			fire_timer += delta
+	else:
+		EventBus.request_player.emit()
 	
 	if fire_timer >= fire_rate:
 		fire_timer = 0.0
@@ -44,7 +51,7 @@ func destroy():
 	defeated.emit(self)
 	EventBus.score_increased.emit(points_value)
 	queue_free()
-
+	
 func collide(_area):
 	destroy()
 	

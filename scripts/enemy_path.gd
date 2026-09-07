@@ -11,10 +11,10 @@ var active : bool = false
 @onready var pathFollow = find_child("PathFollow3D")
 
 @export_enum("Diagonal", "Horizontal", "Vertical") var pattern_shape : String
-
+@export var enemyTarget : bool = true
 
 # Enemies
-var flying_enemy = load("res://scenes/flying_enemy.tscn")
+var flying_enemy = load("res://scenes/enemies/flying_enemy.tscn")
 	
 func _ready() -> void:
 	$Area3D.area_entered.connect(_activate)
@@ -47,6 +47,10 @@ func _spawn_enemies() -> void:
 		# connect signal
 		if enemy.has_signal("defeated"):
 			enemy.defeated.connect(_on_enemy_defeated)
+			
+		# disable if checked
+		if not enemyTarget:
+			enemy.disable_rotation()
 		
 func _on_enemy_defeated(enemy_node) -> void:
 	enemies.erase(enemy_node)

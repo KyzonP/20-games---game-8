@@ -9,13 +9,29 @@ signal playerLost
 
 @export var detect_range : float = 160.0
 
+@export var turn_range : float = 250.0
+
+var within_range : bool = false
+
+var disabled : bool = false
+
 func _ready():
 	EventBus.give_player.connect(_set_target)
 
 func _physics_process(delta):
-	_rotate_towards(delta)
+	if is_instance_valid(target):
+		if not disabled and within_range:
+			_rotate_towards(delta)
+		
+		_detect_target()
+	else:
+		EventBus.request_player.emit()
 	
-	_detect_target()
+func disable():
+	disabled = true
+	
+func enable():
+	disabled = false
 	
 func _detect_target() -> void:
 	var forward_dir = global_transform.basis.z
@@ -28,6 +44,9 @@ func _detect_target() -> void:
 		playerFound.emit()
 	else:
 		playerLost.emit()
+		
+	if not within_range and self.global_position.distance_to(target.global_position) <= turn_range:
+		within_range = true
 	
 func _rotate_towards(delta) -> void:
 	var current_rot = Quaternion(transform.basis)
