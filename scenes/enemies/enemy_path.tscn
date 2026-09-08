@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://3hkf45g43jbb"]
 
 [ext_resource type="Script" uid="uid://mxpaph5tb7pk" path="res://scripts/enemy_path.gd" id="1_fw00r"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_fw00r"]
-radius = 7.205676
+[ext_resource type="Shape3D" uid="uid://bc7rbn5egfboh" path="res://colliders/enemy_path_trigger.tres" id="2_bbr7j"]
 
 [node name="EnemyPath" type="Path3D" unique_id=1281539497]
 script = ExtResource("1_fw00r")
@@ -18,4 +16,4 @@ process_mode = 3
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=457618432]
-shape = SubResource("SphereShape3D_fw00r")
+shape = ExtResource("2_bbr7j")

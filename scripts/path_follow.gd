@@ -19,3 +19,6 @@ func _physics_process(delta):
 
 	progress += delta * speed
 	
+	if Input.is_action_just_pressed("test_speed_up"):
+		progress += 500
+	

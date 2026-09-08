@@ -5,23 +5,20 @@
 [ext_resource type="PackedScene" uid="uid://cxh63cyj2l34" path="res://scenes/enemies/target.tscn" id="2_yr2l4"]
 [ext_resource type="PackedScene" uid="uid://3hkf45g43jbb" path="res://scenes/enemies/enemy_path.tscn" id="3_l2kv5"]
 [ext_resource type="Curve3D" uid="uid://cuidfjqwy3w8j" path="res://flight_paths/down_up.tres" id="4_iti6g"]
+[ext_resource type="PackedScene" uid="uid://brp3dx3520que" path="res://scenes/environment/end.tscn" id="6_7n6vj"]
+[ext_resource type="PackedScene" uid="uid://cctg0l1whxc5c" path="res://scenes/environment/start.tscn" id="7_iqgpl"]
+[ext_resource type="PackedScene" uid="uid://88yvki3ukcg" path="res://scenes/enemies/powerup.tscn" id="8_iqgpl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5togp"]
 albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yr2l4"]
-size = Vector3(5, 30, 5)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_5togp"]
 size = Vector2(1000, 100)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l2kv5"]
-size = Vector3(10, 100, 100)
+[sub_resource type="BoxShape3D" id="BoxShape3D_yr2l4"]
+size = Vector3(5, 30, 5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_iti6g"]
-size = Vector3(50, 1000, 1000)
-
-[node name="Region1" type="Node3D" unique_id=731808048]
+[node name="region_1" type="Node3D" unique_id=731808048]
 script = ExtResource("1_diumx")
 
 [node name="Environment" type="Node3D" parent="." unique_id=351178305]
@@ -31,24 +28,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 15, -25)
 material_override = SubResource("StandardMaterial3D_5togp")
 size = Vector3(1000, 30, 5)
 
-[node name="Area3D" type="Area3D" parent="Environment/LeftWall" unique_id=1602370543]
-collision_layer = 16
-collision_mask = 15
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/LeftWall/Area3D" unique_id=734359246]
-shape = SubResource("BoxShape3D_yr2l4")
-
 [node name="RightWall" type="CSGBox3D" parent="Environment" unique_id=2033686901]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 15, 25)
 material_override = SubResource("StandardMaterial3D_5togp")
 size = Vector3(1000, 30, 5)
-
-[node name="Area3D" type="Area3D" parent="Environment/RightWall" unique_id=769722009]
-collision_layer = 16
-collision_mask = 15
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/RightWall/Area3D" unique_id=16900438]
-shape = SubResource("BoxShape3D_yr2l4")
 
 [node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("1_5togp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
@@ -127,19 +110,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 0, 0)
 
 [node name="CollisionShape3D" parent="EnemyPath/Area3D" index="0" unique_id=457618432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111572266, 0, 0)
-shape = SubResource("BoxShape3D_l2kv5")
 
-[node name="End" type="Area3D" parent="." unique_id=1118434368]
+[node name="End" parent="." unique_id=1295297433 instance=ExtResource("6_7n6vj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1050, 0, 0)
-collision_layer = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="End" unique_id=1268312845]
-shape = SubResource("BoxShape3D_iti6g")
+[node name="Start" parent="." unique_id=1036386572 instance=ExtResource("7_iqgpl")]
 
-[node name="Start" type="Area3D" parent="." unique_id=1475882463]
-collision_layer = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Start" unique_id=1345764603]
-shape = SubResource("BoxShape3D_iti6g")
+[node name="Powerup" parent="." unique_id=1401961405 instance=ExtResource("8_iqgpl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 912.98694, 17.29783, 0)
 
 [editable path="EnemyPath"]

@@ -1,16 +1,22 @@
 extends Path3D
 
-@export var enemies : Array[Node] = []
+var enemies : Array[Node] = []
+## How many enemies are instantiated
 @export var enemyCount : int = 1
+## Distance between additional enemies
 @export var transform_range : float = 10.0
+## Speed of enemies
 @export var speed : float = 10.0
+## If the path goes 'around' the player
+@export var follow_player : bool = false
 
 var end_margin : float = 0.01
 var active : bool = false
 
 @onready var pathFollow = find_child("PathFollow3D")
-
+## Direction additional enemies spawn
 @export_enum("Diagonal", "Horizontal", "Vertical") var pattern_shape : String
+## If enemy rotates to face player while flying
 @export var enemyTarget : bool = true
 
 # Enemies
@@ -64,3 +70,8 @@ func _end_path() -> void:
 func _activate(_area) -> void:
 	_spawn_enemies()
 	active = true
+	
+	if follow_player:
+		self.call_deferred("reparent", _area.get_parent())
+		#self.reparent(_area.get_parent())
+		position = Vector3.ZERO

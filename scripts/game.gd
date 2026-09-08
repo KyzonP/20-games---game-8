@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var player = find_child("Player")
+@onready var player = find_child("Player").get_node("TargetPoint")
 
 var score : int = 0
 var life : int = 10

@@ -3,7 +3,7 @@ extends CSGSphere3D
 signal playerFound
 signal playerLost
 
-@export var target : Area3D
+@export var target : Marker3D
 
 @export var speed : float = 2.5
 

@@ -1,12 +1,18 @@
 extends Area3D
 
+## HP of enemy
 @export var hp : float = 1.0
-@export var speed : float = 5.0
+## Reload time of enemy
 @export var fire_rate : float = 1.0
+## Number of repeated shots
+@export var volley_size : int = 3
+## Distance at which enemy fires
 @export var fire_distance : float = 100.0
+## Score from defeating enemy
 @export var points_value : int = 10
-var fire_timer : float = 0.0
-var target : Area3D
+var volley_current : int = 0
+@onready var fire_timer : float = 1.0
+var target : Marker3D
 var shooting : bool = false
 
 
@@ -23,6 +29,7 @@ func _ready():
 	targeting.playerFound.connect(_enable_shooting)
 	targeting.playerLost.connect(_disable_shooting)
 	EventBus.give_player.connect(_set_target)
+	EventBus.bomb_activated.connect(_bomb_check)
 	
 	EventBus.request_player.emit()
 	
@@ -35,17 +42,27 @@ func _physics_process(delta):
 			fire_timer += delta
 	else:
 		EventBus.request_player.emit()
+	#
+	#if fire_timer >= fire_rate:
+		#fire_timer = 0.0
+		#_shoot()
+		
+	_shoot()
 	
-	if fire_timer >= fire_rate:
-		fire_timer = 0.0
-		_shoot()
+	if volley_current >= volley_size:
+		fire_timer += delta
+		if fire_timer >= fire_rate:
+			volley_current = 0
+			fire_timer = 0
 
 func _shoot():
-	var bullet = bulletObject.instantiate()
-	get_tree().root.get_child(0).add_child(bullet)
-	bullet.global_position = fire_point.global_position
-	bullet.rotation = fire_point.global_rotation
-	bullet.enemyBullet()
+	if volley_current < volley_size:
+		volley_current += 1
+		var bullet = bulletObject.instantiate()
+		get_tree().root.get_child(0).add_child(bullet)
+		bullet.global_position = fire_point.global_position
+		bullet.rotation = fire_point.global_rotation
+		bullet.enemyBullet()
 	
 func destroy():
 	defeated.emit(self)
@@ -63,3 +80,7 @@ func _enable_shooting():
 	
 func _disable_shooting():
 	shooting = false
+	
+func _bomb_check(pos, distance):
+	if pos.distance_to(global_position) < distance:
+		destroy()

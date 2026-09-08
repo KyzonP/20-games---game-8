@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://brp3dx3520que"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iti6g"]
+size = Vector3(50, 1000, 1000)
+
+[node name="End" type="Area3D" unique_id=1295297433]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=507903132]
+shape = SubResource("BoxShape3D_iti6g")

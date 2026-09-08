@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://ckj3tpoayndu"]
+
+[ext_resource type="Script" uid="uid://cwj4f1gdf2uh1" path="res://scripts/region_load_unload.gd" id="1_4wotv"]
+[ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/environment/ground_plane.tscn" id="1_ex0ci"]
+[ext_resource type="PackedScene" uid="uid://brp3dx3520que" path="res://scenes/environment/end.tscn" id="2_h8ryt"]
+[ext_resource type="Material" uid="uid://b7ftt6ogkrmme" path="res://materials/test_rock.tres" id="3_0ar3o"]
+[ext_resource type="PackedScene" uid="uid://cctg0l1whxc5c" path="res://scenes/environment/start.tscn" id="3_gv25h"]
+[ext_resource type="PackedScene" uid="uid://bo4ktkono442i" path="res://scenes/enemies/turret_enemy.tscn" id="4_vpxo8"]
+[ext_resource type="PackedScene" uid="uid://3hkf45g43jbb" path="res://scenes/enemies/enemy_path.tscn" id="7_myskg"]
+[ext_resource type="Curve3D" uid="uid://bcdeqy7tk33x4" path="res://flight_paths/left_right.tres" id="8_wd71r"]
+[ext_resource type="Curve3D" uid="uid://dfyssc3x6hmic" path="res://flight_paths/right_left.tres" id="9_0r1or"]
+[ext_resource type="Curve3D" uid="uid://bwqlw7kg5aq1g" path="res://flight_paths/follow_left_right.tres" id="10_io3xg"]
+[ext_resource type="PackedScene" uid="uid://88yvki3ukcg" path="res://scenes/enemies/powerup.tscn" id="11_8xg0w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4wotv"]
+albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ar3o"]
+size = Vector3(5, 30, 5)
+
+[node name="region_2" type="Node3D" unique_id=681879283]
+script = ExtResource("1_4wotv")
+
+[node name="TestRock(Landmark)" type="CSGBox3D" parent="." unique_id=1880306861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -250)
+material_override = SubResource("StandardMaterial3D_4wotv")
+size = Vector3(5, 30, 5)
+
+[node name="Area3D" type="Area3D" parent="TestRock(Landmark)" unique_id=851777022]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRock(Landmark)/Area3D" unique_id=60383423]
+shape = SubResource("BoxShape3D_0ar3o")
+
+[node name="Environment" type="Node3D" parent="." unique_id=1177755095]
+
+[node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("1_ex0ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
+
+[node name="LeftWall" type="CSGBox3D" parent="Environment" unique_id=124330877]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 175, 22.5, -201.06)
+material_override = ExtResource("3_0ar3o")
+size = Vector3(500, 45, 5)
+
+[node name="LeftWall2" type="CSGBox3D" parent="Environment" unique_id=225749202]
+transform = Transform3D(0.98480767, 0, -0.17364816, 0, 1, 0, 0.17364816, 0, 0.98480767, 475, 30, -355)
+material_override = ExtResource("3_0ar3o")
+size = Vector3(250, 60, 5)
+
+[node name="LeftWall3" type="CSGBox3D" parent="Environment" unique_id=1385297119]
+transform = Transform3D(0.7869349, 0, -0.6170358, 0, 1, 0, 0.6170358, 0, 0.7869349, 791.2496, 37.5, -181.44177)
+material_override = ExtResource("3_0ar3o")
+size = Vector3(499.715, 75, 5)
+
+[node name="RightWall" type="CSGBox3D" parent="Environment" unique_id=1164719893]
+transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, 175, 22.5, 201.06)
+material_override = ExtResource("3_0ar3o")
+size = Vector3(500, 45, 5)
+
+[node name="RightWall2" type="CSGBox3D" parent="Environment" unique_id=1836430510]
+transform = Transform3D(0.9848076, 0, 0.17364816, 0, 1, 0, -0.17364816, 0, 0.9848076, 475, 30, 355)
+material_override = ExtResource("3_0ar3o")
+size = Vector3(250, 60, 5)
+
+[node name="RightWall3" type="CSGBox3D" parent="Environment" unique_id=441815142]
+transform = Transform3D(0.7869349, 0, 0.6170358, 0, 1, 0, -0.6170358, 0, 0.7869349, 791.25, 37.5, 181.44)
+material_override = ExtResource("3_0ar3o")
+size = Vector3(499.715, 75, 5)
+
+[node name="CaveEntrance" type="Node3D" parent="Environment" unique_id=1767277102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment/CaveEntrance" unique_id=375449081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 37.5, -16)
+size = Vector3(15, 75, 20)
+material = ExtResource("3_0ar3o")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/CaveEntrance" unique_id=872373276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 37.5, 16)
+size = Vector3(15, 75, 20)
+material = ExtResource("3_0ar3o")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment/CaveEntrance" unique_id=264712617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 50, 0)
+size = Vector3(15, 50, 12)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle" type="CSGBox3D" parent="Environment" unique_id=1333544601]
+transform = Transform3D(0.7431571, -0.50903887, -0.43427777, 0.34762213, 0.8482893, -0.3994548, 0.57173115, 0.1458931, 0.80736524, 816.31104, 3.4123726, -35.33818)
+size = Vector3(23.395, 20, 95.315)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle6" type="CSGBox3D" parent="Environment" unique_id=2145033546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 661.1167, 24.034157, -32.309406)
+size = Vector3(20, 70, 20)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle7" type="CSGBox3D" parent="Environment" unique_id=279936050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 585.9058, 24.034157, 35.31396)
+size = Vector3(20, 70, 20)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle8" type="CSGBox3D" parent="Environment" unique_id=580704226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 555.86975, 1.6824837, -21.23436)
+size = Vector3(20, 33.104004, 20)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle9" type="CSGBox3D" parent="Environment" unique_id=567119103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 663.0956, 37.993458, -112.54395)
+size = Vector3(20, 105.72595, 20)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle10" type="CSGBox3D" parent="Environment" unique_id=266615359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 570.89, 27.048298, -204.38504)
+size = Vector3(24.716309, 83.83563, 33.661987)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle13" type="CSGBox3D" parent="Environment" unique_id=524524983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 438.91003, 7.5991554, -161.03864)
+size = Vector3(24.716309, 44.937347, 17.738342)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle14" type="CSGBox3D" parent="Environment" unique_id=1154052696]
+transform = Transform3D(0.22069745, 0, 0.9753423, 0, 1, 0, -0.97534233, 0, 0.22069743, 513.44385, 7.5991554, -250.82838)
+size = Vector3(24.716309, 44.937347, 17.738342)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle15" type="CSGBox3D" parent="Environment" unique_id=2050038078]
+transform = Transform3D(-0.31717223, 0, 0.9483679, 0, 1, 0, -0.94836795, 0, -0.3171722, 549.0698, 7.5991554, -134.57)
+size = Vector3(24.716309, 44.937347, 17.738342)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle16" type="CSGBox3D" parent="Environment" unique_id=1899034524]
+transform = Transform3D(-0.31717223, 0, 0.9483679, 0, 1, 0, -0.94836795, 0, -0.3171722, 397.63922, 7.5991554, -272.6789)
+size = Vector3(24.716309, 44.937347, 17.738342)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle17" type="CSGBox3D" parent="Environment" unique_id=687049932]
+transform = Transform3D(-0.80928373, 0, 0.58741814, 0, 1, 0, -0.58741814, 0, -0.80928373, 481.2833, 18.359997, 185.82617)
+size = Vector3(24.716309, 66.45903, 17.738342)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle18" type="CSGBox3D" parent="Environment" unique_id=236210154]
+transform = Transform3D(-0.55548316, 0, 0.8315279, 0, 1, 0, -0.8315279, 0, -0.55548316, 405.49445, 13.173706, 232.774)
+size = Vector3(24.891846, 56.08645, 30.42044)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle19" type="CSGBox3D" parent="Environment" unique_id=1009084057]
+transform = Transform3D(-0.8169336, 0, 0.5767319, 0, 1, 0, -0.5767319, 0, -0.8169336, 457.19144, 28.950008, 289.64105)
+size = Vector3(24.891846, 87.63905, 30.42044)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle11" type="CSGBox3D" parent="Environment" unique_id=340398542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 651.43713, 13.715794, 134.71957)
+size = Vector3(66.82605, 57.170624, 33.661987)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle12" type="CSGBox3D" parent="Environment" unique_id=251750008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 600.06934, 13.715794, 274.64972)
+size = Vector3(66.82605, 57.170624, 158.16254)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle2" type="CSGBox3D" parent="Environment" unique_id=1246400059]
+transform = Transform3D(-0.80634487, 0.053047717, -0.58906186, 0.34762213, 0.84828925, -0.39945477, 0.47850478, -0.5268694, -0.7024543, 874.3539, -1.49189, -45.14282)
+size = Vector3(23.395, 20, 95.315)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle3" type="CSGBox3D" parent="Environment" unique_id=216943947]
+transform = Transform3D(0.79944724, -0.4907578, -0.34646955, 0.34762216, 0.8482894, -0.39945483, 0.48994178, 0.19890256, 0.8487608, 845.061, -1.49189, 63.11639)
+size = Vector3(23.395, 20, 95.315)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle4" type="CSGBox3D" parent="Environment" unique_id=659168288]
+transform = Transform3D(0.9384948, -0.1259107, -0.32151797, 0.1751965, 0.97602373, 0.12916641, 0.2975456, -0.17755081, 0.9380525, 774.6557, 7.2203903, 88.67764)
+size = Vector3(23.395, 59.04, 95.315)
+material = ExtResource("3_0ar3o")
+
+[node name="Obstacle5" type="CSGBox3D" parent="Environment" unique_id=1394601193]
+transform = Transform3D(-0.89679444, -0.31186244, -0.31384948, -0.26888245, 0.9474776, -0.17317264, 0.35137126, -0.07091173, -0.9335469, 771.0509, 1.2862701, -120.47828)
+size = Vector3(23.395, 59.04, 95.315)
+material = ExtResource("3_0ar3o")
+
+[node name="Turrets" type="Node3D" parent="." unique_id=917414277]
+
+[node name="Enemy" parent="Turrets" unique_id=2107312701 instance=ExtResource("4_vpxo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 971.6721, 10.392202, 15.669673)
+
+[node name="Enemy2" parent="Turrets" unique_id=2014188573 instance=ExtResource("4_vpxo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 971.6721, 10.392202, -16.087265)
+
+[node name="Enemy3" parent="Turrets" unique_id=1769830870 instance=ExtResource("4_vpxo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 801.0764, 16.81104, -24.874489)
+
+[node name="Enemy4" parent="Turrets" unique_id=1222784959 instance=ExtResource("4_vpxo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 672.4159, 31.260023, 34.448235)
+
+[node name="Enemy5" parent="Turrets" unique_id=391616628 instance=ExtResource("4_vpxo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 554.9582, 19.40666, -21.537506)
+
+[node name="End" parent="." unique_id=1295297433 instance=ExtResource("2_h8ryt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1050, 0, 0)
+
+[node name="Start" parent="." unique_id=1036386572 instance=ExtResource("3_gv25h")]
+
+[node name="EnemyPath" parent="." unique_id=1281539497 instance=ExtResource("7_myskg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
+curve = ExtResource("8_wd71r")
+pattern_shape = "Diagonal"
+
+[node name="PathFollow3D" parent="EnemyPath" index="0" unique_id=1687372054]
+transform = Transform3D(-4.3711385e-08, 0, 0.9999971, 0, 0.9999971, 0, -0.9999999, 0, -4.371126e-08, 300, 30, -100)
+
+[node name="EnemyPath2" parent="." unique_id=1441596968 instance=ExtResource("7_myskg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, 0)
+curve = ExtResource("9_0r1or")
+enemyCount = 2
+pattern_shape = "Diagonal"
+
+[node name="PathFollow3D" parent="EnemyPath2" index="0" unique_id=1687372054]
+transform = Transform3D(-4.3711385e-08, 0, 0.9999971, 0, 0.9999971, 0, -0.9999999, 0, -4.371126e-08, 300, 30, 100)
+
+[node name="EnemyPath3" parent="." unique_id=1632652768 instance=ExtResource("7_myskg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, 0)
+curve = ExtResource("8_wd71r")
+enemyCount = 3
+follow_player = true
+pattern_shape = "Vertical"
+
+[node name="EnemyPath4" parent="." unique_id=990585615 instance=ExtResource("7_myskg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
+curve = ExtResource("10_io3xg")
+follow_player = true
+
+[node name="PathFollow3D" parent="EnemyPath4" index="0" unique_id=1687372054]
+transform = Transform3D(-0.8944271, 0.07874964, -0.4402238, -3.7252899e-09, 0.9843708, 0.17608956, 0.44721344, 0.15749933, -0.88044786, 50, 40, -100)
+
+[node name="Powerup" parent="." unique_id=637849105 instance=ExtResource("11_8xg0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 850, 7, -10)
+
+[editable path="EnemyPath"]
+[editable path="EnemyPath2"]
+[editable path="EnemyPath4"]

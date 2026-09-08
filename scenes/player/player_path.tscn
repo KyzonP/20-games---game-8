@@ -19,7 +19,7 @@ size = Vector3(6.9826202, 1.5612793, 0.9602051)
 curve = SubResource("Curve3D_errlg")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=66500086]
-transform = Transform3D(0.99999654, 0, 0, 0, 0.9999976, 0, 0, 0, 0.9999939, 0, 15, 0)
+transform = Transform3D(0.9999965, 0, 0, 0, 0.9999976, 0, 0, 0, 0.9999937, 0, 15, 0)
 script = ExtResource("1_saahw")
 
 [node name="Camera3D" type="Camera3D" parent="PathFollow3D" unique_id=1485017049]
@@ -58,3 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32980156, -2.4611635)
 [node name="Collider" type="CollisionShape3D" parent="PathFollow3D/Camera3D/Player" unique_id=1754407093]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017623901, 0.256958, -0.50476074)
 shape = SubResource("BoxShape3D_iyx0m")
+
+[node name="TargetPoint" type="Marker3D" parent="PathFollow3D/Camera3D/Player" unique_id=1888237902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -20)

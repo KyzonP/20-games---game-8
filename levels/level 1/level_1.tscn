@@ -6,13 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://bufc1ci5b0ndu" path="res://scenes/ui.tscn" id="3_5pt6r"]
 [ext_resource type="PackedScene" uid="uid://bbswvxjqxtgid" path="res://scenes/player/player_path.tscn" id="4_5pt6r"]
 [ext_resource type="PackedScene" uid="uid://btiwawn2slaeh" path="res://levels/level 1/region_1.tscn" id="4_xmm5s"]
+[ext_resource type="PackedScene" uid="uid://ckj3tpoayndu" path="res://levels/level 1/region_2.tscn" id="7_v1pqh"]
+[ext_resource type="PackedScene" uid="uid://7u1hy0h7jsuf" path="res://levels/level 1/region_3.tscn" id="8_ba08l"]
 
 [sub_resource type="Curve3D" id="Curve3D_5pt6r"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1000, 15, 0),
-"tilts": PackedFloat32Array(0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1000, 15, 0, 0, 0, 0, 0, 0, 0, 2000, 15, 0, 0, 0, 0, 0, 0, 0, 3000, 15, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
 }
-point_count = 2
+point_count = 4
 
 [node name="level_1" type="Node3D" unique_id=1900694389]
 script = ExtResource("1_3h2pi")
@@ -31,7 +33,14 @@ curve = SubResource("Curve3D_5pt6r")
 [node name="PathFollow3D" parent="Path3D" index="0" unique_id=66500086]
 transform = Transform3D(-4.3711236e-08, 0, -0.9999939, 0, 0.9999976, 0, 0.99999654, 0, -4.3711122e-08, 0, 15, 0)
 
-[node name="Region1" parent="." unique_id=731808048 node_paths=PackedStringArray("next_region") instance=ExtResource("4_xmm5s")]
-next_region = NodePath("")
+[node name="region_1" parent="." unique_id=731808048 node_paths=PackedStringArray("next_region") instance=ExtResource("4_xmm5s")]
+next_region = NodePath("../region_2")
+
+[node name="region_2" parent="." unique_id=681879283 node_paths=PackedStringArray("next_region") instance=ExtResource("7_v1pqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 0)
+next_region = NodePath("../region_3")
+
+[node name="region_3" parent="." unique_id=1383658511 instance=ExtResource("8_ba08l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2000, 0, 0)
 
 [editable path="Path3D"]

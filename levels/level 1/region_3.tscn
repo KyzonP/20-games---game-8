@@ -1,0 +1,343 @@
+[gd_scene format=3 uid="uid://7u1hy0h7jsuf"]
+
+[ext_resource type="Script" uid="uid://cwj4f1gdf2uh1" path="res://scripts/region_load_unload.gd" id="1_3i7uc"]
+[ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/environment/ground_plane.tscn" id="1_5lr66"]
+[ext_resource type="PackedScene" uid="uid://cctg0l1whxc5c" path="res://scenes/environment/start.tscn" id="2_pyvi3"]
+[ext_resource type="PackedScene" uid="uid://brp3dx3520que" path="res://scenes/environment/end.tscn" id="3_3i7uc"]
+[ext_resource type="Material" uid="uid://b7ftt6ogkrmme" path="res://materials/test_rock.tres" id="3_avexm"]
+[ext_resource type="PackedScene" uid="uid://bo4ktkono442i" path="res://scenes/enemies/turret_enemy.tscn" id="6_gdbw4"]
+[ext_resource type="PackedScene" uid="uid://88yvki3ukcg" path="res://scenes/enemies/powerup.tscn" id="7_d7ab5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hulks"]
+albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5lr66"]
+size = Vector3(5, 30, 5)
+
+[node name="region_3" type="Node3D" unique_id=1383658511]
+script = ExtResource("1_3i7uc")
+
+[node name="TestRock(Landmark)" type="CSGBox3D" parent="." unique_id=855786803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -250)
+material_override = SubResource("StandardMaterial3D_hulks")
+size = Vector3(5, 30, 5)
+
+[node name="Area3D" type="Area3D" parent="TestRock(Landmark)" unique_id=1615973930]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRock(Landmark)/Area3D" unique_id=838668892]
+shape = SubResource("BoxShape3D_5lr66")
+
+[node name="Environment" type="Node3D" parent="." unique_id=139450324]
+
+[node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("1_5lr66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
+
+[node name="CaveEntrance" type="Node3D" parent="Environment" unique_id=617333026]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment/CaveEntrance" unique_id=2141072148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 37.5, -16)
+size = Vector3(15, 75, 20)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/CaveEntrance" unique_id=1467501226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 37.5, 16)
+size = Vector3(15, 75, 20)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment/CaveEntrance" unique_id=1039138564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 50, 0)
+size = Vector3(15, 50, 12)
+material = ExtResource("3_avexm")
+
+[node name="CaveExit" type="Node3D" parent="Environment" unique_id=238897322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment/CaveExit" unique_id=545742775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 37.5, -16)
+size = Vector3(15, 75, 20)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/CaveExit" unique_id=2065102240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 37.5, 16)
+size = Vector3(15, 75, 20)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment/CaveExit" unique_id=1522547230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 50, 0)
+size = Vector3(15, 50, 12)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment" unique_id=2074791159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.8105, 35, -459.34894)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="Left" type="Node3D" parent="Environment" unique_id=22658183]
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Environment/Left" unique_id=1611975014]
+transform = Transform3D(0.97218627, 0, -0.23420899, 0, 1, 0, 0.23420899, 0, 0.97218627, 971.1004, 35, -33.07998)
+size = Vector3(63.52, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Environment/Left" unique_id=1019447810]
+transform = Transform3D(0.5354436, 0, -0.844571, 0, 1, 0, 0.844571, 0, 0.5354436, 917.2449, 35, -81.00342)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Environment/Left" unique_id=1912272704]
+transform = Transform3D(0.9003719, 0, 0.43512112, 0, 1, 0, -0.43512112, 0, 0.9003719, 849.4051, 35, -98.183624)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Environment/Left" unique_id=974809125]
+transform = Transform3D(0.98462534, 0, -0.17467938, 0, 1, 0, 0.17467938, 0, 0.98462534, 758.42267, 35, -86.19586)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Environment/Left" unique_id=1732768984]
+transform = Transform3D(0.8950122, 0, 0.4460416, 0, 1, 0, -0.4460416, 0, 0.8950122, 669.36664, 35, -70.92139)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Environment/Left" unique_id=870518348]
+transform = Transform3D(0.8464349, 0, -0.5324922, 0, 1, 0, 0.5324922, 0, 0.8464349, 587.6243, 35, -75.01155)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Environment/Left" unique_id=1149358529]
+transform = Transform3D(0.99073124, 0, 0.13583663, 0, 1, 0, -0.13583663, 0, 0.99073124, 496.12054, 35, -93.20453)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Environment/Left" unique_id=1481108678]
+transform = Transform3D(0.99073124, 0, 0.13583663, 0, 1, 0, -0.13583663, 0, 0.99073124, 496.12054, 35, -93.20453)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Environment/Left" unique_id=568712568]
+transform = Transform3D(0.9163418, 0, 0.400397, 0, 1, 0, -0.400397, 0, 0.9163418, 404.29486, 35, -65.61576)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Environment/Left" unique_id=1973850894]
+transform = Transform3D(0.92534876, 0, -0.379117, 0, 1, 0, 0.379117, 0, 0.92534876, 317.88882, 35, -64.497475)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Environment/Left" unique_id=1738317951]
+transform = Transform3D(0.88015443, 0, 0.47468743, 0, 1, 0, -0.47468743, 0, 0.88015443, 228.0664, 35, -58.452454)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Left" unique_id=108633379]
+transform = Transform3D(0.99013156, 0, -0.1401409, 0, 1, 0, 0.1401409, 0, 0.99013156, 137.86316, 35, -42.7529)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Left" unique_id=1683104380]
+transform = Transform3D(0.9721004, 0, 0.23456529, 0, 1, 0, -0.23456529, 0, 0.9721004, 46.0997, 35, -36.437866)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="Right" type="Node3D" parent="Environment" unique_id=1520149294]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 996.47076, 0, 2.8836517)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Environment/Right" unique_id=902852124]
+transform = Transform3D(0.97218627, 0, -0.23420899, 0, 1, 0, 0.23420899, 0, 0.97218627, 971.1004, 35, -33.07998)
+size = Vector3(63.52, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Environment/Right" unique_id=45363264]
+transform = Transform3D(0.5354436, 0, -0.844571, 0, 1, 0, 0.844571, 0, 0.5354436, 917.2449, 35, -81.00342)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Environment/Right" unique_id=1232333053]
+transform = Transform3D(0.9003719, 0, 0.43512112, 0, 1, 0, -0.43512112, 0, 0.9003719, 849.4051, 35, -98.183624)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Environment/Right" unique_id=2055021251]
+transform = Transform3D(0.98462534, 0, -0.17467938, 0, 1, 0, 0.17467938, 0, 0.98462534, 758.42267, 35, -86.19586)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Environment/Right" unique_id=1233737799]
+transform = Transform3D(0.8950122, 0, 0.4460416, 0, 1, 0, -0.4460416, 0, 0.8950122, 669.36664, 35, -70.92139)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Environment/Right" unique_id=1354359654]
+transform = Transform3D(0.8464349, 0, -0.5324922, 0, 1, 0, 0.5324922, 0, 0.8464349, 587.6243, 35, -75.01155)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Environment/Right" unique_id=242533139]
+transform = Transform3D(0.99073124, 0, 0.13583663, 0, 1, 0, -0.13583663, 0, 0.99073124, 496.12054, 35, -93.20453)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Environment/Right" unique_id=925496879]
+transform = Transform3D(0.99073124, 0, 0.13583663, 0, 1, 0, -0.13583663, 0, 0.99073124, 496.12054, 35, -93.20453)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Environment/Right" unique_id=1059081606]
+transform = Transform3D(0.9163418, 0, 0.400397, 0, 1, 0, -0.400397, 0, 0.9163418, 404.29486, 35, -65.61576)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Environment/Right" unique_id=307629345]
+transform = Transform3D(0.92534876, 0, -0.379117, 0, 1, 0, 0.379117, 0, 0.92534876, 317.88882, 35, -64.497475)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Environment/Right" unique_id=2068861957]
+transform = Transform3D(0.88015443, 0, 0.47468743, 0, 1, 0, -0.47468743, 0, 0.88015443, 228.0664, 35, -58.452454)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Right" unique_id=1756771162]
+transform = Transform3D(0.99013156, 0, -0.1401409, 0, 1, 0, 0.1401409, 0, 0.99013156, 137.86316, 35, -42.7529)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Right" unique_id=1577134321]
+transform = Transform3D(0.9721004, 0, 0.23456529, 0, 1, 0, -0.23456529, 0, 0.9721004, 46.0997, 35, -36.437866)
+size = Vector3(100, 70, 10)
+material = ExtResource("3_avexm")
+
+[node name="Roof" type="CSGBox3D" parent="Environment" unique_id=533650484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 70, 0)
+size = Vector3(1000, 1, 1000)
+material = ExtResource("3_avexm")
+
+[node name="Pillar" type="CSGCylinder3D" parent="Environment" unique_id=270355276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 255, 35, 0)
+radius = 7.5
+height = 70.0
+material = ExtResource("3_avexm")
+
+[node name="Pillar2" type="CSGCylinder3D" parent="Environment" unique_id=1732668923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.507645, 35, 20.134537)
+radius = 7.5
+height = 70.0
+material = ExtResource("3_avexm")
+
+[node name="Pillar3" type="CSGCylinder3D" parent="Environment" unique_id=639163068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 389.43402, 35, -16.634785)
+radius = 7.5
+height = 70.0
+material = ExtResource("3_avexm")
+
+[node name="Pillar4" type="CSGCylinder3D" parent="Environment" unique_id=1627387418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 548.8806, 35, -15)
+radius = 7.5
+height = 70.0
+material = ExtResource("3_avexm")
+
+[node name="Pillar5" type="CSGCylinder3D" parent="Environment" unique_id=1462334591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 554.12506, 35, 15.9524765)
+radius = 7.5
+height = 70.0
+material = ExtResource("3_avexm")
+
+[node name="Pillar6" type="CSGCylinder3D" parent="Environment" unique_id=630866593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 735.72174, 35, 20.77494)
+radius = 7.5
+height = 70.0
+material = ExtResource("3_avexm")
+
+[node name="Pillar7" type="CSGCylinder3D" parent="Environment" unique_id=2087787908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 735.72174, 35, 5.7749405)
+radius = 7.5
+height = 70.0
+material = ExtResource("3_avexm")
+
+[node name="Pillar8" type="CSGCylinder3D" parent="Environment" unique_id=980728134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 861.6995, 35, -2.6010017)
+radius = 7.5
+height = 70.0
+material = ExtResource("3_avexm")
+
+[node name="Pillar9" type="CSGCylinder3D" parent="Environment" unique_id=2074747670]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 861.6995, 35, -17.601002)
+radius = 7.5
+height = 70.0
+material = ExtResource("3_avexm")
+
+[node name="Turrets" type="Node3D" parent="." unique_id=583731922]
+
+[node name="Enemy" parent="Turrets" unique_id=2107312701 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214.6288, 5.3806763, -18.171778)
+fire_distance = 100.0
+
+[node name="Enemy2" parent="Turrets" unique_id=134503656 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 283.03674, 13.329979, 56.944275)
+fire_distance = 100.0
+
+[node name="Enemy3" parent="Turrets" unique_id=1084946834 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 303.25323, 22.145618, 30.766853)
+fire_distance = 75.0
+
+[node name="Enemy4" parent="Turrets" unique_id=988367112 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 334.62286, 30.45382, 4.6420593)
+fire_distance = 50.0
+
+[node name="Enemy5" parent="Turrets" unique_id=857966870 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 550.54425, 5.271736, 0.25109482)
+fire_distance = 100.0
+
+[node name="Enemy6" parent="Turrets" unique_id=2122374127 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 575.5469, 24.725727, 0.25109482)
+fire_distance = 100.0
+
+[node name="Enemy7" parent="Turrets" unique_id=862717856 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 701.72595, 8.3082695, -36.77551)
+fire_distance = 100.0
+
+[node name="Enemy8" parent="Turrets" unique_id=39081449 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 743.46655, 23.131859, -28.237228)
+fire_distance = 100.0
+
+[node name="Enemy9" parent="Turrets" unique_id=717063727 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 789.35645, 4.7952194, 2.4055443)
+fire_distance = 100.0
+
+[node name="Enemy10" parent="Turrets" unique_id=488483732 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 966.3277, 4.7952194, 12.600414)
+fire_distance = 50.0
+
+[node name="Enemy11" parent="Turrets" unique_id=556731460 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 966.3277, 4.7952194, -13.23807)
+fire_distance = 50.0
+
+[node name="Enemy12" parent="Turrets" unique_id=433959698 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 972.01056, 7.5009346, -8.217816)
+fire_distance = 50.0
+
+[node name="Enemy13" parent="Turrets" unique_id=437913187 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 972.01056, 7.5009346, 8.259215)
+fire_distance = 50.0
+
+[node name="Enemy14" parent="Turrets" unique_id=1400339431 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 976.6886, 9.7483835, -3.3205013)
+fire_distance = 50.0
+
+[node name="Enemy15" parent="Turrets" unique_id=1764513205 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 976.6886, 9.7483835, 3.303237)
+fire_distance = 50.0
+
+[node name="Enemy16" parent="Turrets" unique_id=285706699 instance=ExtResource("6_gdbw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 983.36365, 12.755918, -0.32189608)
+fire_distance = 50.0
+
+[node name="Start" parent="." unique_id=1036386572 instance=ExtResource("2_pyvi3")]
+
+[node name="End" parent="." unique_id=1295297433 instance=ExtResource("3_3i7uc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1050, 0, 0)
+
+[node name="Powerup" parent="." unique_id=637849105 instance=ExtResource("7_d7ab5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 10, 0)
