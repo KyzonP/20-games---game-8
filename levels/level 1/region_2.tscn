@@ -224,7 +224,6 @@ transform = Transform3D(-4.3711385e-08, 0, 0.9999971, 0, 0.9999971, 0, -0.999999
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, 0)
 curve = ExtResource("8_wd71r")
 enemyCount = 3
-follow_player = true
 pattern_shape = "Vertical"
 
 [node name="EnemyPath4" parent="." unique_id=990585615 instance=ExtResource("7_myskg")]

@@ -17,6 +17,8 @@ func _connect_signals():
 		print("Broke")
 		if not $Start:
 			print("No start")
+		elif not $End:
+			print("No end")
 
 func unload_region(_area):
 	print("Unloading previous region")

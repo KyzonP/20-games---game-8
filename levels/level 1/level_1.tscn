@@ -8,13 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://btiwawn2slaeh" path="res://levels/level 1/region_1.tscn" id="4_xmm5s"]
 [ext_resource type="PackedScene" uid="uid://ckj3tpoayndu" path="res://levels/level 1/region_2.tscn" id="7_v1pqh"]
 [ext_resource type="PackedScene" uid="uid://7u1hy0h7jsuf" path="res://levels/level 1/region_3.tscn" id="8_ba08l"]
+[ext_resource type="PackedScene" uid="uid://bh3ik5ri51i6a" path="res://levels/level 1/region_4.tscn" id="9_slf20"]
 
 [sub_resource type="Curve3D" id="Curve3D_5pt6r"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1000, 15, 0, 0, 0, 0, 0, 0, 0, 2000, 15, 0, 0, 0, 0, 0, 0, 0, 3000, 15, 0),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1000, 15, 0, 0, 0, 0, 0, 0, 0, 2000, 15, 0, 0, 0, 0, 0, 0, 0, 3000, 15, 0, 0, 0, 0, 0, 0, 0, 4000, 0, 0, 0, 0, 0, 0, 0, 0, 5000, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
-point_count = 4
+point_count = 6
 
 [node name="level_1" type="Node3D" unique_id=1900694389]
 script = ExtResource("1_3h2pi")
@@ -37,10 +38,17 @@ transform = Transform3D(-4.3711236e-08, 0, -0.9999939, 0, 0.9999976, 0, 0.999996
 next_region = NodePath("../region_2")
 
 [node name="region_2" parent="." unique_id=681879283 node_paths=PackedStringArray("next_region") instance=ExtResource("7_v1pqh")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 0)
 next_region = NodePath("../region_3")
 
-[node name="region_3" parent="." unique_id=1383658511 instance=ExtResource("8_ba08l")]
+[node name="region_3" parent="." unique_id=1383658511 node_paths=PackedStringArray("next_region") instance=ExtResource("8_ba08l")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2000, 0, 0)
+next_region = NodePath("../region_4")
+
+[node name="region_4" parent="." unique_id=1739981121 instance=ExtResource("9_slf20")]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3000, 0, 0)
 
 [editable path="Path3D"]

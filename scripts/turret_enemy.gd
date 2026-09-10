@@ -11,10 +11,11 @@ extends Area3D
 ## Score from defeating enemy
 @export var points_value : int = 10
 var volley_current : int = 0
+## If it's a background turret/shooting Aremag
+@export var lock : bool = false
 @onready var fire_timer : float = 1.0
 var target : Marker3D
 var shooting : bool = false
-
 
 @onready var fire_point = find_child("FirePoint")
 @onready var targeting = find_child("Targeting")
@@ -33,31 +34,40 @@ func _ready():
 	
 	EventBus.request_player.emit()
 	
+	if lock:
+		disable_rotation()
+	
 func disable_rotation():
 	targeting.disable()
 
 func _physics_process(delta):
-	if is_instance_valid(target):
-		if global_position.distance_to(target.global_position) <= fire_distance and shooting:
-			fire_timer += delta
-	else:
-		EventBus.request_player.emit()
-	#
-	#if fire_timer >= fire_rate:
-		#fire_timer = 0.0
-		#_shoot()
+	if not lock:
+		if is_instance_valid(target):
+			if global_position.distance_to(target.global_position) <= fire_distance and shooting:
+				fire_timer += delta
+		else:
+			EventBus.request_player.emit()
+		#
+		if fire_timer >= fire_rate:
+			fire_timer = 0.0
+			_shoot()
 		
-	_shoot()
-	
-	if volley_current >= volley_size:
+		if volley_current >= volley_size:
+			fire_timer += delta
+			if fire_timer >= fire_rate:
+				volley_current = 0
+				fire_timer = 0
+	else:
 		fire_timer += delta
 		if fire_timer >= fire_rate:
-			volley_current = 0
-			fire_timer = 0
+			fire_timer = 0.0
+			_shoot()
+			print("shoot")
 
 func _shoot():
 	if volley_current < volley_size:
-		volley_current += 1
+		if not lock:
+			volley_current += 1
 		var bullet = bulletObject.instantiate()
 		get_tree().root.get_child(0).add_child(bullet)
 		bullet.global_position = fire_point.global_position

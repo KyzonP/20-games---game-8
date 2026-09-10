@@ -68,10 +68,9 @@ func _end_path() -> void:
 	self.queue_free()
 	
 func _activate(_area) -> void:
-	_spawn_enemies()
-	active = true
-	
-	if follow_player:
-		self.call_deferred("reparent", _area.get_parent())
-		#self.reparent(_area.get_parent())
-		position = Vector3.ZERO
+	if not active:
+		_spawn_enemies()
+		active = true
+		
+		if follow_player:
+			self.reparent.call_deferred(_area.get_parent(), true)

@@ -308,31 +308,31 @@ fire_distance = 100.0
 
 [node name="Enemy10" parent="Turrets" unique_id=488483732 instance=ExtResource("6_gdbw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 966.3277, 4.7952194, 12.600414)
-fire_distance = 50.0
+fire_distance = 100.0
 
 [node name="Enemy11" parent="Turrets" unique_id=556731460 instance=ExtResource("6_gdbw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 966.3277, 4.7952194, -13.23807)
-fire_distance = 50.0
+fire_distance = 100.0
 
 [node name="Enemy12" parent="Turrets" unique_id=433959698 instance=ExtResource("6_gdbw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 972.01056, 7.5009346, -8.217816)
-fire_distance = 50.0
+fire_distance = 100.0
 
 [node name="Enemy13" parent="Turrets" unique_id=437913187 instance=ExtResource("6_gdbw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 972.01056, 7.5009346, 8.259215)
-fire_distance = 50.0
+fire_distance = 100.0
 
 [node name="Enemy14" parent="Turrets" unique_id=1400339431 instance=ExtResource("6_gdbw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 976.6886, 9.7483835, -3.3205013)
-fire_distance = 50.0
+fire_distance = 100.0
 
 [node name="Enemy15" parent="Turrets" unique_id=1764513205 instance=ExtResource("6_gdbw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 976.6886, 9.7483835, 3.303237)
-fire_distance = 50.0
+fire_distance = 100.0
 
 [node name="Enemy16" parent="Turrets" unique_id=285706699 instance=ExtResource("6_gdbw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 983.36365, 12.755918, -0.32189608)
-fire_distance = 50.0
+fire_distance = 100.0
 
 [node name="Start" parent="." unique_id=1036386572 instance=ExtResource("2_pyvi3")]
 
