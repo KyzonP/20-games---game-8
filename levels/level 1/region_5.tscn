@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://ckpeh5ciqj6y5"]
+
+[ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/environment/ground_plane.tscn" id="1_u4o28"]
+[ext_resource type="PackedScene" uid="uid://cctg0l1whxc5c" path="res://scenes/environment/start.tscn" id="2_niykl"]
+[ext_resource type="Script" uid="uid://bnqwx45q5c3xl" path="res://scripts/boss.gd" id="3_1klcw"]
+[ext_resource type="Material" uid="uid://bbrgua1f2opc2" path="res://materials/test_mantis.tres" id="3_cugx7"]
+[ext_resource type="Script" uid="uid://dik10004qv68s" path="res://scripts/boss_hit_zone.gd" id="5_o6xsf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7elg"]
+albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u4o28"]
+size = Vector3(5, 30, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqcp8"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1klcw"]
+radius = 6.974
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1klcw"]
+size = Vector3(1, 65, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cugx7"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="region_5" type="Node3D" unique_id=1230631783]
+
+[node name="TestRock(Landmark)" type="CSGBox3D" parent="." unique_id=520132270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -250)
+material_override = SubResource("StandardMaterial3D_a7elg")
+size = Vector3(5, 30, 5)
+
+[node name="Area3D" type="Area3D" parent="TestRock(Landmark)" unique_id=761385181]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRock(Landmark)/Area3D" unique_id=1081401987]
+shape = SubResource("BoxShape3D_u4o28")
+
+[node name="Environment" type="Node3D" parent="." unique_id=1339071652]
+
+[node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("1_u4o28")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
+
+[node name="GroundPlane2" parent="Environment" unique_id=642138782 instance=ExtResource("1_u4o28")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 0, 0)
+
+[node name="Start" parent="." unique_id=1036386572 instance=ExtResource("2_niykl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
+
+[node name="Boss" type="Node3D" parent="." unique_id=1742245067]
+transform = Transform3D(1, 0, -3.5527137e-15, -3.5527137e-15, 1, 0, -3.5527137e-15, 0, 1, 1000, 0, 0)
+script = ExtResource("3_1klcw")
+
+[node name="Shape" type="Node3D" parent="Boss" unique_id=1067670417]
+
+[node name="Head" type="CSGCylinder3D" parent="Boss/Shape" unique_id=266091678]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 103.76472, 0)
+material_override = ExtResource("3_cugx7")
+radius = 25.0
+height = 50.0
+
+[node name="Body" type="CSGCylinder3D" parent="Boss/Shape" unique_id=624392002]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, 59.633057, 80.65428, 0)
+material_override = ExtResource("3_cugx7")
+radius = 25.0
+height = 75.0
+
+[node name="LeftWing" type="CSGBox3D" parent="Boss/Shape" unique_id=924581951]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, -0.57357645, 0, 0.57357645, 0.81915206, 30, 124, 35)
+material_override = ExtResource("3_cugx7")
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(1, 70, 35)
+
+[node name="RightWing" type="CSGBox3D" parent="Boss/Shape" unique_id=2107764119]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 30, 124, -35)
+material_override = ExtResource("3_cugx7")
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+size = Vector3(1, 70, 35)
+
+[node name="LeftClaw" type="CSGCylinder3D" parent="Boss/Shape" unique_id=929379756]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 86.196, 35)
+material_override = ExtResource("3_cugx7")
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+radius = 13.211
+height = 35.004
+
+[node name="RightClaw" type="CSGCylinder3D" parent="Boss/Shape" unique_id=1640563137]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 86.196, -35)
+material_override = ExtResource("3_cugx7")
+use_collision = true
+collision_layer = 4
+collision_mask = 0
+radius = 13.211
+height = 35.004
+
+[node name="Leg" type="CSGCylinder3D" parent="Boss/Shape" unique_id=305928958]
+transform = Transform3D(1, 0, 0, -4.5e-44, 0.93354917, 0.35844943, 0, -0.35844943, 0.93354917, 28.854614, 26.506622, 38.878006)
+material_override = ExtResource("3_cugx7")
+radius = 5.067
+height = 108.426
+
+[node name="Leg2" type="CSGCylinder3D" parent="Boss/Shape" unique_id=808161841]
+transform = Transform3D(1, 0, 0, 0, 0.93354917, 0.35844943, 0, -0.35844943, 0.93354917, 58.010254, 26.506622, 38.878006)
+material_override = ExtResource("3_cugx7")
+radius = 5.067
+height = 108.426
+
+[node name="Leg3" type="CSGCylinder3D" parent="Boss/Shape" unique_id=2088684333]
+transform = Transform3D(1, 0, 0, 0, 0.93354917, 0.35844943, 0, -0.35844943, 0.93354917, 84.917725, 26.506622, 38.878006)
+material_override = ExtResource("3_cugx7")
+radius = 5.067
+height = 108.426
+
+[node name="Leg4" type="CSGCylinder3D" parent="Boss/Shape" unique_id=1721209364]
+transform = Transform3D(1, 0, 0, 0, 0.9335804, -0.35836795, 0, 0.35836795, 0.9335804, 28.854614, 26.506622, -38.878)
+material_override = ExtResource("3_cugx7")
+radius = 5.067
+height = 108.426
+
+[node name="Leg5" type="CSGCylinder3D" parent="Boss/Shape" unique_id=1870366534]
+transform = Transform3D(1, 0, 0, 0, 0.9335804, -0.35836795, 0, 0.35836795, 0.9335804, 58.010254, 26.506622, -38.878)
+material_override = ExtResource("3_cugx7")
+radius = 5.067
+height = 108.426
+
+[node name="Leg6" type="CSGCylinder3D" parent="Boss/Shape" unique_id=1634474039]
+transform = Transform3D(1, 0, 0, 0, 0.9335804, -0.35836795, 0, 0.35836795, 0.9335804, 84.917725, 26.506622, -38.878)
+material_override = ExtResource("3_cugx7")
+radius = 5.067
+height = 108.426
+
+[node name="HitZones" type="Node3D" parent="Boss" unique_id=1550381393]
+
+[node name="RightArmHit" type="Area3D" parent="Boss/HitZones" unique_id=1852574444 groups=["BossHit"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.184, 86.196, -35)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_o6xsf")
+
+[node name="Shape" type="CSGCylinder3D" parent="Boss/HitZones/RightArmHit" unique_id=1792273153]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 2
+radius = 6.974
+material = SubResource("StandardMaterial3D_tqcp8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/HitZones/RightArmHit" unique_id=1866655892]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_1klcw")
+
+[node name="LeftArmHit" type="Area3D" parent="Boss/HitZones" unique_id=319057023 groups=["BossHit"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.184, 86.196, 35)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_o6xsf")
+
+[node name="Shape" type="CSGCylinder3D" parent="Boss/HitZones/LeftArmHit" unique_id=164476739]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 2
+radius = 6.974
+material = SubResource("StandardMaterial3D_tqcp8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/HitZones/LeftArmHit" unique_id=1037659198]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_1klcw")
+
+[node name="LeftWingHit" type="Area3D" parent="Boss/HitZones" unique_id=1090657416 groups=["BossHit"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.954, 124, 35)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_o6xsf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/HitZones/LeftWingHit" unique_id=161022393]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, -0.57357645, 0, 0.57357645, 0.81915206, 0, 0, 0)
+shape = SubResource("BoxShape3D_1klcw")
+
+[node name="Shape" type="CSGBox3D" parent="Boss/HitZones/LeftWingHit" unique_id=1876208806]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, -0.57357645, 0, 0.57357645, 0.81915206, 0.00036621094, 0, 0)
+collision_layer = 4
+collision_mask = 2
+size = Vector3(1, 65, 30)
+material = SubResource("StandardMaterial3D_cugx7")
+
+[node name="RightWingHit" type="Area3D" parent="Boss/HitZones" unique_id=1265927312 groups=["BossHit"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.954, 124, -35)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_o6xsf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/HitZones/RightWingHit" unique_id=859141129]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 0, 0)
+shape = SubResource("BoxShape3D_1klcw")
+
+[node name="Shape" type="CSGBox3D" parent="Boss/HitZones/RightWingHit" unique_id=1523800531]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0.00036621094, 0, 0)
+collision_layer = 4
+collision_mask = 2
+size = Vector3(1, 65, 30)
+material = SubResource("StandardMaterial3D_cugx7")

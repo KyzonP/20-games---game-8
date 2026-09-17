@@ -9,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://ckj3tpoayndu" path="res://levels/level 1/region_2.tscn" id="7_v1pqh"]
 [ext_resource type="PackedScene" uid="uid://7u1hy0h7jsuf" path="res://levels/level 1/region_3.tscn" id="8_ba08l"]
 [ext_resource type="PackedScene" uid="uid://bh3ik5ri51i6a" path="res://levels/level 1/region_4.tscn" id="9_slf20"]
+[ext_resource type="PackedScene" uid="uid://ckpeh5ciqj6y5" path="res://levels/level 1/region_5.tscn" id="10_wnnao"]
 
 [sub_resource type="Curve3D" id="Curve3D_5pt6r"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1000, 15, 0, 0, 0, 0, 0, 0, 0, 2000, 15, 0, 0, 0, 0, 0, 0, 0, 3000, 15, 0, 0, 0, 0, 0, 0, 0, 4000, 0, 0, 0, 0, 0, 0, 0, 0, 5000, 0, 0),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1000, 15, 0, 0, 0, 0, 0, 0, 0, 2000, 15, 0, 0, 0, 0, 0, 0, 0, 3000, 15, 0, 0, 0, 0, 100, 0, 0, 4000, 15, 0, -100, 0, 0, 100, 0, 0, 4700, 80, 0, 0, 0, 0, 0, 0, 0, 4800, 80, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 6
+point_count = 7
 
 [node name="level_1" type="Node3D" unique_id=1900694389]
 script = ExtResource("1_3h2pi")
@@ -50,5 +51,8 @@ next_region = NodePath("../region_4")
 [node name="region_4" parent="." unique_id=1739981121 instance=ExtResource("9_slf20")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3000, 0, 0)
+
+[node name="region_5" parent="." unique_id=1230631783 instance=ExtResource("10_wnnao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4000, 0, 0)
 
 [editable path="Path3D"]

@@ -2,7 +2,7 @@
 
 [resource]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 50, 40, 100, 0, 0, 0, 0, 0, 0, 100, 20, 0, 0, 0, 0, 0, 0, 0, 50, 0, -100),
-"tilts": PackedFloat32Array(0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 50, 40, 100, 0, 0, 0, 0, 0, 0, 100, 20, 0, 0, 0, 0, 0, 0, 0, 50, 0, -100, 0, 0, 0, 0, 0, 0, 0, 0, -100),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
 }
-point_count = 3
+point_count = 4

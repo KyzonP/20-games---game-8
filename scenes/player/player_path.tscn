@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://csmfqdei32qoa" path="res://scripts/path_follow.gd" id="1_saahw"]
 [ext_resource type="Script" uid="uid://dtwhchf2wnite" path="res://scripts/player_controller.gd" id="2_o2rvi"]
 [ext_resource type="PackedScene" uid="uid://crny86l3gtlp3" path="res://models/placeholder_bunny/placeholder_bunny.tscn" id="3_wc5s1"]
+[ext_resource type="Material" uid="uid://cxp04r0fvg7i3" path="res://materials/test_aim_ring.tres" id="4_irqw4"]
 
 [sub_resource type="Curve3D" id="Curve3D_errlg"]
 closed = true
@@ -20,6 +21,7 @@ curve = SubResource("Curve3D_errlg")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=66500086]
 transform = Transform3D(0.9999965, 0, 0, 0, 0.9999976, 0, 0, 0, 0.9999937, 0, 15, 0)
+loop = false
 script = ExtResource("1_saahw")
 
 [node name="Camera3D" type="Camera3D" parent="PathFollow3D" unique_id=1485017049]
@@ -30,6 +32,7 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 collision_mask = 28
 script = ExtResource("2_o2rvi")
+rotateAcceleration = 0.5
 
 [node name="placeholder_bunny" parent="PathFollow3D/Camera3D/Player" unique_id=1397911438 instance=ExtResource("3_wc5s1")]
 transform = Transform3D(1, 0, 0, 0, 0.17402634, 0.984741, 0, -0.984741, 0.17402634, 0, 0, 0)
@@ -61,3 +64,32 @@ shape = SubResource("BoxShape3D_iyx0m")
 
 [node name="TargetPoint" type="Marker3D" parent="PathFollow3D/Camera3D/Player" unique_id=1888237902]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -20)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PathFollow3D/Camera3D/Player" unique_id=1741014832]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0.32, -500)
+visible = false
+radius = 0.1
+height = 1000.0
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="PathFollow3D/Camera3D/Player" unique_id=995911914]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -5)
+material_override = ExtResource("4_irqw4")
+outer_radius = 0.55
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="PathFollow3D/Camera3D/Player" unique_id=748349401]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -25)
+material_override = ExtResource("4_irqw4")
+inner_radius = 1.0
+outer_radius = 1.1
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="PathFollow3D/Camera3D/Player" unique_id=2027652723]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -50)
+material_override = ExtResource("4_irqw4")
+inner_radius = 2.0
+outer_radius = 2.2
+
+[node name="CSGTorus3D4" type="CSGTorus3D" parent="PathFollow3D/Camera3D/Player" unique_id=351524730]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -150)
+material_override = ExtResource("4_irqw4")
+inner_radius = 5.0
+outer_radius = 5.5

@@ -612,7 +612,7 @@ enemyCount = 3
 pattern_shape = "Diagonal"
 
 [node name="PathFollow3D" parent="EnemyPath2" index="0" unique_id=1687372054]
-transform = Transform3D(-4.3711385e-08, 0.9999971, 4.371126e-08, 0, -4.371126e-08, 0.9999971, 0.9999999, 4.371126e-08, 1.91068e-15, 200, 100, 0)
+transform = Transform3D(-3.812345e-08, -0.35112244, 0.93632644, -1.4901159e-08, 0.93632644, 0.35112244, -0.9999999, -5.6635063e-10, -4.092813e-08, 200, 100, 0)
 
 [node name="Area3D" parent="EnemyPath2" index="1" unique_id=645709908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -193.76466, 0, 0)

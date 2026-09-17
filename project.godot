@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 EventBus="*uid://b8jctqtct0b8f"
 
+[global_group]
+
+BossHit=""
+
 [input]
 
 move_up={
