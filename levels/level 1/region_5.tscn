@@ -5,6 +5,10 @@
 [ext_resource type="Script" uid="uid://bnqwx45q5c3xl" path="res://scripts/boss.gd" id="3_1klcw"]
 [ext_resource type="Material" uid="uid://bbrgua1f2opc2" path="res://materials/test_mantis.tres" id="3_cugx7"]
 [ext_resource type="Script" uid="uid://dik10004qv68s" path="res://scripts/boss_hit_zone.gd" id="5_o6xsf"]
+[ext_resource type="Script" uid="uid://xj5qxp5jrfxp" path="res://scripts/turret_barrel.gd" id="6_o6xsf"]
+[ext_resource type="Script" uid="uid://b5dyq6e3r5n52" path="res://scripts/boss_fight_start.gd" id="7_a22uk"]
+[ext_resource type="PackedScene" uid="uid://3hkf45g43jbb" path="res://scenes/enemies/enemy_path.tscn" id="8_1oyf2"]
+[ext_resource type="Curve3D" uid="uid://w81s7hkpljon" path="res://flight_paths/boss_right.tres" id="9_sqo4v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7elg"]
 albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
@@ -24,7 +28,20 @@ size = Vector3(1, 65, 30)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cugx7"]
 albedo_color = Color(1, 0, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a22uk"]
+albedo_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1oyf2"]
+albedo_color = Color(1, 0.19, 0.19, 1)
+
 [node name="region_5" type="Node3D" unique_id=1230631783]
+
+[node name="BossFightStart2" parent="." unique_id=1036386572 instance=ExtResource("2_niykl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 800, 80, 0)
+script = ExtResource("7_a22uk")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="BossFightStart2" unique_id=1426289434]
+size = Vector3(10, 10, 10)
 
 [node name="TestRock(Landmark)" type="CSGBox3D" parent="." unique_id=520132270]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -250)
@@ -46,12 +63,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
 [node name="GroundPlane2" parent="Environment" unique_id=642138782 instance=ExtResource("1_u4o28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 0, 0)
 
-[node name="Start" parent="." unique_id=1036386572 instance=ExtResource("2_niykl")]
+[node name="Start" parent="." unique_id=1687684907 instance=ExtResource("2_niykl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
 
 [node name="Boss" type="Node3D" parent="." unique_id=1742245067]
-transform = Transform3D(1, 0, -3.5527137e-15, -3.5527137e-15, 1, 0, -3.5527137e-15, 0, 1, 1000, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 980, 0, 0)
 script = ExtResource("3_1klcw")
+spawnPos = Vector3(1100, 0, 0)
+fireTimerMax = 15.0
+spawnTimerMax = 15.0
+enemyTimerMax = 1.0
 
 [node name="Shape" type="Node3D" parent="Boss" unique_id=1067670417]
 
@@ -206,3 +227,53 @@ collision_layer = 4
 collision_mask = 2
 size = Vector3(1, 65, 30)
 material = SubResource("StandardMaterial3D_cugx7")
+
+[node name="LeftBarrel" type="CSGSphere3D" parent="Boss" unique_id=855782070]
+transform = Transform3D(1, 0, 0, -4.5e-44, 1, 0, 0, 0, 1, -21.565, 87.135, 35)
+visible = false
+radius = 2.0
+material = SubResource("StandardMaterial3D_a22uk")
+script = ExtResource("6_o6xsf")
+speed = 16.0
+
+[node name="Barrel" type="CSGCylinder3D" parent="Boss/LeftBarrel" unique_id=1896611245]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, 0, 0, -2.5)
+height = 5.0
+material = SubResource("StandardMaterial3D_1oyf2")
+
+[node name="LeftFirePoint" type="Marker3D" parent="Boss/LeftBarrel/Barrel" unique_id=508918784]
+transform = Transform3D(1.9106855e-15, 1, -4.371139e-08, 4.371139e-08, -4.371139e-08, -1, -1, 0, -4.371139e-08, 0.019893646, 2.8388746, 1.2409117e-07)
+
+[node name="RightBarrel" type="CSGSphere3D" parent="Boss" unique_id=1139845083]
+transform = Transform3D(1, 0, 0, -4.5e-44, 1, 0, 0, 0, 1, -21.565, 87.135, -35)
+visible = false
+radius = 2.0
+material = SubResource("StandardMaterial3D_a22uk")
+script = ExtResource("6_o6xsf")
+speed = 16.0
+
+[node name="Barrel" type="CSGCylinder3D" parent="Boss/RightBarrel" unique_id=954500029]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, 0, 0, -2.5)
+height = 5.0
+material = SubResource("StandardMaterial3D_1oyf2")
+
+[node name="RightFirePoint" type="Marker3D" parent="Boss/RightBarrel/Barrel" unique_id=178283874]
+transform = Transform3D(1.9106855e-15, 1, -4.371139e-08, 4.371139e-08, -4.371139e-08, -1, -1, 0, -4.371139e-08, 0.019893646, 2.8388746, 1.2409117e-07)
+
+[node name="BossFightStart" parent="Boss" unique_id=99392530 instance=ExtResource("2_niykl")]
+transform = Transform3D(1, 0, 3.5527137e-15, 3.5527137e-15, 1, 1.2621775e-29, 3.5527137e-15, 0, 1, -200, -7.1054274e-13, -7.1054274e-13)
+script = ExtResource("7_a22uk")
+
+[node name="EnemyPath" parent="." unique_id=1281539497 instance=ExtResource("8_1oyf2")]
+curve = ExtResource("9_sqo4v")
+enemyCount = 3
+follow_player = true
+pattern_shape = "Vertical"
+
+[node name="PathFollow3D" parent="EnemyPath" index="0" unique_id=1687372054]
+transform = Transform3D(-0.78086853, 0.42714044, 0.45583874, 2.9802312e-08, 0.7296982, -0.6837581, -0.6246948, -0.53392553, -0.5697984, 1050, 80, 0)
+
+[node name="Area3D" parent="EnemyPath" index="1" unique_id=645709908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 800, 0, 0)
+
+[editable path="EnemyPath"]

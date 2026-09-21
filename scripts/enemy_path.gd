@@ -23,7 +23,7 @@ var active : bool = false
 var flying_enemy = load("res://scenes/enemies/flying_enemy.tscn")
 	
 func _ready() -> void:
-	$Area3D.area_entered.connect(_activate)
+	$Area3D.area_entered.connect(activate)
 	
 func _physics_process(delta) -> void:
 	if active:
@@ -67,7 +67,7 @@ func _on_enemy_defeated(enemy_node) -> void:
 func _end_path() -> void:
 	self.queue_free()
 	
-func _activate(_area) -> void:
+func activate(_area) -> void:
 	if not active:
 		_spawn_enemies()
 		active = true
