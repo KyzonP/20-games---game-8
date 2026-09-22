@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ckpeh5ciqj6y5"]
 
+[ext_resource type="Script" uid="uid://cwj4f1gdf2uh1" path="res://scripts/region_load_unload.gd" id="1_emvkn"]
 [ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/environment/ground_plane.tscn" id="1_u4o28"]
 [ext_resource type="PackedScene" uid="uid://cctg0l1whxc5c" path="res://scenes/environment/start.tscn" id="2_niykl"]
 [ext_resource type="Script" uid="uid://bnqwx45q5c3xl" path="res://scripts/boss.gd" id="3_1klcw"]
@@ -9,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b5dyq6e3r5n52" path="res://scripts/boss_fight_start.gd" id="7_a22uk"]
 [ext_resource type="PackedScene" uid="uid://3hkf45g43jbb" path="res://scenes/enemies/enemy_path.tscn" id="8_1oyf2"]
 [ext_resource type="Curve3D" uid="uid://w81s7hkpljon" path="res://flight_paths/boss_right.tres" id="9_sqo4v"]
+[ext_resource type="PackedScene" uid="uid://brp3dx3520que" path="res://scenes/environment/end.tscn" id="11_ejmq7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7elg"]
 albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
@@ -35,6 +37,7 @@ albedo_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
 albedo_color = Color(1, 0.19, 0.19, 1)
 
 [node name="region_5" type="Node3D" unique_id=1230631783]
+script = ExtResource("1_emvkn")
 
 [node name="BossFightStart2" parent="." unique_id=1036386572 instance=ExtResource("2_niykl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 800, 80, 0)
@@ -275,5 +278,8 @@ transform = Transform3D(-0.78086853, 0.42714044, 0.45583874, 2.9802312e-08, 0.72
 
 [node name="Area3D" parent="EnemyPath" index="1" unique_id=645709908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 800, 0, 0)
+
+[node name="End" parent="." unique_id=1295297433 instance=ExtResource("11_ejmq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1884.5837, 0, 0)
 
 [editable path="EnemyPath"]

@@ -4,13 +4,10 @@ extends Area3D
 @export var hp : float = 1.0
 ## Reload time of enemy
 @export var fire_rate : float = 1.0
-## Number of repeated shots
-@export var volley_size : int = 3
 ## Distance at which enemy fires
 @export var fire_distance : float = 100.0
 ## Score from defeating enemy
 @export var points_value : int = 10
-var volley_current : int = 0
 ## If it's a background turret/shooting Aremag
 @export var lock : bool = false
 @onready var fire_timer : float = 1.0
@@ -51,28 +48,18 @@ func _physics_process(delta):
 		if fire_timer >= fire_rate:
 			fire_timer = 0.0
 			_shoot()
-		
-		if volley_current >= volley_size:
-			fire_timer += delta
-			if fire_timer >= fire_rate:
-				volley_current = 0
-				fire_timer = 0
 	else:
 		fire_timer += delta
 		if fire_timer >= fire_rate:
 			fire_timer = 0.0
 			_shoot()
-			print("shoot")
 
 func _shoot():
-	if volley_current < volley_size:
-		if not lock:
-			volley_current += 1
-		var bullet = bulletObject.instantiate()
-		get_tree().root.get_child(0).add_child(bullet)
-		bullet.global_position = fire_point.global_position
-		bullet.rotation = fire_point.global_rotation
-		bullet.enemyBullet()
+	var bullet = bulletObject.instantiate()
+	get_tree().root.get_child(0).add_child(bullet)
+	bullet.global_position = fire_point.global_position
+	bullet.rotation = fire_point.global_rotation
+	bullet.enemyBullet()
 	
 func destroy():
 	defeated.emit(self)

@@ -8,5 +8,4 @@ func _ready():
 	area_entered.connect(_collide)
 	
 func _collide(_area):
-	print("hurt")
 	hurt.emit(_area.damage, damageMultiplier)

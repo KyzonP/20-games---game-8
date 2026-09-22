@@ -9,6 +9,5 @@ func _ready():
 	
 func _collide(_area):
 	if not triggered:
-		print("entered")
 		triggered = true
 		start_fight.emit()

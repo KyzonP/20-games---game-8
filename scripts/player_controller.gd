@@ -175,12 +175,18 @@ func _end_roll() -> void:
 	rolling = false
 	collider.disabled = false
 	
-func _collide(_area) -> void:
-	if _area.is_in_group("Bullet"):
-		if hurtBufferTimer >= hurtBufferMax:
-			hurtBufferTimer = 0.0
-			EventBus.player_hurt.emit(_area.damage)
-	### ADD CODE FOR DETECTING TERRAIN
+func _collide(area) -> void:
+	if area.is_in_group("Bullet"):
+		hurt(area.damage)
+
+	###CODE FOR DETECTING TERRAIN
+	if area.get_collision_layer_value(5):
+		hurt(1)
+
+func hurt(damage):
+	if hurtBufferTimer >= hurtBufferMax:
+		hurtBufferTimer = 0.0
+		EventBus.player_hurt.emit(damage)
 	
 func _increase_volley_size() -> void:
 	bulletVolleyMax += 1

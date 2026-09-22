@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d3cdlpnpv8aei"]
+
+[ext_resource type="PackedScene" uid="uid://cm0oskytjr7h8" path="res://models/terrain/rock_wall.gltf" id="1_0kg0j"]
+
+[node name="rock_wall" unique_id=295003589 instance=ExtResource("1_0kg0j")]
+
+[node name="StaticBody3D" parent="rock_wall" parent_id_path=PackedInt32Array(1077019904) index="0" unique_id=1390482517]
+collision_layer = 16
+collision_mask = 0

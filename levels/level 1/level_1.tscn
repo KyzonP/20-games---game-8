@@ -24,6 +24,7 @@ script = ExtResource("1_3h2pi")
 [node name="UI" parent="." unique_id=780951930 instance=ExtResource("3_5pt6r")]
 
 [node name="DirectionalLight3D" parent="." unique_id=363381807 instance=ExtResource("1_6wlpe")]
+shadow_enabled = false
 directional_shadow_mode = 0
 directional_shadow_max_distance = 1000.0
 
@@ -46,13 +47,19 @@ next_region = NodePath("../region_3")
 [node name="region_3" parent="." unique_id=1383658511 node_paths=PackedStringArray("next_region") instance=ExtResource("8_ba08l")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2000, 0, 0)
+visible = false
 next_region = NodePath("../region_4")
 
-[node name="region_4" parent="." unique_id=1739981121 instance=ExtResource("9_slf20")]
+[node name="region_4" parent="." unique_id=1739981121 node_paths=PackedStringArray("next_region") instance=ExtResource("9_slf20")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3000, 0, 0)
+visible = false
+next_region = NodePath("../region_5")
 
-[node name="region_5" parent="." unique_id=1230631783 instance=ExtResource("10_wnnao")]
+[node name="region_5" parent="." unique_id=1230631783 node_paths=PackedStringArray("next_region") instance=ExtResource("10_wnnao")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4000, 0, 0)
+visible = false
+next_region = NodePath(".")
 
 [editable path="Path3D"]
