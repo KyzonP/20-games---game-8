@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cctg0l1whxc5c" path="res://scenes/environment/start.tscn" id="2_lpsbc"]
 [ext_resource type="Material" uid="uid://b7ftt6ogkrmme" path="res://materials/test_rock.tres" id="2_ybn0o"]
 [ext_resource type="PackedScene" uid="uid://brp3dx3520que" path="res://scenes/environment/end.tscn" id="3_nn60d"]
+[ext_resource type="PackedScene" uid="uid://c45x7bwpwt020" path="res://models/terrain/small_pillar.tscn" id="3_x0hta"]
 [ext_resource type="PackedScene" uid="uid://88yvki3ukcg" path="res://scenes/enemies/powerup.tscn" id="4_nn60d"]
 [ext_resource type="PackedScene" uid="uid://bo4ktkono442i" path="res://scenes/enemies/turret_enemy.tscn" id="6_5ht65"]
 [ext_resource type="PackedScene" uid="uid://3hkf45g43jbb" path="res://scenes/enemies/enemy_path.tscn" id="7_05pk6"]
@@ -44,423 +45,130 @@ collision_mask = 15
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestRock(Landmark)/Area3D" unique_id=1414862243]
 shape = SubResource("BoxShape3D_csx4r")
 
-[node name="Environment" type="Node3D" parent="." unique_id=947734760]
+[node name="Environment" type="Node3D" parent="." unique_id=304670569]
 
 [node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("1_csx4r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
 
-[node name="Aremag" type="Node3D" parent="Environment" unique_id=1066586600]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5258789e-05, 0)
-
-[node name="Leg" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=145824785]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 55.42334, -160)
-radius = 40.0
-height = 110.84668
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Leg2" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=1883393676]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 46.994873, 160)
-radius = 40.0
-height = 93.989746
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Leg3" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=1633188173]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 57.52466, -160)
-radius = 40.0
-height = 115.04932
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Leg4" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=1555390072]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 51.238525, 160)
-radius = 40.0
-height = 102.47705
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Tail" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=1378939134]
-transform = Transform3D(1, 0, 0, 0, -0.15486555, -0.98793554, 0, 0.98793554, -0.15486555, 1100, 51.239, 251.60501)
-radius = 40.0
-height = 102.47705
-cone = true
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Head" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=2085846170]
-transform = Transform3D(1, 0, 0, 0, -0.16811085, -0.9857681, 0, 0.9857681, -0.16811085, 1100, 102.12639, -270.654)
-radius = 40.0
-height = 102.47705
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Beak" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=1074838756]
-transform = Transform3D(1, 0, 0, 0, -0.3555475, 0.9346582, 0, -0.9346582, -0.3555475, 1100, 92.84761, -341.2938)
-radius = 40.0
-height = 33.503
-cone = true
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Beak2" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=1474793068]
-transform = Transform3D(1, 0, 0, 0, 0.16850653, 0.9857005, 0, -0.9857005, 0.16850653, 1100, 128.26317, -335.94858)
-radius = 40.0
-height = 33.503
-cone = true
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Shell" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=88651528]
-transform = Transform3D(0.79999995, 0, 0, 0, 0.9982993, -0.06121062, 0, 0.05829583, 1.0482142, 1100, 113.69235, 0)
-radius = 250.0
-height = 30.0
-material = SubResource("StandardMaterial3D_5ht65")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Environment/Aremag" unique_id=790233161]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 200.51367, -104.31898)
-size = Vector3(100, 150, 207.815)
-material = ExtResource("2_ybn0o")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Aremag" unique_id=1817377723]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 168.5641, 155.69514)
-size = Vector3(80, 130, 120.12)
-material = ExtResource("2_ybn0o")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Aremag" unique_id=851814606]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 184.11061, 58.69348)
-size = Vector3(75, 40, 200)
-material = ExtResource("2_ybn0o")
-
-[node name="CSGBox3D4" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=1933225990]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 340.60104, -162.8387)
-radius = 25.0
-height = 117.44
-cone = true
-material = ExtResource("2_ybn0o")
-
-[node name="CSGBox3D5" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=1122311081]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 332.44806, -99.08942)
-radius = 25.0
-height = 101.13406
-cone = true
-material = ExtResource("2_ybn0o")
-
-[node name="CSGBox3D6" type="CSGCylinder3D" parent="Environment/Aremag" unique_id=1423472234]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 318.40405, -32.7424)
-radius = 25.0
-height = 73.046036
-cone = true
-material = ExtResource("2_ybn0o")
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Environment/Aremag" unique_id=1993601566]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1067.081, 132.11937, -304.15924)
-radius = 5.87
-material = SubResource("StandardMaterial3D_puiq6")
-
-[node name="Pillar" type="CSGCylinder3D" parent="Environment" unique_id=1399573653]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.543, -30, 20)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar2" type="CSGCylinder3D" parent="Environment" unique_id=1167412359]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.13911, -4.242691, -34.208923)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar3" type="CSGCylinder3D" parent="Environment" unique_id=2139500883]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 379.283, -30, -1.638)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar4" type="CSGCylinder3D" parent="Environment" unique_id=744636393]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 464.0638, -4.242691, -27.921295)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar5" type="CSGCylinder3D" parent="Environment" unique_id=1929070686]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 494.077, -20, 20)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar6" type="CSGCylinder3D" parent="Environment" unique_id=383108898]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 684.755, -30, -14.018)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar7" type="CSGCylinder3D" parent="Environment" unique_id=2068325465]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 856.8575, -4.242691, -10.743561)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar8" type="CSGCylinder3D" parent="Environment" unique_id=1653049316]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 782.6268, -4.242691, 20)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar9" type="CSGCylinder3D" parent="Environment" unique_id=427861662]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 906.3965, -4.242691, -160.70413)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar10" type="CSGCylinder3D" parent="Environment" unique_id=1329929631]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 823.328, -4.242691, -102.69564)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Enemy" parent="Environment/Pillar10" unique_id=2107312701 instance=ExtResource("6_5ht65")]
-transform = Transform3D(0.35592273, 0, 0.93451554, 0, 1, 0, -0.93451554, 0, 0.35592273, 0, 35.025093, 0)
-fire_rate = 0.5
-points_value = 15
-lock = true
-
-[node name="Targeting" parent="Environment/Pillar10/Enemy/VehicleShape/Base" parent_id_path=PackedInt32Array(2107312701, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
-
-[node name="Pillar11" type="CSGCylinder3D" parent="Environment" unique_id=1133805678]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 680.8603, -4.242691, -128.87762)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Enemy" parent="Environment/Pillar11" unique_id=413292799 instance=ExtResource("6_5ht65")]
-transform = Transform3D(0.10508393, 0, 0.9944635, 0, 1, 0, -0.9944635, 0, 0.10508393, 0, 35.025093, 0)
-fire_rate = 0.5
-points_value = 15
-lock = true
-
-[node name="Targeting" parent="Environment/Pillar11/Enemy/VehicleShape/Base" parent_id_path=PackedInt32Array(413292799, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
-
-[node name="Pillar12" type="CSGCylinder3D" parent="Environment" unique_id=811462416]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 597.349, -30, -98.803)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar13" type="CSGCylinder3D" parent="Environment" unique_id=1718966082]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 565.209, -20, -145.324)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar14" type="CSGCylinder3D" parent="Environment" unique_id=1224803682]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 376.25653, -4.242691, -102.75372)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar15" type="CSGCylinder3D" parent="Environment" unique_id=1750161266]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 204.18066, -4.242691, -98.275246)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar16" type="CSGCylinder3D" parent="Environment" unique_id=678466121]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 276.952, -30, -132.33)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Enemy" parent="Environment/Pillar16" unique_id=629105349 instance=ExtResource("6_5ht65")]
-transform = Transform3D(0.1936009, 0, 0.98108065, 0, 1, 0, -0.98108065, 0, 0.1936009, 0, 35.025093, 0)
-fire_rate = 0.5
-points_value = 15
-lock = true
-
-[node name="Targeting" parent="Environment/Pillar16/Enemy/VehicleShape/Base" parent_id_path=PackedInt32Array(629105349, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
-
-[node name="Pillar33" type="CSGCylinder3D" parent="Environment" unique_id=1857146390]
-transform = Transform3D(0.9989434, 0, -0.04595568, 0, 1, 0, 0.04595568, 0, 0.9989434, 199.10721, -4.242691, 281.92966)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar34" type="CSGCylinder3D" parent="Environment" unique_id=2012252061]
-transform = Transform3D(0.9989434, 0, -0.04595568, 0, 1, 0, 0.04595568, 0, 0.9989434, 287.10443, -4.242691, 231.71167)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar35" type="CSGCylinder3D" parent="Environment" unique_id=1735357827]
-transform = Transform3D(0.9989434, 0, -0.04595568, 0, 1, 0, 0.04595568, 0, 0.9989434, 426.60266, -4.242691, 270.73462)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar36" type="CSGCylinder3D" parent="Environment" unique_id=839064084]
-transform = Transform3D(0.9989434, 0, -0.04595568, 0, 1, 0, 0.04595568, 0, 0.9989434, 512.50183, -30, 248.37509)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Enemy" parent="Environment/Pillar36" unique_id=1019668891 instance=ExtResource("6_5ht65")]
-transform = Transform3D(0.41229364, 0, -0.91105115, 0, 1, 0, 0.91105115, 0, 0.41229364, 0, 35.025093, 0)
-fire_rate = 0.5
-points_value = 15
-lock = true
-
-[node name="Targeting" parent="Environment/Pillar36/Enemy/VehicleShape/Base" parent_id_path=PackedInt32Array(1019668891, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.99894613, -0.04589679, 0.0002270937, 0.04472171, 0.97223324, -0.2297008, 0.010321617, 0.22946887, 0.97326136, 0, 20.742098, 0)
-
-[node name="Pillar37" type="CSGCylinder3D" parent="Environment" unique_id=1645093572]
-transform = Transform3D(0.9989434, 0, -0.04595568, 0, 1, 0, 0.04595568, 0, 0.9989434, 540.2804, -20, 297.62482)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar38" type="CSGCylinder3D" parent="Environment" unique_id=181144322]
-transform = Transform3D(0.9989434, 0, -0.04595568, 0, 1, 0, 0.04595568, 0, 0.9989434, 732.32007, -4.242691, 272.40527)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar39" type="CSGCylinder3D" parent="Environment" unique_id=178297672]
-transform = Transform3D(0.9989434, 0, -0.04595568, 0, 1, 0, 0.04595568, 0, 0.9989434, 904.0907, -4.242691, 283.58585)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar40" type="CSGCylinder3D" parent="Environment" unique_id=720845555]
-transform = Transform3D(0.9989434, 0, -0.04595568, 0, 1, 0, 0.04595568, 0, 0.9989434, 828.5252, -30, 310.88522)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar17" type="CSGCylinder3D" parent="Environment" unique_id=662741740]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 791.8711, -4.242691, 85.74278)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Enemy" parent="Environment/Pillar17" unique_id=1906689040 instance=ExtResource("6_5ht65")]
-transform = Transform3D(0.36890343, 0, 0.929468, 0, 1, 0, -0.929468, 0, 0.36890343, 0, 35.025093, 0)
-fire_rate = 0.5
-points_value = 15
-lock = true
-
-[node name="Targeting" parent="Environment/Pillar17/Enemy/VehicleShape/Base" parent_id_path=PackedInt32Array(1906689040, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
-
-[node name="Pillar18" type="CSGCylinder3D" parent="Environment" unique_id=734623294]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 708.803, -20, 143.751)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar19" type="CSGCylinder3D" parent="Environment" unique_id=2071309685]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 566.3349, -4.242691, 117.56929)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar20" type="CSGCylinder3D" parent="Environment" unique_id=364475708]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 482.824, -20, 147.644)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar21" type="CSGCylinder3D" parent="Environment" unique_id=824303719]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 450.684, -30, 101.123)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Enemy" parent="Environment/Pillar21" unique_id=1902943203 instance=ExtResource("6_5ht65")]
-transform = Transform3D(-0.33118972, 0, 0.9435643, 0, 1, 0, -0.9435643, 0, -0.33118972, 0, 35.025093, 0)
-fire_rate = 0.5
-points_value = 15
-lock = true
-
-[node name="Targeting" parent="Environment/Pillar21/Enemy/VehicleShape/Base" parent_id_path=PackedInt32Array(1902943203, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
-
-[node name="Pillar22" type="CSGCylinder3D" parent="Environment" unique_id=1212998924]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 261.73114, -4.242691, 143.69319)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Enemy" parent="Environment/Pillar22" unique_id=1435298892 instance=ExtResource("6_5ht65")]
-transform = Transform3D(-0.27199474, 0, 0.96229887, 0, 1, 0, -0.96229887, 0, -0.27199474, 0, 35.025093, 0)
-fire_rate = 0.5
-points_value = 15
-lock = true
-
-[node name="Targeting" parent="Environment/Pillar22/Enemy/VehicleShape/Base" parent_id_path=PackedInt32Array(1435298892, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
-
-[node name="Pillar23" type="CSGCylinder3D" parent="Environment" unique_id=1284250053]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 89.65527, -4.242691, 148.17166)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar24" type="CSGCylinder3D" parent="Environment" unique_id=1758684109]
-transform = Transform3D(-0.9989855, 0, -0.045031723, 0, 1, 0, 0.045031723, 0, -0.9989855, 162.426, -20, 114.117)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar25" type="CSGCylinder3D" parent="Environment" unique_id=1736020670]
-transform = Transform3D(0.9917183, 0, 0.1284321, 0, 1, 0, -0.1284321, 0, 0.9917183, 131.04514, -4.242691, -163.75212)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar26" type="CSGCylinder3D" parent="Environment" unique_id=674154976]
-transform = Transform3D(0.9917183, 0, 0.1284321, 0, 1, 0, -0.1284321, 0, 0.9917183, 208.97018, -20, -228.50513)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar27" type="CSGCylinder3D" parent="Environment" unique_id=523868837]
-transform = Transform3D(0.9917183, 0, 0.1284321, 0, 1, 0, -0.1284321, 0, 0.9917183, 353.12894, -4.242691, -214.33162)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar28" type="CSGCylinder3D" parent="Environment" unique_id=1543220526]
-transform = Transform3D(0.9917183, 0, 0.1284321, 0, 1, 0, -0.1284321, 0, 0.9917183, 433.83167, -20, -251.28604)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar29" type="CSGCylinder3D" parent="Environment" unique_id=1989305885]
-transform = Transform3D(0.9917183, 0, 0.1284321, 0, 1, 0, -0.1284321, 0, 0.9917183, 469.75018, -30, -207.61633)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Enemy" parent="Environment/Pillar29" unique_id=388776095 instance=ExtResource("6_5ht65")]
-transform = Transform3D(-0.46247602, 0, -0.8866318, 0, 1, 0, 0.8866318, 0, -0.46247602, 0, 35.025093, 0)
-fire_rate = 0.5
-points_value = 15
-lock = true
-
-[node name="Targeting" parent="Environment/Pillar29/Enemy/VehicleShape/Base" parent_id_path=PackedInt32Array(388776095, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
-
-[node name="Pillar30" type="CSGCylinder3D" parent="Environment" unique_id=1039996040]
-transform = Transform3D(0.9917183, 0, 0.1284321, 0, 1, 0, -0.1284321, 0, 0.9917183, 654.4802, -4.242691, -265.84195)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar31" type="CSGCylinder3D" parent="Environment" unique_id=134272169]
-transform = Transform3D(0.9917183, 0, 0.1284321, 0, 1, 0, -0.1284321, 0, 0.9917183, 825.5785, -4.242691, -284.6977)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
-
-[node name="Pillar32" type="CSGCylinder3D" parent="Environment" unique_id=1532717124]
-transform = Transform3D(0.9917183, 0, 0.1284321, 0, 1, 0, -0.1284321, 0, 0.9917183, 755.91125, -20, -244.6756)
-radius = 7.5
-height = 70.0
-material = ExtResource("2_ybn0o")
+[node name="small_pillar" parent="Environment" unique_id=1199772341 instance=ExtResource("3_x0hta")]
+transform = Transform3D(3, 0, 0, 0, -2, 2.6226832e-07, 0, -1.7484555e-07, -3, 90.9068, 0.6051245, 149.51762)
+
+[node name="small_pillar2" parent="Environment" unique_id=40198390 instance=ExtResource("3_x0hta")]
+transform = Transform3D(2.1213202, 0, 2.1213202, 0, 2, 0, -2.1213202, 0, 2.1213202, 163.05173, -14.017184, 115.45433)
+
+[node name="small_pillar3" parent="Environment" unique_id=190425274 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-1.3113416e-07, -1.7484555e-07, -3, 0, -2, 2.6226832e-07, -3, 7.642742e-15, 1.3113416e-07, 153.83722, -25.356457, 19.824322)
+
+[node name="small_pillar4" parent="Environment" unique_id=1174558093 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-2.1213202, 0, 2.1213202, 0, 2, 0, -2.1213202, 0, -2.1213202, 261.11148, 1.7480106, 145.78818)
+
+[node name="small_pillar5" parent="Environment" unique_id=435959887 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-3, 1.5285484e-14, 2.6226832e-07, 0, -2, 2.6226832e-07, 2.6226832e-07, 1.7484555e-07, 3, 287.0263, 1.224493, 232.65222)
+
+[node name="small_pillar6" parent="Environment" unique_id=33507227 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-2.1213205, 0, -2.1213202, 0, 2, 0, 2.1213202, 0, -2.1213205, 200.02693, 1.0565281, 285.36172)
+
+[node name="small_pillar7" parent="Environment" unique_id=1133045569 instance=ExtResource("3_x0hta")]
+transform = Transform3D(3.577464e-08, 1.7484555e-07, 3, 0, -2, 2.6226832e-07, 3, -2.0850123e-15, -3.577464e-08, 426.60693, 1.0565281, 270.20703)
+
+[node name="small_pillar8" parent="Environment" unique_id=1202327300 instance=ExtResource("3_x0hta")]
+transform = Transform3D(2.1213202, 0, -2.1213202, 0, 2, 0, 2.1213202, 0, 2.1213202, 540.992, -14.703481, 297.99597)
+
+[node name="small_pillar9" parent="Environment" unique_id=1717091687 instance=ExtResource("3_x0hta")]
+transform = Transform3D(3, 0, 0, 0, -2, 2.6226832e-07, 0, -1.7484555e-07, -3, 512.03906, -22.487457, 250.03696)
+
+[node name="small_pillar10" parent="Environment" unique_id=606515465 instance=ExtResource("3_x0hta")]
+transform = Transform3D(2.1213202, 0, 2.1213202, 0, 2, 0, -2.1213202, 0, 2.1213202, 483.4756, -14.301319, 147.3399)
+
+[node name="small_pillar11" parent="Environment" unique_id=1139257890 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-1.3113416e-07, -1.7484555e-07, -3, 0, -2, 2.6226832e-07, -3, 7.642742e-15, 1.3113416e-07, 450.744, -23.974155, 101.72026)
+
+[node name="small_pillar12" parent="Environment" unique_id=1237846751 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-2.1213202, 0, 2.1213202, 0, 2, 0, -2.1213202, 0, -2.1213202, 566.69147, 1.9583588, 118.800735)
+
+[node name="small_pillar13" parent="Environment" unique_id=1932976145 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-3, 1.5285484e-14, 2.6226832e-07, 0, -2, 2.6226832e-07, 2.6226832e-07, 1.7484555e-07, 3, 709.9127, -12.985989, 143.88322)
+
+[node name="small_pillar14" parent="Environment" unique_id=1378069942 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-2.1213205, 0, -2.1213202, 0, 2, 0, 2.1213202, 0, -2.1213205, 731.6137, 2.6002998, 273.2431)
+
+[node name="small_pillar15" parent="Environment" unique_id=877949417 instance=ExtResource("3_x0hta")]
+transform = Transform3D(3.577464e-08, 1.7484555e-07, 3, 0, -2, 2.6226832e-07, 3, -2.0850123e-15, -3.577464e-08, 828.57733, -23.153246, 309.7436)
+
+[node name="small_pillar16" parent="Environment" unique_id=1407372488 instance=ExtResource("3_x0hta")]
+transform = Transform3D(2.1213202, 0, -2.1213202, 0, 2, 0, 2.1213202, 0, 2.1213202, 902.93036, 2.2680302, 283.2577)
+
+[node name="small_pillar17" parent="Environment" unique_id=2146290238 instance=ExtResource("3_x0hta")]
+transform = Transform3D(3, 0, 0, 0, -2, 2.6226832e-07, 0, -1.7484555e-07, -3, 790.6617, 1.1323662, 87.228386)
+
+[node name="small_pillar18" parent="Environment" unique_id=1652669278 instance=ExtResource("3_x0hta")]
+transform = Transform3D(2.1213202, 0, 2.1213202, 0, 2, 0, -2.1213202, 0, 2.1213202, 782.7994, 1.1323662, 19.996014)
+
+[node name="small_pillar19" parent="Environment" unique_id=1278737637 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-1.3113416e-07, -1.7484555e-07, -3, 0, -2, 2.6226832e-07, -3, 7.642742e-15, 1.3113416e-07, 856.7506, 1.1323662, -13.126873)
+
+[node name="small_pillar20" parent="Environment" unique_id=1384153988 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-2.1213202, 0, 2.1213202, 0, 2, 0, -2.1213202, 0, -2.1213202, 821.685, 1.1323662, -102.03148)
+
+[node name="small_pillar21" parent="Environment" unique_id=1956633737 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-3, 1.5285484e-14, 2.6226832e-07, 0, -2, 2.6226832e-07, 2.6226832e-07, 1.7484555e-07, 3, 906.76117, 1.1323662, -160.84952)
+
+[node name="small_pillar22" parent="Environment" unique_id=131513600 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-2.1213205, 0, -2.1213202, 0, 2, 0, 2.1213202, 0, -2.1213205, 823.3977, 1.1323662, -284.5149)
+
+[node name="small_pillar23" parent="Environment" unique_id=829912092 instance=ExtResource("3_x0hta")]
+transform = Transform3D(3.577464e-08, 1.7484555e-07, 3, 0, -2, 2.6226832e-07, 3, -2.0850123e-15, -3.577464e-08, 755.87415, -15.050991, -245.04276)
+
+[node name="small_pillar24" parent="Environment" unique_id=1147111516 instance=ExtResource("3_x0hta")]
+transform = Transform3D(2.1213202, 0, -2.1213202, 0, 2, 0, 2.1213202, 0, 2.1213202, 654.2574, 1.1669884, -264.73105)
+
+[node name="small_pillar25" parent="Environment" unique_id=882699040 instance=ExtResource("3_x0hta")]
+transform = Transform3D(3, 0, 0, 0, -2, 2.6226832e-07, 0, -1.7484555e-07, -3, 679.8895, 1.1669884, -128.79692)
+
+[node name="small_pillar26" parent="Environment" unique_id=1405534883 instance=ExtResource("3_x0hta")]
+transform = Transform3D(2.1213202, 0, 2.1213202, 0, 2, 0, -2.1213202, 0, 2.1213202, 684.2376, -23.377556, -13.812668)
+
+[node name="small_pillar27" parent="Environment" unique_id=1048135552 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-1.3113416e-07, -1.7484555e-07, -3, 0, -2, 2.6226832e-07, -3, 7.642742e-15, 1.3113416e-07, 596.34845, -23.377556, -98.71012)
+
+[node name="small_pillar28" parent="Environment" unique_id=1900781136 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-2.1213202, 0, 2.1213202, 0, 2, 0, -2.1213202, 0, -2.1213202, 564.3491, -13.348913, -144.27155)
+
+[node name="small_pillar29" parent="Environment" unique_id=275148440 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-3, 1.5285484e-14, 2.6226832e-07, 0, -2, 2.6226832e-07, 2.6226832e-07, 1.7484555e-07, 3, 470.16455, -23.212633, -204.57983)
+
+[node name="small_pillar30" parent="Environment" unique_id=1484806817 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-2.1213205, 0, -2.1213202, 0, 2, 0, 2.1213202, 0, -2.1213205, 432.6754, -14.649385, -250.81216)
+
+[node name="small_pillar31" parent="Environment" unique_id=1324963263 instance=ExtResource("3_x0hta")]
+transform = Transform3D(3.577464e-08, 1.7484555e-07, 3, 0, -2, 2.6226832e-07, 3, -2.0850123e-15, -3.577464e-08, 352.23062, 1.6352348, -215.89139)
+
+[node name="small_pillar32" parent="Environment" unique_id=385132069 instance=ExtResource("3_x0hta")]
+transform = Transform3D(2.1213202, 0, -2.1213202, 0, 2, 0, 2.1213202, 0, 2.1213202, 375.90695, 1.7965469, -101.050835)
+
+[node name="small_pillar33" parent="Environment" unique_id=930745938 instance=ExtResource("3_x0hta")]
+transform = Transform3D(3, 0, 0, 0, -2, 2.6226832e-07, 0, -1.7484555e-07, -3, 276.32678, -24.183392, -131.8873)
+
+[node name="small_pillar34" parent="Environment" unique_id=1606843074 instance=ExtResource("3_x0hta")]
+transform = Transform3D(2.1213202, 0, 2.1213202, 0, 2, 0, -2.1213202, 0, 2.1213202, 208.37166, -14.342533, -226.69856)
+
+[node name="small_pillar35" parent="Environment" unique_id=830193679 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-1.3113416e-07, -1.7484555e-07, -3, 0, -2, 2.6226832e-07, -3, 7.642742e-15, 1.3113416e-07, 129.26552, 1.0122986, -163.41641)
+
+[node name="small_pillar36" parent="Environment" unique_id=276444134 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-2.1213202, 0, 2.1213202, 0, 2, 0, -2.1213202, 0, -2.1213202, 203.09859, 1.0122986, -97.412636)
+
+[node name="small_pillar37" parent="Environment" unique_id=1792456007 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-3, 1.5285484e-14, 2.6226832e-07, 0, -2, 2.6226832e-07, 2.6226832e-07, 1.7484555e-07, 3, 237.75308, -0.86833954, -33.566338)
+
+[node name="small_pillar38" parent="Environment" unique_id=988275743 instance=ExtResource("3_x0hta")]
+transform = Transform3D(-2.1213205, 0, -2.1213202, 0, 2, 0, 2.1213202, 0, -2.1213205, 380.73215, -26.00106, -0.9374924)
+
+[node name="small_pillar39" parent="Environment" unique_id=986928135 instance=ExtResource("3_x0hta")]
+transform = Transform3D(3.577464e-08, 1.7484555e-07, 3, 0, -2, 2.6226832e-07, 3, -2.0850123e-15, -3.577464e-08, 464.3109, 1.6299477, -29.550682)
+
+[node name="small_pillar40" parent="Environment" unique_id=780216709 instance=ExtResource("3_x0hta")]
+transform = Transform3D(2.1213202, 0, -2.1213202, 0, 2, 0, 2.1213202, 0, 2.1213202, 497.09003, -16.806736, 20.95831)
 
 [node name="Enemy4" parent="Environment" unique_id=1738750486 instance=ExtResource("6_5ht65")]
 transform = Transform3D(0.29504132, 0, -0.9554852, 0, 1, 0, 0.9554852, 0, 0.29504132, 276.952, 32.292408, 101.97839)
@@ -470,6 +178,18 @@ lock = true
 
 [node name="Targeting" parent="Environment/Enemy4/VehicleShape/Base" parent_id_path=PackedInt32Array(1738750486, 533663966) index="0" unique_id=1156207078]
 transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
+
+[node name="Enemy9" parent="Environment" unique_id=413292799 instance=ExtResource("6_5ht65")]
+transform = Transform3D(-0.06019492, 0, -0.99818677, 0, 1, 0, 0.99818677, 0, -0.06019492, 680.8603, 30.782402, -128.87762)
+fire_rate = 0.5
+points_value = 15
+lock = true
+
+[node name="Targeting" parent="Environment/Enemy9/VehicleShape/Base" parent_id_path=PackedInt32Array(413292799, 533663966) index="0" unique_id=1156207078]
+transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
+
+[node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy9" index="1" unique_id=1247818257]
+enable_node_path = NodePath("../../Enemy9")
 
 [node name="Enemy5" parent="Environment" unique_id=976407548 instance=ExtResource("6_5ht65")]
 transform = Transform3D(0.56286323, 0, -0.82655126, 0, 1, 0, 0.82655126, 0, 0.56286323, 359.15814, 32.292408, 180.51375)
@@ -527,6 +247,190 @@ lock = true
 
 [node name="Targeting" parent="Environment/Enemy3/VehicleShape/Base" parent_id_path=PackedInt32Array(1517723275, 533663966) index="0" unique_id=1156207078]
 transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
+
+[node name="Enemy10" parent="Environment" unique_id=629105349 instance=ExtResource("6_5ht65")]
+transform = Transform3D(-0.14922474, 0, -0.98880357, 0, 1, 0, 0.98880357, 0, -0.14922474, 276.952, 5.025093, -132.33)
+fire_rate = 0.5
+points_value = 15
+lock = true
+
+[node name="Targeting" parent="Environment/Enemy10/VehicleShape/Base" parent_id_path=PackedInt32Array(629105349, 533663966) index="0" unique_id=1156207078]
+transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
+
+[node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy10" index="1" unique_id=1247818257]
+enable_node_path = NodePath("../../Enemy10")
+
+[node name="Enemy11" parent="Environment" unique_id=1019668891 instance=ExtResource("6_5ht65")]
+transform = Transform3D(0.36999005, 0, -0.9290358, 0, 1, 0, 0.9290358, 0, 0.36999005, 512.50183, 5.025093, 248.37509)
+fire_rate = 0.5
+points_value = 15
+lock = true
+
+[node name="Targeting" parent="Environment/Enemy11/VehicleShape/Base" parent_id_path=PackedInt32Array(1019668891, 533663966) index="0" unique_id=1156207078]
+transform = Transform3D(0.99894613, -0.04589679, 0.0002270937, 0.04472171, 0.97223324, -0.2297008, 0.010321617, 0.22946887, 0.97326136, 0, 20.742098, 0)
+
+[node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy11" index="1" unique_id=1247818257]
+enable_node_path = NodePath("../../Enemy11")
+
+[node name="Enemy12" parent="Environment" unique_id=1906689040 instance=ExtResource("6_5ht65")]
+transform = Transform3D(-0.32667366, 0, -0.9451374, 0, 1, 0, 0.9451374, 0, -0.32667366, 791.8711, 30.782402, 85.74278)
+fire_rate = 0.5
+points_value = 15
+lock = true
+
+[node name="Targeting" parent="Environment/Enemy12/VehicleShape/Base" parent_id_path=PackedInt32Array(1906689040, 533663966) index="0" unique_id=1156207078]
+transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
+
+[node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy12" index="1" unique_id=1247818257]
+enable_node_path = NodePath("../../Enemy12")
+
+[node name="Enemy13" parent="Environment" unique_id=1902943203 instance=ExtResource("6_5ht65")]
+transform = Transform3D(0.37334406, 0, -0.92769307, 0, 1, 0, 0.92769307, 0, 0.37334406, 450.684, 5.025093, 101.123)
+fire_rate = 0.5
+points_value = 15
+lock = true
+
+[node name="Targeting" parent="Environment/Enemy13/VehicleShape/Base" parent_id_path=PackedInt32Array(1902943203, 533663966) index="0" unique_id=1156207078]
+transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
+
+[node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy13" index="1" unique_id=1247818257]
+enable_node_path = NodePath("../../Enemy13")
+
+[node name="Enemy14" parent="Environment" unique_id=1435298892 instance=ExtResource("6_5ht65")]
+transform = Transform3D(0.31505278, 0, -0.94907427, 0, 1, 0, 0.94907427, 0, 0.31505278, 261.73114, 30.782402, 143.69319)
+fire_rate = 0.5
+points_value = 15
+lock = true
+
+[node name="Targeting" parent="Environment/Enemy14/VehicleShape/Base" parent_id_path=PackedInt32Array(1435298892, 533663966) index="0" unique_id=1156207078]
+transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
+
+[node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy14" index="1" unique_id=1247818257]
+enable_node_path = NodePath("../../Enemy14")
+
+[node name="Enemy15" parent="Environment" unique_id=388776095 instance=ExtResource("6_5ht65")]
+transform = Transform3D(-0.34477395, 0, -0.9386857, 0, 1, 0, 0.9386857, 0, -0.34477395, 469.75018, 5.025093, -207.61633)
+fire_rate = 0.5
+points_value = 15
+lock = true
+
+[node name="Targeting" parent="Environment/Enemy15/VehicleShape/Base" parent_id_path=PackedInt32Array(388776095, 533663966) index="0" unique_id=1156207078]
+transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
+
+[node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy15" index="1" unique_id=1247818257]
+enable_node_path = NodePath("../../Enemy15")
+
+[node name="Enemy" parent="Environment" unique_id=2107312701 instance=ExtResource("6_5ht65")]
+transform = Transform3D(-0.3134788, 0, -0.94959533, 0, 1, 0, 0.94959533, 0, -0.3134788, 823.328, 30.782402, -102.69564)
+fire_rate = 0.5
+points_value = 15
+lock = true
+
+[node name="Targeting" parent="Environment/Enemy/VehicleShape/Base" parent_id_path=PackedInt32Array(2107312701, 533663966) index="0" unique_id=1156207078]
+transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
+
+[node name="EnvironmentOld" type="Node3D" parent="." unique_id=947734760]
+
+[node name="Aremag" type="Node3D" parent="EnvironmentOld" unique_id=1066586600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5258789e-05, 0)
+
+[node name="Leg" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=145824785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 55.42334, -160)
+radius = 40.0
+height = 110.84668
+material = SubResource("StandardMaterial3D_ybn0o")
+
+[node name="Leg2" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1883393676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 46.994873, 160)
+radius = 40.0
+height = 93.989746
+material = SubResource("StandardMaterial3D_ybn0o")
+
+[node name="Leg3" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1633188173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 57.52466, -160)
+radius = 40.0
+height = 115.04932
+material = SubResource("StandardMaterial3D_ybn0o")
+
+[node name="Leg4" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1555390072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 51.238525, 160)
+radius = 40.0
+height = 102.47705
+material = SubResource("StandardMaterial3D_ybn0o")
+
+[node name="Tail" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1378939134]
+transform = Transform3D(1, 0, 0, 0, -0.15486555, -0.98793554, 0, 0.98793554, -0.15486555, 1100, 51.239, 251.60501)
+radius = 40.0
+height = 102.47705
+cone = true
+material = SubResource("StandardMaterial3D_ybn0o")
+
+[node name="Head" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=2085846170]
+transform = Transform3D(1, 0, 0, 0, -0.16811085, -0.9857681, 0, 0.9857681, -0.16811085, 1100, 102.12639, -270.654)
+radius = 40.0
+height = 102.47705
+material = SubResource("StandardMaterial3D_ybn0o")
+
+[node name="Beak" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1074838756]
+transform = Transform3D(1, 0, 0, 0, -0.3555475, 0.9346582, 0, -0.9346582, -0.3555475, 1100, 92.84761, -341.2938)
+radius = 40.0
+height = 33.503
+cone = true
+material = SubResource("StandardMaterial3D_ybn0o")
+
+[node name="Beak2" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1474793068]
+transform = Transform3D(1, 0, 0, 0, 0.16850653, 0.9857005, 0, -0.9857005, 0.16850653, 1100, 128.26317, -335.94858)
+radius = 40.0
+height = 33.503
+cone = true
+material = SubResource("StandardMaterial3D_ybn0o")
+
+[node name="Shell" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=88651528]
+transform = Transform3D(0.79999995, 0, 0, 0, 0.9982993, -0.06121062, 0, 0.05829583, 1.0482142, 1100, 113.69235, 0)
+radius = 250.0
+height = 30.0
+material = SubResource("StandardMaterial3D_5ht65")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="EnvironmentOld/Aremag" unique_id=790233161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 200.51367, -104.31898)
+size = Vector3(100, 150, 207.815)
+material = ExtResource("2_ybn0o")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="EnvironmentOld/Aremag" unique_id=1817377723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 168.5641, 155.69514)
+size = Vector3(80, 130, 120.12)
+material = ExtResource("2_ybn0o")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="EnvironmentOld/Aremag" unique_id=851814606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 184.11061, 58.69348)
+size = Vector3(75, 40, 200)
+material = ExtResource("2_ybn0o")
+
+[node name="CSGBox3D4" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1933225990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 340.60104, -162.8387)
+radius = 25.0
+height = 117.44
+cone = true
+material = ExtResource("2_ybn0o")
+
+[node name="CSGBox3D5" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1122311081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 332.44806, -99.08942)
+radius = 25.0
+height = 101.13406
+cone = true
+material = ExtResource("2_ybn0o")
+
+[node name="CSGBox3D6" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1423472234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 318.40405, -32.7424)
+radius = 25.0
+height = 73.046036
+cone = true
+material = ExtResource("2_ybn0o")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="EnvironmentOld/Aremag" unique_id=1993601566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1067.081, 132.11937, -304.15924)
+radius = 5.87
+material = SubResource("StandardMaterial3D_puiq6")
 
 [node name="Turrets" type="Node3D" parent="." unique_id=1818706688]
 
@@ -619,21 +523,21 @@ transform = Transform3D(-3.812345e-08, -0.35112244, 0.93632644, -1.4901159e-08, 
 [node name="Area3D" parent="EnemyPath2" index="1" unique_id=645709908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -193.76466, 0, 0)
 
-[editable path="Environment/Pillar10/Enemy"]
-[editable path="Environment/Pillar11/Enemy"]
-[editable path="Environment/Pillar16/Enemy"]
-[editable path="Environment/Pillar36/Enemy"]
-[editable path="Environment/Pillar17/Enemy"]
-[editable path="Environment/Pillar21/Enemy"]
-[editable path="Environment/Pillar22/Enemy"]
-[editable path="Environment/Pillar29/Enemy"]
 [editable path="Environment/Enemy4"]
+[editable path="Environment/Enemy9"]
 [editable path="Environment/Enemy5"]
 [editable path="Environment/Enemy6"]
 [editable path="Environment/Enemy7"]
 [editable path="Environment/Enemy8"]
 [editable path="Environment/Enemy2"]
 [editable path="Environment/Enemy3"]
+[editable path="Environment/Enemy10"]
+[editable path="Environment/Enemy11"]
+[editable path="Environment/Enemy12"]
+[editable path="Environment/Enemy13"]
+[editable path="Environment/Enemy14"]
+[editable path="Environment/Enemy15"]
+[editable path="Environment/Enemy"]
 [editable path="EnemyPath4"]
 [editable path="EnemyPath5"]
 [editable path="EnemyPath6"]
