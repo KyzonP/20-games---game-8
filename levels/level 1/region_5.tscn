@@ -44,6 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 800, 80, 0)
 script = ExtResource("7_a22uk")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="BossFightStart2" unique_id=1426289434]
+visible = false
 size = Vector3(10, 10, 10)
 
 [node name="TestRock(Landmark)" type="CSGBox3D" parent="." unique_id=520132270]
@@ -61,10 +62,7 @@ shape = SubResource("BoxShape3D_u4o28")
 [node name="Environment" type="Node3D" parent="." unique_id=1339071652]
 
 [node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("1_u4o28")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
-
-[node name="GroundPlane2" parent="Environment" unique_id=642138782 instance=ExtResource("1_u4o28")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 5000, 0, 0)
 
 [node name="Start" parent="." unique_id=1687684907 instance=ExtResource("2_niykl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)

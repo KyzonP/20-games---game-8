@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d1jh0l1yuh040"]
+
+[ext_resource type="PackedScene" uid="uid://5yk63giha8de" path="res://models/player/BunnyVehicle.gltf" id="1_m6b82"]
+
+[node name="bunny_model" unique_id=991197752 instance=ExtResource("1_m6b82")]
