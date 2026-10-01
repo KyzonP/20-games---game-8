@@ -10,6 +10,8 @@ var enemies : Array[Node] = []
 ## If the path goes 'around' the player
 @export var follow_player : bool = false
 
+var boss_enemy : bool = false
+
 var end_margin : float = 0.01
 var active : bool = false
 
@@ -57,6 +59,10 @@ func _spawn_enemies() -> void:
 		# disable if checked
 		if not enemyTarget:
 			enemy.disable_rotation()
+			
+		# if boss, worthless
+		if boss_enemy:
+			enemy.points_value = 0
 		
 func _on_enemy_defeated(enemy_node) -> void:
 	enemies.erase(enemy_node)

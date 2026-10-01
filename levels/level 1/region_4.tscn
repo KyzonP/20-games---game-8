@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/environment/ground_plane.tscn" id="1_csx4r"]
 [ext_resource type="Script" uid="uid://cwj4f1gdf2uh1" path="res://scripts/region_load_unload.gd" id="1_r2a5k"]
 [ext_resource type="PackedScene" uid="uid://cctg0l1whxc5c" path="res://scenes/environment/start.tscn" id="2_lpsbc"]
-[ext_resource type="Material" uid="uid://b7ftt6ogkrmme" path="res://materials/test_rock.tres" id="2_ybn0o"]
 [ext_resource type="PackedScene" uid="uid://brp3dx3520que" path="res://scenes/environment/end.tscn" id="3_nn60d"]
 [ext_resource type="PackedScene" uid="uid://c45x7bwpwt020" path="res://models/terrain/small_pillar.tscn" id="3_x0hta"]
 [ext_resource type="PackedScene" uid="uid://88yvki3ukcg" path="res://scenes/enemies/powerup.tscn" id="4_nn60d"]
+[ext_resource type="PackedScene" uid="uid://dgt1g1l72owen" path="res://models/aremag/aremag.gltf" id="5_x0hta"]
 [ext_resource type="PackedScene" uid="uid://bo4ktkono442i" path="res://scenes/enemies/turret_enemy.tscn" id="6_5ht65"]
 [ext_resource type="PackedScene" uid="uid://3hkf45g43jbb" path="res://scenes/enemies/enemy_path.tscn" id="7_05pk6"]
 [ext_resource type="Curve3D" uid="uid://bwqlw7kg5aq1g" path="res://flight_paths/follow_left_right.tres" id="8_m1ha3"]
@@ -20,15 +20,6 @@ albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_csx4r"]
 size = Vector3(5, 30, 5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybn0o"]
-albedo_color = Color(0.01082185, 0.27223065, 0.015853139, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ht65"]
-albedo_color = Color(0.6294227, 0.4575622, 0.19961396, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_puiq6"]
-albedo_color = Color(0, 0, 0, 1)
 
 [node name="region_4" type="Node3D" unique_id=1739981121]
 script = ExtResource("1_r2a5k")
@@ -176,17 +167,11 @@ fire_rate = 0.5
 points_value = 15
 lock = true
 
-[node name="Targeting" parent="Environment/Enemy4/VehicleShape/Base" parent_id_path=PackedInt32Array(1738750486, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
-
 [node name="Enemy9" parent="Environment" unique_id=413292799 instance=ExtResource("6_5ht65")]
-transform = Transform3D(-0.06019492, 0, -0.99818677, 0, 1, 0, 0.99818677, 0, -0.06019492, 680.8603, 30.782402, -128.87762)
+transform = Transform3D(-0.06019492, 0, -0.99818677, 0, 1, 0, 0.99818677, 0, -0.06019492, 681.7913, 34.166225, -130.39151)
 fire_rate = 0.5
 points_value = 15
 lock = true
-
-[node name="Targeting" parent="Environment/Enemy9/VehicleShape/Base" parent_id_path=PackedInt32Array(413292799, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy9" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy9")
@@ -197,17 +182,11 @@ fire_rate = 0.5
 points_value = 15
 lock = true
 
-[node name="Targeting" parent="Environment/Enemy5/VehicleShape/Base" parent_id_path=PackedInt32Array(976407548, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
-
 [node name="Enemy6" parent="Environment" unique_id=1722514408 instance=ExtResource("6_5ht65")]
 transform = Transform3D(0.4853596, 0, -0.8743159, 0, 1, 0, 0.8743159, 0, 0.4853596, 523.9707, 32.292408, 180.51375)
 fire_rate = 0.5
 points_value = 15
 lock = true
-
-[node name="Targeting" parent="Environment/Enemy6/VehicleShape/Base" parent_id_path=PackedInt32Array(1722514408, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
 
 [node name="Enemy7" parent="Environment" unique_id=963657406 instance=ExtResource("6_5ht65")]
 transform = Transform3D(-0.04919857, 0, -0.9987905, 0, 1, 0, 0.9987905, 0, -0.04919857, 645.06476, 32.292408, 248.16417)
@@ -215,17 +194,11 @@ fire_rate = 0.5
 points_value = 15
 lock = true
 
-[node name="Targeting" parent="Environment/Enemy7/VehicleShape/Base" parent_id_path=PackedInt32Array(963657406, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
-
 [node name="Enemy8" parent="Environment" unique_id=422412144 instance=ExtResource("6_5ht65")]
 transform = Transform3D(0.91317064, 0, -0.4075823, 0, 1, 0, 0.4075823, 0, 0.91317064, 766.5155, 32.292408, 179.8528)
 fire_rate = 0.5
 points_value = 15
 lock = true
-
-[node name="Targeting" parent="Environment/Enemy8/VehicleShape/Base" parent_id_path=PackedInt32Array(422412144, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
 
 [node name="Enemy2" parent="Environment" unique_id=1041008605 instance=ExtResource("6_5ht65")]
 transform = Transform3D(-0.14922479, 0, -0.98880404, 0, 1, 0, 0.98880404, 0, -0.14922479, 421.54297, 30.567146, -132.33)
@@ -233,65 +206,44 @@ fire_rate = 0.5
 points_value = 15
 lock = true
 
-[node name="Base" parent="Environment/Enemy2/VehicleShape" parent_id_path=PackedInt32Array(1041008605, 1287704595) index="0" unique_id=533663966]
-transform = Transform3D(0.9279468, 0, -0.3727125, 0, 1, 0, 0.3727125, 0, 0.9279468, 0, -12.609619, 0)
-
-[node name="Targeting" parent="Environment/Enemy2/VehicleShape/Base" index="0" unique_id=1156207078]
-transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
-
 [node name="Enemy3" parent="Environment" unique_id=1517723275 instance=ExtResource("6_5ht65")]
 transform = Transform3D(-0.35278937, 0, -0.9357039, 0, 1, 0, 0.9357039, 0, -0.35278937, 617.7269, 30.567146, -196.67703)
 fire_rate = 0.5
 points_value = 15
 lock = true
 
-[node name="Targeting" parent="Environment/Enemy3/VehicleShape/Base" parent_id_path=PackedInt32Array(1517723275, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
-
 [node name="Enemy10" parent="Environment" unique_id=629105349 instance=ExtResource("6_5ht65")]
-transform = Transform3D(-0.14922474, 0, -0.98880357, 0, 1, 0, 0.98880357, 0, -0.14922474, 276.952, 5.025093, -132.33)
+transform = Transform3D(-0.14922474, 0, -0.98880357, 0, 1, 0, 0.98880357, 0, -0.14922474, 276.952, 9.290559, -132.33)
 fire_rate = 0.5
 points_value = 15
 lock = true
-
-[node name="Targeting" parent="Environment/Enemy10/VehicleShape/Base" parent_id_path=PackedInt32Array(629105349, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9871859, -0.1565301, 0.031017914, 0.1590205, 0.9488275, -0.27283502, 0.013276219, 0.2742714, 0.9615608, 0, 20.742098, 0)
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy10" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy10")
 
 [node name="Enemy11" parent="Environment" unique_id=1019668891 instance=ExtResource("6_5ht65")]
-transform = Transform3D(0.36999005, 0, -0.9290358, 0, 1, 0, 0.9290358, 0, 0.36999005, 512.50183, 5.025093, 248.37509)
+transform = Transform3D(0.36999005, 0, -0.9290358, 0, 1, 0, 0.9290358, 0, 0.36999005, 512.50183, 10.936155, 248.37509)
 fire_rate = 0.5
 points_value = 15
 lock = true
-
-[node name="Targeting" parent="Environment/Enemy11/VehicleShape/Base" parent_id_path=PackedInt32Array(1019668891, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.99894613, -0.04589679, 0.0002270937, 0.04472171, 0.97223324, -0.2297008, 0.010321617, 0.22946887, 0.97326136, 0, 20.742098, 0)
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy11" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy11")
 
 [node name="Enemy12" parent="Environment" unique_id=1906689040 instance=ExtResource("6_5ht65")]
-transform = Transform3D(-0.32667366, 0, -0.9451374, 0, 1, 0, 0.9451374, 0, -0.32667366, 791.8711, 30.782402, 85.74278)
+transform = Transform3D(-0.32667366, 0, -0.9451374, 0, 1, 0, 0.9451374, 0, -0.32667366, 794.1172, 33.989594, 86.89882)
 fire_rate = 0.5
 points_value = 15
 lock = true
-
-[node name="Targeting" parent="Environment/Enemy12/VehicleShape/Base" parent_id_path=PackedInt32Array(1906689040, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy12" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy12")
 
 [node name="Enemy13" parent="Environment" unique_id=1902943203 instance=ExtResource("6_5ht65")]
-transform = Transform3D(0.37334406, 0, -0.92769307, 0, 1, 0, 0.92769307, 0, 0.37334406, 450.684, 5.025093, 101.123)
+transform = Transform3D(0.37334406, 0, -0.92769307, 0, 1, 0, 0.92769307, 0, 0.37334406, 450.684, 9.495078, 101.123)
 fire_rate = 0.5
 points_value = 15
 lock = true
-
-[node name="Targeting" parent="Environment/Enemy13/VehicleShape/Base" parent_id_path=PackedInt32Array(1902943203, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy13" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy13")
@@ -302,20 +254,14 @@ fire_rate = 0.5
 points_value = 15
 lock = true
 
-[node name="Targeting" parent="Environment/Enemy14/VehicleShape/Base" parent_id_path=PackedInt32Array(1435298892, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
-
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy14" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy14")
 
 [node name="Enemy15" parent="Environment" unique_id=388776095 instance=ExtResource("6_5ht65")]
-transform = Transform3D(-0.34477395, 0, -0.9386857, 0, 1, 0, 0.9386857, 0, -0.34477395, 469.75018, 5.025093, -207.61633)
+transform = Transform3D(-0.34477395, 0, -0.9386857, 0, 1, 0, 0.9386857, 0, -0.34477395, 469.75018, 10.283535, -207.61633)
 fire_rate = 0.5
 points_value = 15
 lock = true
-
-[node name="Targeting" parent="Environment/Enemy15/VehicleShape/Base" parent_id_path=PackedInt32Array(388776095, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy15" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy15")
@@ -326,131 +272,28 @@ fire_rate = 0.5
 points_value = 15
 lock = true
 
-[node name="Targeting" parent="Environment/Enemy/VehicleShape/Base" parent_id_path=PackedInt32Array(2107312701, 533663966) index="0" unique_id=1156207078]
-transform = Transform3D(0.9892235, -0.14394347, 0.026777506, 0.14394346, 0.9226862, -0.35767367, 0.026777506, 0.35767367, 0.9334626, 0, 20.742098, 0)
-
-[node name="EnvironmentOld" type="Node3D" parent="." unique_id=947734760]
-
-[node name="Aremag" type="Node3D" parent="EnvironmentOld" unique_id=1066586600]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5258789e-05, 0)
-
-[node name="Leg" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=145824785]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 55.42334, -160)
-radius = 40.0
-height = 110.84668
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Leg2" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1883393676]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 46.994873, 160)
-radius = 40.0
-height = 93.989746
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Leg3" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1633188173]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 57.52466, -160)
-radius = 40.0
-height = 115.04932
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Leg4" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1555390072]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 51.238525, 160)
-radius = 40.0
-height = 102.47705
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Tail" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1378939134]
-transform = Transform3D(1, 0, 0, 0, -0.15486555, -0.98793554, 0, 0.98793554, -0.15486555, 1100, 51.239, 251.60501)
-radius = 40.0
-height = 102.47705
-cone = true
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Head" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=2085846170]
-transform = Transform3D(1, 0, 0, 0, -0.16811085, -0.9857681, 0, 0.9857681, -0.16811085, 1100, 102.12639, -270.654)
-radius = 40.0
-height = 102.47705
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Beak" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1074838756]
-transform = Transform3D(1, 0, 0, 0, -0.3555475, 0.9346582, 0, -0.9346582, -0.3555475, 1100, 92.84761, -341.2938)
-radius = 40.0
-height = 33.503
-cone = true
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Beak2" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1474793068]
-transform = Transform3D(1, 0, 0, 0, 0.16850653, 0.9857005, 0, -0.9857005, 0.16850653, 1100, 128.26317, -335.94858)
-radius = 40.0
-height = 33.503
-cone = true
-material = SubResource("StandardMaterial3D_ybn0o")
-
-[node name="Shell" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=88651528]
-transform = Transform3D(0.79999995, 0, 0, 0, 0.9982993, -0.06121062, 0, 0.05829583, 1.0482142, 1100, 113.69235, 0)
-radius = 250.0
-height = 30.0
-material = SubResource("StandardMaterial3D_5ht65")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="EnvironmentOld/Aremag" unique_id=790233161]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 200.51367, -104.31898)
-size = Vector3(100, 150, 207.815)
-material = ExtResource("2_ybn0o")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="EnvironmentOld/Aremag" unique_id=1817377723]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 168.5641, 155.69514)
-size = Vector3(80, 130, 120.12)
-material = ExtResource("2_ybn0o")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="EnvironmentOld/Aremag" unique_id=851814606]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 184.11061, 58.69348)
-size = Vector3(75, 40, 200)
-material = ExtResource("2_ybn0o")
-
-[node name="CSGBox3D4" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1933225990]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 340.60104, -162.8387)
-radius = 25.0
-height = 117.44
-cone = true
-material = ExtResource("2_ybn0o")
-
-[node name="CSGBox3D5" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1122311081]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 332.44806, -99.08942)
-radius = 25.0
-height = 101.13406
-cone = true
-material = ExtResource("2_ybn0o")
-
-[node name="CSGBox3D6" type="CSGCylinder3D" parent="EnvironmentOld/Aremag" unique_id=1423472234]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1069.5585, 318.40405, -32.7424)
-radius = 25.0
-height = 73.046036
-cone = true
-material = ExtResource("2_ybn0o")
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="EnvironmentOld/Aremag" unique_id=1993601566]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1067.081, 132.11937, -304.15924)
-radius = 5.87
-material = SubResource("StandardMaterial3D_puiq6")
+[node name="aremag" parent="Environment" unique_id=320909641 instance=ExtResource("5_x0hta")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1067.9904, 170.2013, 18.004135)
 
 [node name="Turrets" type="Node3D" parent="." unique_id=1818706688]
 
 [node name="Enemy" parent="Turrets" unique_id=1877376069 instance=ExtResource("6_5ht65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.57108, 4.7677765, 20.216305)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.57108, 8.490385, 20.216305)
 
 [node name="Enemy2" parent="Turrets" unique_id=1698730651 instance=ExtResource("6_5ht65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 380.03214, 4.7677765, -1.7010965)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 380.03214, 7.3065434, -1.7010965)
 
 [node name="Enemy3" parent="Turrets" unique_id=1275905500 instance=ExtResource("6_5ht65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 683.96326, 4.7677765, -14.64745)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 683.96326, 10.406975, -14.64745)
 
 [node name="Enemy4" parent="Turrets" unique_id=1299741283 instance=ExtResource("6_5ht65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 493.8722, 14.91042, 21.690723)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 497.52237, 16.240341, 21.690723)
 
 [node name="Enemy5" parent="Turrets" unique_id=474045839 instance=ExtResource("6_5ht65")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 553.6451, 7.4826403, 5.8279037)
 
 [node name="Enemy6" parent="Turrets" unique_id=2090797732 instance=ExtResource("6_5ht65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 704.13983, 0.48167133, 13.063889)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 704.13983, 5.3676558, 13.063889)
 
 [node name="Enemy7" parent="Turrets" unique_id=2023398684 instance=ExtResource("6_5ht65")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.20105, 22.117115, 16.828617)
@@ -524,20 +367,35 @@ transform = Transform3D(-3.812345e-08, -0.35112244, 0.93632644, -1.4901159e-08, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -193.76466, 0, 0)
 
 [editable path="Environment/Enemy4"]
+[editable path="Environment/Enemy4/turret_enemy"]
 [editable path="Environment/Enemy9"]
+[editable path="Environment/Enemy9/turret_enemy"]
 [editable path="Environment/Enemy5"]
+[editable path="Environment/Enemy5/turret_enemy"]
 [editable path="Environment/Enemy6"]
+[editable path="Environment/Enemy6/turret_enemy"]
 [editable path="Environment/Enemy7"]
+[editable path="Environment/Enemy7/turret_enemy"]
 [editable path="Environment/Enemy8"]
+[editable path="Environment/Enemy8/turret_enemy"]
 [editable path="Environment/Enemy2"]
+[editable path="Environment/Enemy2/turret_enemy"]
 [editable path="Environment/Enemy3"]
+[editable path="Environment/Enemy3/turret_enemy"]
 [editable path="Environment/Enemy10"]
+[editable path="Environment/Enemy10/turret_enemy"]
 [editable path="Environment/Enemy11"]
+[editable path="Environment/Enemy11/turret_enemy"]
 [editable path="Environment/Enemy12"]
+[editable path="Environment/Enemy12/turret_enemy"]
 [editable path="Environment/Enemy13"]
+[editable path="Environment/Enemy13/turret_enemy"]
 [editable path="Environment/Enemy14"]
+[editable path="Environment/Enemy14/turret_enemy"]
 [editable path="Environment/Enemy15"]
+[editable path="Environment/Enemy15/turret_enemy"]
 [editable path="Environment/Enemy"]
+[editable path="Environment/Enemy/turret_enemy"]
 [editable path="EnemyPath4"]
 [editable path="EnemyPath5"]
 [editable path="EnemyPath6"]

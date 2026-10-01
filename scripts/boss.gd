@@ -32,15 +32,19 @@ var spawnTimer : float = 0.0
 enum States {IDLE, FIRING, SPAWNING, TRANSITION}
 
 var state : States = States.IDLE
+
+## animation ##
 var moveTween
 var rotateTween
+@onready var anim = find_child("mantis_body_adjusted")
+
 
 ### Firing Variables ###
 var bulletObject = load("res://scenes/bullet.tscn")
 
-@onready var l_targeting = find_child("LeftBarrel")
+@onready var l_targeting = find_child("left_hand")
 @onready var l_fire_point = find_child("LeftFirePoint")
-@onready var r_targeting = find_child("RightBarrel")
+@onready var r_targeting = find_child("right_hand")
 @onready var r_fire_point = find_child("RightFirePoint")
 
 @export var shootTimerMax : float = 0.2
@@ -55,12 +59,16 @@ var rightPath = load("res://flight_paths/boss_right.tres")
 var enemyTimer : float = 0.0
 
 func _ready():
+	anim.legs_vanish()
+	
 	_link_signals()
 	_choose_destination()
 	
 	$BossFightStart.start_fight.connect(start)
 	
 func _physics_process(delta):
+	_sync_fire_points()
+	
 	if state == States.IDLE:
 		pass
 	elif state == States.FIRING:
@@ -89,10 +97,26 @@ func _physics_process(delta):
 			enemyTimer = 0
 			_spawn()
 			
+func _sync_fire_points():
+	if "target" in l_targeting and is_instance_valid(l_targeting.target):
+		l_fire_point.look_at(l_targeting.target.global_position, Vector3.UP)
+	else:
+		l_fire_point.global_rotation = l_targeting.global_rotation
+	if "target" in r_targeting and is_instance_valid(r_targeting.target):
+		r_fire_point.look_at(r_targeting.target.global_position, Vector3.UP)
+	else:
+		r_fire_point.global_rotation = r_targeting.global_rotation
+			
 func start():
 	state = States.FIRING
 		
 func fire_to_spawn():
+	# anim
+	l_targeting.disabled = true
+	r_targeting.disabled = true
+	
+	anim.wings_open()
+	
 	# cancel the move tween, go to start position, then rotate and move backwards
 	if moveTween:
 		moveTween.kill()
@@ -115,9 +139,18 @@ func fire_to_spawn():
 	moveTween.tween_property(self, "position", spawnPos, transitionTime)
 	await moveTween.finished
 	
+	# anim
+	anim.legs_appear()
+	
 	state = States.SPAWNING
 	
 func spawn_to_fire():
+	# anim
+	l_targeting.disabled = false
+	r_targeting.disabled = false
+	
+	anim.legs_vanish()
+	
 	if rotateTween:
 		rotateTween.kill()
 		
@@ -132,14 +165,20 @@ func spawn_to_fire():
 	
 	state = States.FIRING
 	
+	anim.wings_close()
+	
 	_choose_destination()
 	
 func _shoot(fire_point):
 	var bullet = bulletObject.instantiate()
 	get_tree().root.get_child(0).add_child(bullet)
 	bullet.global_position = fire_point.global_position
+	
 	bullet.rotation = fire_point.global_rotation
 	bullet.enemyBullet()
+	
+	bullet.global_rotation = fire_point.global_rotation
+	bullet.rotate_object_local(Vector3.RIGHT, deg_to_rad(4))
 	
 func _spawn():
 	var enemy = enemyObject.instantiate()
@@ -147,6 +186,7 @@ func _spawn():
 	enemy.global_position = Vector3(4000,0,0)
 	enemy.follow_player = false
 	enemy.speed = 35.0
+	enemy.boss_enemy = true
 	enemy.activate(null)
 	
 	var dir = randi_range(0,1)

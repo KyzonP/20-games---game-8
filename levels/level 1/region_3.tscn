@@ -223,7 +223,7 @@ fire_distance = 100.0
 [node name="Start" parent="." unique_id=1036386572 instance=ExtResource("2_pyvi3")]
 
 [node name="End" parent="." unique_id=1295297433 instance=ExtResource("3_3i7uc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1050, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1195.8567, 0, 0)
 
 [node name="Powerup" parent="." unique_id=637849105 instance=ExtResource("7_d7ab5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 10, 0)

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bkddimf85yp5y"]
+
+[ext_resource type="PackedScene" uid="uid://ca1hfu0ko06pb" path="res://models/enemies/flying_enemy.gltf" id="1_ln57m"]
+
+[node name="flying_enemy_model" unique_id=16480185 instance=ExtResource("1_ln57m")]

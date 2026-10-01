@@ -2,15 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xj5qxp5jrfxp" path="res://scripts/turret_barrel.gd" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://l2san637eugn" path="res://scripts/turret_enemy.gd" id="1_md0e3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0e3"]
-albedo_color = Color(0.12955844, 0.12955847, 0.12955844, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ra3w"]
-albedo_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5uy6h"]
-albedo_color = Color(1, 0.19, 0.19, 1)
+[ext_resource type="PackedScene" uid="uid://dg8jqhch1w3a6" path="res://models/enemies/turret_enemy.tscn" id="2_qwbpo"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_md0e3"]
 height = 9.862305
@@ -22,32 +14,14 @@ collision_mask = 19
 script = ExtResource("1_md0e3")
 fire_distance = 300.0
 
-[node name="VehicleShape" type="Node3D" parent="." unique_id=1287704595]
+[node name="turret_enemy" parent="." unique_id=893040935 instance=ExtResource("2_qwbpo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 8.144831, 0)
 
-[node name="Base" type="CSGCylinder3D" parent="VehicleShape" unique_id=533663966]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.609619, 0)
-radius = 2.5
-height = 41.21924
-material = SubResource("StandardMaterial3D_md0e3")
-
-[node name="Targeting" type="CSGSphere3D" parent="VehicleShape/Base" unique_id=1156207078]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.742098, 0)
-radius = 2.0
-material = SubResource("StandardMaterial3D_4ra3w")
+[node name="targeting" parent="turret_enemy" index="1" unique_id=771221629]
 script = ExtResource("1_7p1mj")
 
-[node name="Barrel" type="CSGCylinder3D" parent="VehicleShape/Base/Targeting" unique_id=1637573947]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, 0, 0, -2.5)
-height = 5.0
-material = SubResource("StandardMaterial3D_5uy6h")
-
-[node name="FirePoint" type="Marker3D" parent="VehicleShape/Base/Targeting/Barrel" unique_id=245209090]
-transform = Transform3D(1.9106855e-15, 1, -4.371139e-08, 4.371139e-08, -4.371139e-08, -1, -1, 0, -4.371139e-08, 0.019893646, 2.8388746, 1.2409117e-07)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="VehicleShape" unique_id=1973825279]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0339646, 0)
-radius = 2.6
-height = 8.0
+[node name="FirePoint" type="Marker3D" parent="turret_enemy/targeting/barrel" parent_id_path=PackedInt32Array(893040935, 2047276445) index="0" unique_id=245209090]
+transform = Transform3D(0.5, 0, 0, 0, 0, -0.5, 0, 0.5, 0, -1.4210855e-14, 3.5694375, 0.0037708282)
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=1247818257]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.587078, 0)
@@ -55,3 +29,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.587078, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=628981273]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.876465, 0)
 shape = SubResource("CylinderShape3D_md0e3")
+
+[editable path="turret_enemy"]

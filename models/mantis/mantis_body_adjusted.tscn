@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://co03mklpfeq6e"]
+
+[ext_resource type="PackedScene" uid="uid://bn063851ncplw" path="res://models/mantis/mantis.gltf" id="1_744no"]
+
+[node name="mantis_body_adjusted" unique_id=1458563955 instance=ExtResource("1_744no")]

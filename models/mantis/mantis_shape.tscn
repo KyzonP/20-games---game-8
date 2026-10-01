@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dn8phjmjnfknd"]
+
+[ext_resource type="PackedScene" uid="uid://bn063851ncplw" path="res://models/mantis/mantis.gltf" id="1_dvjki"]
+
+[node name="mantis_shape" unique_id=872345568 instance=ExtResource("1_dvjki")]
+
+[node name="StaticBody3D" parent="body" parent_id_path=PackedInt32Array(2129641566) index="0" unique_id=1734746018]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="right_arm/right_arm" parent_id_path=PackedInt32Array(128190788) index="0" unique_id=155125893]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="right_arm/right_hand" parent_id_path=PackedInt32Array(1529720268) index="0" unique_id=1455102420]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="left_arm-col2/left_arm" parent_id_path=PackedInt32Array(1280212440) index="0" unique_id=1905895134]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="left_arm-col2/left_hand" parent_id_path=PackedInt32Array(445654643) index="0" unique_id=2052752277]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg/middle" parent_id_path=PackedInt32Array(745697531) index="0" unique_id=1815561991]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg/bottom" parent_id_path=PackedInt32Array(580005897) index="0" unique_id=2108321141]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg/upper" parent_id_path=PackedInt32Array(1723992984) index="0" unique_id=324109927]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg3/upper2" parent_id_path=PackedInt32Array(1869533729) index="0" unique_id=1474860915]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg3/middle2" parent_id_path=PackedInt32Array(1241926715) index="0" unique_id=1057046651]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg3/bottom2" parent_id_path=PackedInt32Array(1159217228) index="0" unique_id=1838614255]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg2/upper3" parent_id_path=PackedInt32Array(1966254741) index="0" unique_id=278003162]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg2/middle3" parent_id_path=PackedInt32Array(468500127) index="0" unique_id=542841257]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg2/bottom3" parent_id_path=PackedInt32Array(1938605670) index="0" unique_id=1885600286]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg4/upper4" parent_id_path=PackedInt32Array(1577944411) index="0" unique_id=1260689493]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg4/middle4" parent_id_path=PackedInt32Array(2057744606) index="0" unique_id=1467525170]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="leg4/bottom4" parent_id_path=PackedInt32Array(1362205175) index="0" unique_id=123894033]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="left_wing-col2/left_wing" parent_id_path=PackedInt32Array(991235935) index="0" unique_id=988633914]
+collision_layer = 16
+collision_mask = 10
+
+[node name="StaticBody3D" parent="right_wing-col2/right_wing" parent_id_path=PackedInt32Array(1027249396) index="0" unique_id=1023976062]
+collision_layer = 16
+collision_mask = 10

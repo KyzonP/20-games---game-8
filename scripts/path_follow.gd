@@ -1,7 +1,7 @@
 extends PathFollow3D
 
 @export var maxSpeed : float = 30.0
-@export var baseSpeed : float = 20.0
+@export var baseSpeed : float = 2000.0
 @export var minSpeed : float = 10.0
 
 @export var acceleration : float = 10.0

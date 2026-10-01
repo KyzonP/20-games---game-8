@@ -15,7 +15,7 @@ var target : Marker3D
 var shooting : bool = false
 
 @onready var fire_point = find_child("FirePoint")
-@onready var targeting = find_child("Targeting")
+@onready var targeting = find_child("targeting")
 
 signal defeated(enemy_node)
 

@@ -35,6 +35,7 @@ curve = SubResource("Curve3D_5pt6r")
 
 [node name="PathFollow3D" parent="Path3D" index="0" unique_id=66500086]
 transform = Transform3D(-4.3711236e-08, 0, -0.9999939, 0, 0.9999976, 0, 0.99999654, 0, -4.3711122e-08, 0, 15, 0)
+baseSpeed = 20.0
 
 [node name="region_1" parent="." unique_id=731808048 node_paths=PackedStringArray("next_region") instance=ExtResource("4_xmm5s")]
 next_region = NodePath("../region_2")
@@ -47,19 +48,15 @@ next_region = NodePath("../region_3")
 [node name="region_3" parent="." unique_id=1383658511 node_paths=PackedStringArray("next_region") instance=ExtResource("8_ba08l")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2000, 0, 0)
-visible = false
 next_region = NodePath("../region_4")
 
 [node name="region_4" parent="." unique_id=1739981121 node_paths=PackedStringArray("next_region") instance=ExtResource("9_slf20")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3000, 0, 0)
-visible = false
 next_region = NodePath("../region_5")
 
 [node name="region_5" parent="." unique_id=1230631783 node_paths=PackedStringArray("next_region") instance=ExtResource("10_wnnao")]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4000, 0, 0)
-visible = false
 next_region = NodePath(".")
 
 [editable path="Path3D"]

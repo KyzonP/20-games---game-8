@@ -1,0 +1,99 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bn063851ncplw"
+path="res://.godot/imported/mantis.gltf-1152cdad0928b7195fa4b2b4befd9d78.scn"
+
+[deps]
+
+source_file="res://models/mantis/mantis.gltf"
+dest_files=["res://.godot/imported/mantis.gltf-1152cdad0928b7195fa4b2b4befd9d78.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"nodes": {
+"PATH:left_arm-col2/left_arm/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:left_arm-col2/left_hand/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:left_wing-col2/left_wing/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg/bottom/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg/middle/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg/upper/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg2/bottom3/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg2/middle3/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg2/upper3/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg3/bottom2/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg3/middle2/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg3/upper2/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg4/bottom4/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg4/middle4/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:leg4/upper4/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:right_arm/right_arm/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:right_arm/right_hand/StaticBody3D": {
+"node/node_type": "Area3D"
+},
+"PATH:right_wing-col2/right_wing/StaticBody3D": {
+"node/node_type": "Area3D"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

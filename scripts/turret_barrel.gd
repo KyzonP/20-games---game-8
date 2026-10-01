@@ -1,4 +1,4 @@
-extends CSGSphere3D
+extends Node3D
 
 signal playerFound
 signal playerLost
@@ -11,7 +11,11 @@ signal playerLost
 
 @export var turn_range : float = 250.0
 
+@export var offset_rotation : bool = false
+
 var within_range : bool = false
+
+var is_player_found : bool = false
 
 var disabled : bool = false
 
@@ -33,17 +37,31 @@ func disable():
 func enable():
 	disabled = false
 	
-func _detect_target() -> void:
+func _detect_target() -> void:	
 	var forward_dir = global_transform.basis.z
+
+	if offset_rotation:
+		forward_dir = global_transform.basis.x
+	
 	var target_dir = (target.global_position - global_position).normalized()
 	
 	var angle_radians = forward_dir.angle_to(target_dir)
 	var angle_degrees = rad_to_deg(angle_radians)
 	
-	if angle_degrees >= detect_range:
-		playerFound.emit()
-	else:
-		playerLost.emit()
+	### updated code
+	var is_inside_cone = angle_degrees >= detect_range
+	
+	if is_inside_cone != is_player_found:
+		is_player_found = is_inside_cone
+		if is_player_found:
+			playerFound.emit()
+		else:
+			playerLost.emit()
+	
+	#if angle_degrees >= detect_range:
+		#playerFound.emit()
+	#else:
+		#playerLost.emit()
 		
 	if not within_range and self.global_position.distance_to(target.global_position) <= turn_range:
 		within_range = true
@@ -51,6 +69,10 @@ func _detect_target() -> void:
 func _rotate_towards(delta) -> void:
 	var current_rot = Quaternion(transform.basis)
 	look_at(target.global_position, Vector3.UP)
+	
+	if offset_rotation:
+		rotate_object_local(Vector3.UP, deg_to_rad(-90))
+	
 	var target_rot = Quaternion(transform.basis)
 	
 	var smooth_rot = current_rot.slerp(target_rot, speed * delta)
