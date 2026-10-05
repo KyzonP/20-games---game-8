@@ -1,5 +1,9 @@
 extends Area3D
 
+# Camera
+@export var maxCameraRotation : float = deg_to_rad(15.0)
+@export var cameraRotateAcceleration : float = 0.5
+
 # Movement
 ## Maximum the player ship can rotate during a move
 @export var maxRotation : float = deg_to_rad(30.0)
@@ -101,22 +105,29 @@ func move(delta) -> void:
 	if input_dir[0] < 0:
 		x_speed = move_toward(x_speed, -max_speed, delta * acceleration)
 		rotation.y = move_toward(rotation.y, maxRotation, delta * rotateAcceleration)
+		camera.rotation.y = move_toward(camera.rotation.y, maxCameraRotation, delta * cameraRotateAcceleration)
+		
 	elif input_dir[0] > 0:
 		x_speed = move_toward(x_speed, max_speed, delta * acceleration)
 		rotation.y = move_toward(rotation.y, -maxRotation, delta * rotateAcceleration)
+		camera.rotation.y = move_toward(camera.rotation.y, -maxCameraRotation, delta * cameraRotateAcceleration)
 	else:
 		x_speed = move_toward(x_speed, 0.0, delta * deceleration)
 		rotation.y = move_toward(rotation.y, 0, delta * rotateAcceleration)
+		camera.rotation.y = move_toward(camera.rotation.y, 0, delta * cameraRotateAcceleration)
 		
 	if input_dir[1] < 0:
 		y_speed = move_toward(y_speed, max_speed, delta * acceleration)
 		rotation.x = move_toward(rotation.x, maxRotation, delta * rotateAcceleration)
+		camera.rotation.x = move_toward(camera.rotation.x, maxCameraRotation, delta * cameraRotateAcceleration)
 	elif input_dir[1] > 0:
 		y_speed = move_toward(y_speed, -max_speed, delta * acceleration)
 		rotation.x = move_toward(rotation.x, -maxRotation, delta * rotateAcceleration)
+		camera.rotation.x = move_toward(camera.rotation.x, -maxCameraRotation, delta * cameraRotateAcceleration)
 	else:
 		y_speed = move_toward(y_speed, 0.0, delta * deceleration)
 		rotation.x = move_toward(rotation.x, 0, delta * rotateAcceleration)
+		camera.rotation.x = move_toward(camera.rotation.x, 0, delta * cameraRotateAcceleration)
 		
 	position += Vector3(x_speed, y_speed, 0.0) * delta
 		

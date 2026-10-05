@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://7u1hy0h7jsuf" path="res://levels/level 1/region_3.tscn" id="8_ba08l"]
 [ext_resource type="PackedScene" uid="uid://bh3ik5ri51i6a" path="res://levels/level 1/region_4.tscn" id="9_slf20"]
 [ext_resource type="PackedScene" uid="uid://ckpeh5ciqj6y5" path="res://levels/level 1/region_5.tscn" id="10_wnnao"]
+[ext_resource type="PackedScene" uid="uid://1scs4mgpljpy" path="res://scenes/dialogue_trigger.tscn" id="11_b1bl5"]
 
 [sub_resource type="Curve3D" id="Curve3D_5pt6r"]
 _data = {
@@ -22,6 +23,7 @@ point_count = 7
 script = ExtResource("1_3h2pi")
 
 [node name="UI" parent="." unique_id=780951930 instance=ExtResource("3_5pt6r")]
+dialogueVanishTime = 1.5
 
 [node name="DirectionalLight3D" parent="." unique_id=363381807 instance=ExtResource("1_6wlpe")]
 shadow_enabled = false
@@ -37,6 +39,9 @@ curve = SubResource("Curve3D_5pt6r")
 transform = Transform3D(-4.3711236e-08, 0, -0.9999939, 0, 0.9999976, 0, 0.99999654, 0, -4.3711122e-08, 0, 15, 0)
 baseSpeed = 20.0
 
+[node name="Player" parent="Path3D/PathFollow3D/Camera3D" parent_id_path=PackedInt32Array(750042012, 1485017049) index="0" unique_id=1601872703]
+cameraRotateAcceleration = 0.25
+
 [node name="region_1" parent="." unique_id=731808048 node_paths=PackedStringArray("next_region") instance=ExtResource("4_xmm5s")]
 next_region = NodePath("../region_2")
 
@@ -48,19 +53,90 @@ next_region = NodePath("../region_3")
 [node name="region_3" parent="." unique_id=1383658511 node_paths=PackedStringArray("next_region") instance=ExtResource("8_ba08l")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2000, 0, 0)
-visible = false
 next_region = NodePath("../region_4")
 
 [node name="region_4" parent="." unique_id=1739981121 node_paths=PackedStringArray("next_region") instance=ExtResource("9_slf20")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3000, 0, 0)
-visible = false
 next_region = NodePath("../region_5")
 
 [node name="region_5" parent="." unique_id=1230631783 node_paths=PackedStringArray("next_region") instance=ExtResource("10_wnnao")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4000, 0, 0)
-visible = false
 next_region = NodePath(".")
+
+[node name="DialogueTrigger" parent="." unique_id=147444104 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.4187, 0, 0)
+character = "Guardian"
+dialogue = "We set up some targets in the canyon up ahead for you to practice on."
+
+[node name="DialogueTrigger2" parent="." unique_id=334952987 instance=ExtResource("11_b1bl5")]
+character = "Bunny"
+dialogue = "Here goes nothing!"
+
+[node name="DialogueTrigger3" parent="." unique_id=2048096850 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 679.7639, 0, 0)
+character = "Bunny"
+dialogue = "That blue rune up ahead should power my blasts!"
+
+[node name="DialogueTrigger4" parent="." unique_id=1819144511 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 815.64166, 0, 0)
+character = "Groknack"
+dialogue = "SOMETHING'S FIRING AT YOU! DO AN AERILON ROLL!"
+
+[node name="DialogueTrigger5" parent="." unique_id=1749104370 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1090.1797, 0, 0)
+character = "Bunny"
+dialogue = "Looks like there are more of those constructs up ahead!"
+
+[node name="DialogueTrigger6" parent="." unique_id=1602290440 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1287.1671, 0, 0)
+character = "Guardian"
+dialogue = "You should get to Aremag. Head for the cave."
+
+[node name="DialogueTrigger7" parent="." unique_id=595807659 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1621.4099, 0, 0)
+character = "Groknack"
+dialogue = "I PUT THREE BOMBS ON BOARD. USE THEM IF YOU'RE OVERWHELMED."
+
+[node name="DialogueTrigger8" parent="." unique_id=1323536228 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2329.1094, 0, 0)
+character = "Guardian"
+dialogue = "Something about these constructs is familiar. Give me a moment."
+
+[node name="DialogueTrigger9" parent="." unique_id=701151851 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2649.3403, 0, 0)
+character = "Groknack"
+dialogue = "I LOVE CAVES"
+
+[node name="DialogueTrigger10" parent="." unique_id=1888096074 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3113.2947, 0, 0)
+character = "Guardian"
+dialogue = "As I thought. The Metal Mantis is behind this attack."
+
+[node name="DialogueTrigger11" parent="." unique_id=977644216 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3379.1619, 0, 0)
+character = "Groknack"
+dialogue = "THERE ARE SO MANY OF THEM. KILL THEM ALL, BUNNY!"
+
+[node name="DialogueTrigger12" parent="." unique_id=967151343 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3627.971, 0, 0)
+character = "Bunny"
+dialogue = "I think the Titan himself is just past Aremag! I'm going in for a closer look!"
+
+[node name="DialogueTrigger13" parent="." unique_id=353199786 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4127.743, 0, 0)
+character = "Guardian"
+dialogue = "Good luck, Bunny. The fate of Aremag is in your hands."
+
+[node name="DialogueTrigger14" parent="." unique_id=1992232602 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4369.1357, 50.2955, 0)
+character = "Groknack"
+dialogue = "YEAH NO PRESSURE!"
+
+[node name="DialogueTrigger15" parent="." unique_id=1850070294 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4589.028, 79.83327, 0)
+character = "Bunny"
+dialogue = "Really feeling the lack of pressure over here"
 
 [editable path="Path3D"]

@@ -17,3 +17,6 @@ signal bomb_activated(position, distance)
 
 @warning_ignore("unused_signal")
 signal powerup_activated()
+
+@warning_ignore("unused_signal")
+signal dialogue_trigger(character, dialogue)

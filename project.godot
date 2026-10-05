@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 EventBus="*uid://b8jctqtct0b8f"
 
+[display]
+
+window/size/resizable=false
+window/stretch/mode="viewport"
+
 [global_group]
 
 BossHit=""
