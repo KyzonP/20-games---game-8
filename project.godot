@@ -13,11 +13,15 @@ config_version=5
 config/name="20 Games - Game 8"
 run/main_scene="uid://d1isfs0kr24mo"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://k0syyacautxk"
 config/icon="res://icon.svg"
 
 [autoload]
 
 EventBus="*uid://b8jctqtct0b8f"
+Global="*uid://bbssc6o7nd2a0"
+SaveLoad="*uid://be5f50f1rocnk"
 
 [display]
 

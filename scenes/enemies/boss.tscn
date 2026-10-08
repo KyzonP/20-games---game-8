@@ -1,21 +1,12 @@
-[gd_scene format=3 uid="uid://ckpeh5ciqj6y5"]
+[gd_scene format=3 uid="uid://qaag7cvg37gm"]
 
-[ext_resource type="Script" uid="uid://cwj4f1gdf2uh1" path="res://scripts/region_load_unload.gd" id="1_emvkn"]
-[ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/environment/ground_plane.tscn" id="1_u4o28"]
-[ext_resource type="PackedScene" uid="uid://cctg0l1whxc5c" path="res://scenes/environment/start.tscn" id="2_niykl"]
-[ext_resource type="Script" uid="uid://bnqwx45q5c3xl" path="res://scripts/boss.gd" id="3_1klcw"]
-[ext_resource type="Script" uid="uid://dik10004qv68s" path="res://scripts/boss_hit_zone.gd" id="5_o6xsf"]
-[ext_resource type="Script" uid="uid://xj5qxp5jrfxp" path="res://scripts/turret_barrel.gd" id="6_o6xsf"]
-[ext_resource type="Script" uid="uid://b5dyq6e3r5n52" path="res://scripts/boss_fight_start.gd" id="7_a22uk"]
-[ext_resource type="PackedScene" uid="uid://co03mklpfeq6e" path="res://models/mantis/mantis_body_adjusted.tscn" id="8_ejmq7"]
-[ext_resource type="Script" uid="uid://0hpjn48fkvq4" path="res://scripts/boss_animation_controller.gd" id="9_gr180"]
-[ext_resource type="PackedScene" uid="uid://brp3dx3520que" path="res://scenes/environment/end.tscn" id="11_ejmq7"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7elg"]
-albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_u4o28"]
-size = Vector3(5, 30, 5)
+[ext_resource type="Script" uid="uid://bnqwx45q5c3xl" path="res://scripts/boss.gd" id="1_uq4kr"]
+[ext_resource type="Script" uid="uid://xj5qxp5jrfxp" path="res://scripts/turret_barrel.gd" id="2_7dnpc"]
+[ext_resource type="PackedScene" uid="uid://cctg0l1whxc5c" path="res://scenes/environment/start.tscn" id="3_h1cus"]
+[ext_resource type="Script" uid="uid://b5dyq6e3r5n52" path="res://scripts/boss_fight_start.gd" id="4_lia8m"]
+[ext_resource type="PackedScene" uid="uid://co03mklpfeq6e" path="res://models/mantis/mantis_body_adjusted.tscn" id="5_jc8i4"]
+[ext_resource type="Script" uid="uid://0hpjn48fkvq4" path="res://scripts/boss_animation_controller.gd" id="6_cbm28"]
+[ext_resource type="Script" uid="uid://dik10004qv68s" path="res://scripts/boss_hit_zone.gd" id="7_3e6u2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a22uk"]
 albedo_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
@@ -35,238 +26,197 @@ data = PackedVector3Array(61.49226, 34, 13.17692, 0, 34, 0, 22.50774, 34, 18, 22
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7gauv"]
 data = PackedVector3Array(61.49226, 34, 13.17692, 0, 34, 0, 22.50774, 34, 18, 22.50774, 34, 18, 61.49226, 36, 13.17692, 61.49226, 34, 13.17692, 22.50774, 34, 18, 22.50774, 36, 18, 61.49226, 36, 13.17692, 22.50774, 36, 18, 0, 36, 0, 61.49226, 36, 13.17692, 84, 34, 4.82308, 0, 34, 0, 61.49226, 34, 13.17692, 61.49226, 34, 13.17692, 84, 36, 4.82308, 84, 34, 4.82308, 61.49226, 34, 13.17692, 61.49226, 36, 13.17692, 84, 36, 4.82308, 61.49226, 36, 13.17692, 0, 36, 0, 84, 36, 4.82308, 84, 34, -4.82308, 0, 34, 0, 84, 34, 4.82308, 84, 34, 4.82308, 84, 36, -4.82308, 84, 34, -4.82308, 84, 34, 4.82308, 84, 36, 4.82308, 84, 36, -4.82308, 84, 36, 4.82308, 0, 36, 0, 84, 36, -4.82308, 61.49226, 34, -13.17692, 0, 34, 0, 84, 34, -4.82308, 84, 34, -4.82308, 61.49226, 36, -13.17692, 61.49226, 34, -13.17692, 84, 34, -4.82308, 84, 36, -4.82308, 61.49226, 36, -13.17692, 84, 36, -4.82308, 0, 36, 0, 61.49226, 36, -13.17692, 22.50774, 34, -18, 0, 34, 0, 61.49226, 34, -13.17692, 61.49226, 34, -13.17692, 22.50774, 36, -18, 22.50774, 34, -18, 61.49226, 34, -13.17692, 61.49226, 36, -13.17692, 22.50774, 36, -18, 61.49226, 36, -13.17692, 0, 36, 0, 22.50774, 36, -18, -22.50774, 34, -18, 0, 34, 0, 22.50774, 34, -18, 22.50774, 34, -18, -22.50774, 36, -18, -22.50774, 34, -18, 22.50774, 34, -18, 22.50774, 36, -18, -22.50774, 36, -18, 22.50774, 36, -18, 0, 36, 0, -22.50774, 36, -18, -61.49226, 34, -13.17692, 0, 34, 0, -22.50774, 34, -18, -22.50774, 34, -18, -61.49226, 36, -13.17692, -61.49226, 34, -13.17692, -22.50774, 34, -18, -22.50774, 36, -18, -61.49226, 36, -13.17692, -22.50774, 36, -18, 0, 36, 0, -61.49226, 36, -13.17692, -84, 34, -4.82308, 0, 34, 0, -61.49226, 34, -13.17692, -61.49226, 34, -13.17692, -84, 36, -4.82308, -84, 34, -4.82308, -61.49226, 34, -13.17692, -61.49226, 36, -13.17692, -84, 36, -4.82308, -61.49226, 36, -13.17692, 0, 36, 0, -84, 36, -4.82308, -84, 34, 4.82308, 0, 34, 0, -84, 34, -4.82308, -84, 34, -4.82308, -84, 36, 4.82308, -84, 34, 4.82308, -84, 34, -4.82308, -84, 36, -4.82308, -84, 36, 4.82308, -84, 36, -4.82308, 0, 36, 0, -84, 36, 4.82308, -61.49226, 34, 13.17692, 0, 34, 0, -84, 34, 4.82308, -84, 34, 4.82308, -61.49226, 36, 13.17692, -61.49226, 34, 13.17692, -84, 34, 4.82308, -84, 36, 4.82308, -61.49226, 36, 13.17692, -84, 36, 4.82308, 0, 36, 0, -61.49226, 36, 13.17692, -22.50774, 34, 18, 0, 34, 0, -61.49226, 34, 13.17692, -61.49226, 34, 13.17692, -22.50774, 36, 18, -22.50774, 34, 18, -61.49226, 34, 13.17692, -61.49226, 36, 13.17692, -22.50774, 36, 18, -61.49226, 36, 13.17692, 0, 36, 0, -22.50774, 36, 18, 22.50774, 34, 18, 0, 34, 0, -22.50774, 34, 18, -22.50774, 34, 18, 22.50774, 36, 18, 22.50774, 34, 18, -22.50774, 34, 18, -22.50774, 36, 18, 22.50774, 36, 18, -22.50774, 36, 18, 0, 36, 0, 22.50774, 36, 18)
 
-[node name="region_5" type="Node3D" unique_id=1230631783]
-script = ExtResource("1_emvkn")
-
-[node name="LeftFirePoint" type="Marker3D" parent="." unique_id=508918784]
-transform = Transform3D(1, 0, 0, -4.5e-44, 1, 0, 0, 0, 1, -20, 0.75, 72.5)
-
-[node name="RightFirePoint" type="Marker3D" parent="." unique_id=178283874]
-transform = Transform3D(1, 0, 0, -4.5e-44, 1, 0, 0, 0, 1, -20, 0.75, -72.5)
-
-[node name="BossFightStart2" parent="." unique_id=1036386572 instance=ExtResource("2_niykl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 800, 80, 0)
-script = ExtResource("7_a22uk")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="BossFightStart2" unique_id=1426289434]
-visible = false
-size = Vector3(10, 10, 10)
-
-[node name="TestRock(Landmark)" type="CSGBox3D" parent="." unique_id=520132270]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -250)
-material_override = SubResource("StandardMaterial3D_a7elg")
-size = Vector3(5, 30, 5)
-
-[node name="Area3D" type="Area3D" parent="TestRock(Landmark)" unique_id=761385181]
-collision_layer = 16
-collision_mask = 15
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRock(Landmark)/Area3D" unique_id=1081401987]
-shape = SubResource("BoxShape3D_u4o28")
-
-[node name="Environment" type="Node3D" parent="." unique_id=1339071652]
-
-[node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("1_u4o28")]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 5000, 0, 0)
-
-[node name="Start" parent="." unique_id=1687684907 instance=ExtResource("2_niykl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
-
-[node name="End" parent="." unique_id=1295297433 instance=ExtResource("11_ejmq7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1884.5837, 0, 0)
-
-[node name="Boss" type="Node3D" parent="." unique_id=1742245067]
-transform = Transform3D(0.9999979, 0, 1.7763568e-14, 0, 0.99999917, 0, 1.7763568e-14, 0, 0.9999975, 980.0002, 6.866455e-05, -6.82121e-13)
-script = ExtResource("3_1klcw")
+[node name="Boss" type="Node3D" unique_id=1261625039]
+script = ExtResource("1_uq4kr")
 moveTime = 100.0
 spawnPos = Vector3(1100, 0, 0)
 fireTimerMax = 15.0
 spawnTimerMax = 15.0
 enemyTimerMax = 1.0
 
-[node name="HitZones" type="Node3D" parent="Boss" unique_id=1550381393]
+[node name="HitZones" type="Node3D" parent="." unique_id=1924391016]
 
-[node name="LeftBarrel" type="CSGSphere3D" parent="Boss" unique_id=855782070]
+[node name="LeftBarrel" type="CSGSphere3D" parent="." unique_id=1116186088]
 transform = Transform3D(1, 0, 0, -4.5e-44, 1, 0, 0, 0, 1, -21.565, 87.135, 35)
 visible = false
 radius = 2.0
 material = SubResource("StandardMaterial3D_a22uk")
-script = ExtResource("6_o6xsf")
+script = ExtResource("2_7dnpc")
 speed = 16.0
 
-[node name="Barrel" type="CSGCylinder3D" parent="Boss/LeftBarrel" unique_id=1896611245]
+[node name="Barrel" type="CSGCylinder3D" parent="LeftBarrel" unique_id=1983381799]
 transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, 0, 0, -2.5)
 height = 5.0
 material = SubResource("StandardMaterial3D_1oyf2")
 
-[node name="RightBarrel" type="CSGSphere3D" parent="Boss" unique_id=1139845083]
+[node name="RightBarrel" type="CSGSphere3D" parent="." unique_id=2032284414]
 transform = Transform3D(1, 0, 0, -4.5e-44, 1, 0, 0, 0, 1, -21.565, 87.135, -35)
 visible = false
 radius = 2.0
 material = SubResource("StandardMaterial3D_a22uk")
-script = ExtResource("6_o6xsf")
+script = ExtResource("2_7dnpc")
 speed = 16.0
 
-[node name="Barrel" type="CSGCylinder3D" parent="Boss/RightBarrel" unique_id=954500029]
+[node name="Barrel" type="CSGCylinder3D" parent="RightBarrel" unique_id=1048687026]
 transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, 0, 0, -2.5)
 height = 5.0
 material = SubResource("StandardMaterial3D_1oyf2")
 
-[node name="BossFightStart" parent="Boss" unique_id=99392530 instance=ExtResource("2_niykl")]
+[node name="BossFightStart" parent="." unique_id=1036386572 instance=ExtResource("3_h1cus")]
 transform = Transform3D(1, 0, 3.5527137e-15, 3.5527137e-15, 1, 1.2621775e-29, 3.5527137e-15, 0, 1, -200, -7.1054274e-13, -7.1054274e-13)
-script = ExtResource("7_a22uk")
+script = ExtResource("4_lia8m")
 
-[node name="mantis_body_adjusted" parent="Boss" unique_id=872345568 node_paths=PackedStringArray("upper_leg", "middle_leg", "lower_leg") instance=ExtResource("8_ejmq7")]
+[node name="mantis_body_adjusted" parent="." unique_id=1458563955 node_paths=PackedStringArray("upper_leg", "middle_leg", "lower_leg") instance=ExtResource("5_jc8i4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 68.5479, 0)
-script = ExtResource("9_gr180")
+script = ExtResource("6_cbm28")
 upper_leg = [NodePath("leg/upper"), NodePath("leg3/upper2"), NodePath("leg2/upper3"), NodePath("leg4/upper4")]
 middle_leg = [NodePath("leg/middle"), NodePath("leg3/middle2"), NodePath("leg2/middle3"), NodePath("leg4/middle4")]
 lower_leg = [NodePath("leg/bottom"), NodePath("leg3/bottom2"), NodePath("leg2/bottom3"), NodePath("leg4/bottom4")]
 
-[node name="head" parent="Boss/mantis_body_adjusted" index="0" unique_id=1773993357]
-script = ExtResource("6_o6xsf")
+[node name="head" parent="mantis_body_adjusted" index="0" unique_id=1773993357]
+script = ExtResource("2_7dnpc")
 offset_rotation = true
 
-[node name="ChestHit" type="Area3D" parent="Boss/mantis_body_adjusted/chest" parent_id_path=PackedInt32Array(872345568, 1155350298) index="1" unique_id=764308740 groups=["BossHit"]]
+[node name="ChestHit" type="Area3D" parent="mantis_body_adjusted/chest" parent_id_path=PackedInt32Array(1458563955, 1155350298) index="1" unique_id=337444498 groups=["BossHit"]]
 transform = Transform3D(1.0000005, 0, 0, 0, 1.0000006, 0, 0, 0, 1.0000007, -15.915588, 58.683548, 0)
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("5_o6xsf")
+script = ExtResource("7_3e6u2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/mantis_body_adjusted/chest/ChestHit" unique_id=224955837]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mantis_body_adjusted/chest/ChestHit" unique_id=1416781390]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7211914, -9.857788, -0.081285)
 shape = SubResource("BoxShape3D_t0q2p")
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/right_arm/right_arm" parent_id_path=PackedInt32Array(872345568, 1556362611) index="0" unique_id=995446820]
+[node name="StaticBody3D" parent="mantis_body_adjusted/right_arm/right_arm" parent_id_path=PackedInt32Array(1458563955, 1556362611) index="0" unique_id=995446820]
 collision_layer = 16
 collision_mask = 2
 
-[node name="right_hand" parent="Boss/mantis_body_adjusted/right_arm" parent_id_path=PackedInt32Array(872345568, 305555724) index="1" unique_id=1023090974]
+[node name="right_hand" parent="mantis_body_adjusted/right_arm" parent_id_path=PackedInt32Array(1458563955, 305555724) index="1" unique_id=1023090974]
 transform = Transform3D(0.99348265, 0, 0.1139835, 0, 1, 0, -0.1139835, 0, 0.99348265, -44, -2, 70)
-script = ExtResource("6_o6xsf")
+script = ExtResource("2_7dnpc")
 offset_rotation = true
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/right_arm/right_hand" index="0" unique_id=846454811]
+[node name="StaticBody3D" parent="mantis_body_adjusted/right_arm/right_hand" index="0" unique_id=846454811]
 collision_layer = 16
 collision_mask = 2
 
-[node name="RightFirePoint" type="Marker3D" parent="Boss/mantis_body_adjusted/right_arm/right_hand" index="1" unique_id=1645053939]
+[node name="RightFirePoint" type="Marker3D" parent="mantis_body_adjusted/right_arm/right_hand" index="1" unique_id=579551758]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.927551, 0.32980347, -0.3589325)
 
-[node name="RightArmHit" type="Area3D" parent="Boss/mantis_body_adjusted/right_arm" parent_id_path=PackedInt32Array(872345568, 305555724) index="2" unique_id=1852574444 groups=["BossHit"]]
+[node name="RightArmHit" type="Area3D" parent="mantis_body_adjusted/right_arm" parent_id_path=PackedInt32Array(1458563955, 305555724) index="2" unique_id=344145866 groups=["BossHit"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.71094, -4.9729004, -2.1097794)
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("5_o6xsf")
+script = ExtResource("7_3e6u2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/mantis_body_adjusted/right_arm/RightArmHit" unique_id=1866655892]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mantis_body_adjusted/right_arm/RightArmHit" unique_id=2111419695]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.31427002, 2.540413, 0.08783722)
 shape = SubResource("BoxShape3D_gr180")
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/left_arm-col2/left_arm" parent_id_path=PackedInt32Array(872345568, 1359656005) index="0" unique_id=1371423595]
+[node name="StaticBody3D" parent="mantis_body_adjusted/left_arm-col2/left_arm" parent_id_path=PackedInt32Array(1458563955, 1359656005) index="0" unique_id=1371423595]
 collision_layer = 16
 collision_mask = 2
 
-[node name="left_hand" parent="Boss/mantis_body_adjusted/left_arm-col2" parent_id_path=PackedInt32Array(872345568, 365642411) index="1" unique_id=746728792]
-script = ExtResource("6_o6xsf")
+[node name="left_hand" parent="mantis_body_adjusted/left_arm-col2" parent_id_path=PackedInt32Array(1458563955, 365642411) index="1" unique_id=746728792]
+script = ExtResource("2_7dnpc")
 offset_rotation = true
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/left_arm-col2/left_hand" index="0" unique_id=1043812678]
+[node name="StaticBody3D" parent="mantis_body_adjusted/left_arm-col2/left_hand" index="0" unique_id=1043812678]
 collision_layer = 16
 collision_mask = 2
 
-[node name="LeftFirePoint" type="Marker3D" parent="Boss/mantis_body_adjusted/left_arm-col2/left_hand" index="1" unique_id=1793170863]
+[node name="LeftFirePoint" type="Marker3D" parent="mantis_body_adjusted/left_arm-col2/left_hand" index="1" unique_id=308391870]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.927551, 0.32980347, -0.3589325)
 
-[node name="LeftArmHit" type="Area3D" parent="Boss/mantis_body_adjusted/left_arm-col2" parent_id_path=PackedInt32Array(872345568, 365642411) index="2" unique_id=319057023 groups=["BossHit"]]
+[node name="LeftArmHit" type="Area3D" parent="mantis_body_adjusted/left_arm-col2" parent_id_path=PackedInt32Array(1458563955, 365642411) index="2" unique_id=1336508041 groups=["BossHit"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.711, 41.56465, 38.580124)
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("5_o6xsf")
+script = ExtResource("7_3e6u2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/mantis_body_adjusted/left_arm-col2/LeftArmHit" unique_id=1442708856]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mantis_body_adjusted/left_arm-col2/LeftArmHit" unique_id=633276705]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.31427002, 2.540413, 0.08783722)
 shape = SubResource("BoxShape3D_gr180")
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg/upper" parent_id_path=PackedInt32Array(872345568, 294145955) index="0" unique_id=1439722917]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg/upper" parent_id_path=PackedInt32Array(1458563955, 294145955) index="0" unique_id=1439722917]
 collision_layer = 16
 collision_mask = 2
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg/middle" parent_id_path=PackedInt32Array(872345568, 1798233434) index="0" unique_id=1948480022]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg/middle" parent_id_path=PackedInt32Array(1458563955, 1798233434) index="0" unique_id=1948480022]
 collision_layer = 16
 collision_mask = 2
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg/bottom" parent_id_path=PackedInt32Array(872345568, 511655711) index="0" unique_id=2102396576]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg/bottom" parent_id_path=PackedInt32Array(1458563955, 511655711) index="0" unique_id=2102396576]
 collision_layer = 16
 collision_mask = 2
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg3/upper2" parent_id_path=PackedInt32Array(872345568, 840776139) index="0" unique_id=787393214]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg3/upper2" parent_id_path=PackedInt32Array(1458563955, 840776139) index="0" unique_id=787393214]
 collision_layer = 16
 collision_mask = 2
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg3/middle2" parent_id_path=PackedInt32Array(872345568, 995502921) index="0" unique_id=265157550]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg3/middle2" parent_id_path=PackedInt32Array(1458563955, 995502921) index="0" unique_id=265157550]
 collision_layer = 16
 collision_mask = 2
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg3/bottom2" parent_id_path=PackedInt32Array(872345568, 331689946) index="0" unique_id=1179381115]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg3/bottom2" parent_id_path=PackedInt32Array(1458563955, 331689946) index="0" unique_id=1179381115]
 collision_layer = 16
 collision_mask = 2
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg2/upper3" parent_id_path=PackedInt32Array(872345568, 1664795944) index="0" unique_id=2071632778]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg2/upper3" parent_id_path=PackedInt32Array(1458563955, 1664795944) index="0" unique_id=2071632778]
 collision_layer = 16
 collision_mask = 2
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg2/middle3" parent_id_path=PackedInt32Array(872345568, 1406393752) index="0" unique_id=1902970775]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg2/middle3" parent_id_path=PackedInt32Array(1458563955, 1406393752) index="0" unique_id=1902970775]
 collision_layer = 16
 collision_mask = 2
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg2/bottom3" parent_id_path=PackedInt32Array(872345568, 718704180) index="0" unique_id=756730120]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg2/bottom3" parent_id_path=PackedInt32Array(1458563955, 718704180) index="0" unique_id=756730120]
 collision_layer = 16
 collision_mask = 2
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg4/upper4" parent_id_path=PackedInt32Array(872345568, 1548748991) index="0" unique_id=1767594866]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg4/upper4" parent_id_path=PackedInt32Array(1458563955, 1548748991) index="0" unique_id=1767594866]
 collision_layer = 16
 collision_mask = 2
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg4/middle4" parent_id_path=PackedInt32Array(872345568, 598471403) index="0" unique_id=584407217]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg4/middle4" parent_id_path=PackedInt32Array(1458563955, 598471403) index="0" unique_id=584407217]
 collision_layer = 16
 collision_mask = 2
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/leg4/bottom4" parent_id_path=PackedInt32Array(872345568, 2112537200) index="0" unique_id=1448322240]
+[node name="StaticBody3D" parent="mantis_body_adjusted/leg4/bottom4" parent_id_path=PackedInt32Array(1458563955, 2112537200) index="0" unique_id=1448322240]
 collision_layer = 16
 collision_mask = 2
 
-[node name="left_wing-col2" parent="Boss/mantis_body_adjusted" index="8" unique_id=1384019416]
+[node name="left_wing-col2" parent="mantis_body_adjusted" index="8" unique_id=1384019416]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 18, 20, 18)
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/left_wing-col2/left_wing" parent_id_path=PackedInt32Array(872345568, 1910055337) index="0" unique_id=124248986]
+[node name="StaticBody3D" parent="mantis_body_adjusted/left_wing-col2/left_wing" parent_id_path=PackedInt32Array(1458563955, 1910055337) index="0" unique_id=124248986]
 collision_layer = 16
 collision_mask = 2
 
-[node name="LeftWingHit" type="Area3D" parent="Boss/mantis_body_adjusted/left_wing-col2/left_wing" parent_id_path=PackedInt32Array(872345568, 1910055337) index="1" unique_id=1090657416 groups=["BossHit"]]
+[node name="LeftWingHit" type="Area3D" parent="mantis_body_adjusted/left_wing-col2/left_wing" parent_id_path=PackedInt32Array(1458563955, 1910055337) index="1" unique_id=1137057617 groups=["BossHit"]]
 transform = Transform3D(1.0000007, 2.9802322e-08, -2.9802322e-08, 0, 1.0000007, 5.9604645e-08, 0, 5.9604645e-08, 1.0000012, 0.83569336, -2.9307861, 1.0667114)
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("5_o6xsf")
+script = ExtResource("7_3e6u2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/mantis_body_adjusted/left_wing-col2/left_wing/LeftWingHit" unique_id=102797612]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mantis_body_adjusted/left_wing-col2/left_wing/LeftWingHit" unique_id=15488319]
 shape = SubResource("ConcavePolygonShape3D_qkuol")
 
-[node name="right_wing-col2" parent="Boss/mantis_body_adjusted" index="9" unique_id=620263861]
+[node name="right_wing-col2" parent="mantis_body_adjusted" index="9" unique_id=620263861]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 18, 20, -18)
 
-[node name="StaticBody3D" parent="Boss/mantis_body_adjusted/right_wing-col2/right_wing" parent_id_path=PackedInt32Array(872345568, 1944407696) index="0" unique_id=1529231523]
+[node name="StaticBody3D" parent="mantis_body_adjusted/right_wing-col2/right_wing" parent_id_path=PackedInt32Array(1458563955, 1944407696) index="0" unique_id=1529231523]
 collision_layer = 16
 collision_mask = 2
 
-[node name="RightWingHit" type="Area3D" parent="Boss/mantis_body_adjusted/right_wing-col2/right_wing" parent_id_path=PackedInt32Array(872345568, 1944407696) index="1" unique_id=1265927312 groups=["BossHit"]]
+[node name="RightWingHit" type="Area3D" parent="mantis_body_adjusted/right_wing-col2/right_wing" parent_id_path=PackedInt32Array(1458563955, 1944407696) index="1" unique_id=933660149 groups=["BossHit"]]
 transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0)
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("5_o6xsf")
+script = ExtResource("7_3e6u2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/mantis_body_adjusted/right_wing-col2/right_wing/RightWingHit" unique_id=728496512]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mantis_body_adjusted/right_wing-col2/right_wing/RightWingHit" unique_id=1280655349]
 transform = Transform3D(1, -2.9802322e-08, 0, 0, 0.99999994, 0, 0, 0, 1, 0.9503174, -3.3327637, -1.2130127)
 shape = SubResource("ConcavePolygonShape3D_7gauv")
 
-[editable path="Boss/mantis_body_adjusted"]
+[editable path="mantis_body_adjusted"]

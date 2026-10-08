@@ -9,6 +9,7 @@ var enemies : Array[Node] = []
 @export var speed : float = 10.0
 ## If the path goes 'around' the player
 @export var follow_player : bool = false
+var player_node
 
 var boss_enemy : bool = false
 
@@ -33,6 +34,9 @@ func _physics_process(delta) -> void:
 		
 		if pathFollow.progress_ratio > 0.92:
 			_end_path()
+			
+		if follow_player:
+			global_position = player_node.global_position
 	
 func _spawn_enemies() -> void:
 	var transform_mod = 0.0
@@ -79,4 +83,4 @@ func activate(_area) -> void:
 		active = true
 		
 		if follow_player:
-			self.reparent.call_deferred(_area.get_parent(), true)
+			player_node = _area.get_parent()

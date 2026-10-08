@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cybv1456fgsff" path="res://assets/art/ui/GuardianPortrait.png" id="3_gdt2y"]
 [ext_resource type="Texture2D" uid="uid://cfkvqvr5b8gpd" path="res://assets/art/ui/GroknackPortrait.png" id="3_wm3ai"]
 [ext_resource type="Texture2D" uid="uid://dkxmi0tvk634n" path="res://assets/art/ui/BunnyPortrait.png" id="3_yev5y"]
+[ext_resource type="Texture2D" uid="uid://dnddgg6vcaygy" path="res://assets/art/ui/VolleySize.png" id="6_8dubc"]
+[ext_resource type="Texture2D" uid="uid://txfjh3snois3" path="res://assets/art/ui/BombSprite.png" id="7_p7vwb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gdt2y"]
 animations = [{
@@ -33,26 +35,85 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wm3ai"]
+bg_color = Color(0.1, 0.1, 0.1, 0)
+skew = Vector2(0.5, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dubc"]
+bg_color = Color(0.6, 0.114, 0.114, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7vwb"]
+bg_color = Color(0.12345173, 0.34628323, 0.5116682, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [node name="UI" type="CanvasLayer" unique_id=780951930]
 script = ExtResource("1_x4jx1")
 dialogueAppearTime = 1.5
-dialogueVanishTime = 1.0
 
 [node name="Portrait" type="AnimatedSprite2D" parent="." unique_id=391890990]
-visible = false
 texture_filter = 1
-position = Vector2(376, 550)
+position = Vector2(376, 583)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_gdt2y")
 animation = &"Groknack"
 
-[node name="ScoreText" type="RichTextLabel" parent="." unique_id=197001532]
+[node name="ScoreText" type="RichTextLabel" parent="." unique_id=198487890]
 visible = false
+offset_left = 2.0
+offset_top = 229.0
 offset_right = 1152.0
-offset_bottom = 16.0
+offset_bottom = 353.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("1_nt7q6")
-text = "Score : 0"
-fit_content = true
+theme_override_font_sizes/normal_font_size = 41
+bbcode_enabled = true
+text = "[center]SCORE:"
+
+[node name="DeadText" type="RichTextLabel" parent="." unique_id=1105814806]
+visible = false
+offset_left = 2.0
+offset_top = 229.0
+offset_right = 1152.0
+offset_bottom = 353.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_nt7q6")
+theme_override_font_sizes/normal_font_size = 41
+bbcode_enabled = true
+text = "[center]GAME OVER!"
+
+[node name="EndText" type="RichTextLabel" parent="." unique_id=834963081]
+visible = false
+offset_left = 2.0
+offset_top = 295.0
+offset_right = 1152.0
+offset_bottom = 419.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_nt7q6")
+theme_override_font_sizes/normal_font_size = 33
+bbcode_enabled = true
+text = "[center]PRESS ANY BUTTON TO CONTINUE"
 
 [node name="HealthText" type="RichTextLabel" parent="." unique_id=1892410846]
 visible = false
@@ -64,12 +125,77 @@ text = "Health: 0"
 fit_content = true
 
 [node name="DialogueText" type="RichTextLabel" parent="." unique_id=1859739455]
-visible = false
-offset_left = 460.0
-offset_top = 496.0
-offset_right = 852.0
-offset_bottom = 594.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+offset_left = 461.0
+offset_top = 548.0
+offset_right = 853.0
+offset_bottom = 621.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("1_nt7q6")
-visible_characters = 0
-visible_ratio = 0.0
+text = "DON'T FORGET I PUT THREE BOMBS ON BOARD. USE THEM IF YOU GET OVERWHELMED!"
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=2010910741]
+offset_left = 14.0
+offset_top = 614.0
+offset_right = 298.0
+offset_bottom = 641.0
+theme_override_styles/background = SubResource("StyleBoxFlat_wm3ai")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8dubc")
+show_percentage = false
+
+[node name="Text" type="RichTextLabel" parent="HealthBar" unique_id=1563397152]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 6.0
+offset_right = 290.0
+offset_bottom = 32.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_nt7q6")
+bbcode_enabled = true
+text = "[center]HEALTH"
+
+[node name="SpeedBar" type="ProgressBar" parent="." unique_id=204298387]
+offset_left = 855.0
+offset_top = 614.0
+offset_right = 1139.0
+offset_bottom = 641.0
+theme_override_styles/background = SubResource("StyleBoxFlat_wm3ai")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p7vwb")
+min_value = 10.0
+max_value = 30.0
+value = 10.0
+show_percentage = false
+
+[node name="Text" type="RichTextLabel" parent="SpeedBar" unique_id=240792612]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 6.0
+offset_right = 290.0
+offset_bottom = 32.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_nt7q6")
+bbcode_enabled = true
+text = "[center]SPEED"
+
+[node name="VolleySize" type="Sprite2D" parent="." unique_id=842011014]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(1065, 595)
+scale = Vector2(4, 4)
+texture = ExtResource("6_8dubc")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 8)
+
+[node name="BombAmount" type="Sprite2D" parent="." unique_id=1189078228]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(153, 595)
+scale = Vector2(4, 4)
+texture = ExtResource("7_p7vwb")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 8)

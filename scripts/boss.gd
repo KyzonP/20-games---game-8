@@ -1,7 +1,7 @@
 extends Node3D
 
 ### Stats ###
-@export var hp : float = 50.0
+@export var hp : float = 1.0
 @export var speed : float = 15.0
 
 @export var moveTime : float = 10.0
@@ -59,6 +59,8 @@ var rightPath = load("res://flight_paths/boss_right.tres")
 var enemyTimer : float = 0.0
 
 func _ready():
+	EventBus.bomb_activated.connect(_bomb)
+	
 	anim.legs_vanish()
 	
 	_link_signals()
@@ -223,10 +225,49 @@ func _set_destination(axis : String, pos):
 func _link_signals():
 	for i in get_tree().get_nodes_in_group("BossHit"):
 		i.hurt.connect(_hurt)
+		
+func _bomb(_pos, _radius):
+	if state != States.IDLE:
+		_hurt(5,1)
 	
 func _hurt(damage, multiplier):
-	var damageAmount = damage * multiplier
+	if state != States.IDLE:
+		var damageAmount = damage * multiplier
+		
+		hp -= damageAmount
 	
-	hp -= damageAmount
+		if hp <= 0.0:
+			defeat()
+func defeat():
+	EventBus.emit_signal("boss_defeated")
+	state = States.IDLE
 	
-	print(hp)
+	# anim
+	l_targeting.disabled = true
+	r_targeting.disabled = true
+	
+	anim.wings_open()
+	
+	# cancel the move tween, go to start position, then rotate and move backwards
+	if moveTween:
+		moveTween.kill()
+		
+	moveTween = create_tween()
+	moveTween.set_trans(Tween.TRANS_EXPO)
+	moveTween.set_ease(Tween.EASE_OUT)
+	moveTween.tween_property(self, "position", firePos, rotateTime)
+	#await moveTween.finished
+	
+	if rotateTween:
+		rotateTween.kill()
+		
+	rotateTween = create_tween()
+	rotateTween.tween_property(self, "rotation", spawnRot, rotateTime)
+	
+	await rotateTween.finished
+	
+	if moveTween:
+		moveTween.kill()
+	moveTween = create_tween()
+	moveTween.tween_property(self, "position", Vector3(5000,100,0), 10.0)
+	await moveTween.finished

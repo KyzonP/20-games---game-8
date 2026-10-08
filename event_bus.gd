@@ -20,3 +20,18 @@ signal powerup_activated()
 
 @warning_ignore("unused_signal")
 signal dialogue_trigger(character, dialogue)
+
+@warning_ignore("unused_signal")
+signal update_health(amount)
+
+@warning_ignore("unused_signal")
+signal give_speed(node)
+
+@warning_ignore("unused_signal")
+signal boss_defeated()
+
+@warning_ignore("unused_signal")
+signal end_game(score)
+
+@warning_ignore("unused_signal")
+signal player_dead()

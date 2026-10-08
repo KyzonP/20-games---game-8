@@ -37,7 +37,6 @@ curve = SubResource("Curve3D_5pt6r")
 
 [node name="PathFollow3D" parent="Path3D" index="0" unique_id=66500086]
 transform = Transform3D(-4.3711236e-08, 0, -0.9999939, 0, 0.9999976, 0, 0.99999654, 0, -4.3711122e-08, 0, 15, 0)
-baseSpeed = 20.0
 
 [node name="Player" parent="Path3D/PathFollow3D/Camera3D" parent_id_path=PackedInt32Array(750042012, 1485017049) index="0" unique_id=1601872703]
 cameraRotateAcceleration = 0.25
@@ -53,16 +52,19 @@ next_region = NodePath("../region_3")
 [node name="region_3" parent="." unique_id=1383658511 node_paths=PackedStringArray("next_region") instance=ExtResource("8_ba08l")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2000, 0, 0)
+visible = false
 next_region = NodePath("../region_4")
 
 [node name="region_4" parent="." unique_id=1739981121 node_paths=PackedStringArray("next_region") instance=ExtResource("9_slf20")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3000, 0, 0)
+visible = false
 next_region = NodePath("../region_5")
 
 [node name="region_5" parent="." unique_id=1230631783 node_paths=PackedStringArray("next_region") instance=ExtResource("10_wnnao")]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4000, 0, 0)
+visible = false
 next_region = NodePath(".")
 
 [node name="DialogueTrigger" parent="." unique_id=147444104 instance=ExtResource("11_b1bl5")]
@@ -95,9 +97,14 @@ character = "Guardian"
 dialogue = "You should get to Aremag. Head for the cave."
 
 [node name="DialogueTrigger7" parent="." unique_id=595807659 instance=ExtResource("11_b1bl5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1621.4099, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1768.5503, 0, 0)
 character = "Groknack"
 dialogue = "I PUT THREE BOMBS ON BOARD. USE THEM IF YOU'RE OVERWHELMED."
+
+[node name="DialogueTrigger16" parent="." unique_id=454588786 instance=ExtResource("11_b1bl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1580.0509, 0, 0)
+character = "Guardian"
+dialogue = "I believe the red spots are their most vulerable points."
 
 [node name="DialogueTrigger8" parent="." unique_id=1323536228 instance=ExtResource("11_b1bl5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2329.1094, 0, 0)
