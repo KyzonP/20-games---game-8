@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://xj5qxp5jrfxp" path="res://scripts/turret_barrel.gd" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://l2san637eugn" path="res://scripts/turret_enemy.gd" id="1_md0e3"]
 [ext_resource type="PackedScene" uid="uid://dg8jqhch1w3a6" path="res://models/enemies/turret_enemy.tscn" id="2_qwbpo"]
+[ext_resource type="PackedScene" uid="uid://dwyall24cm0fn" path="res://scenes/effects/explosion.tscn" id="4_4ejog"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_md0e3"]
 height = 9.862305
@@ -29,5 +30,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.587078, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=628981273]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.876465, 0)
 shape = SubResource("CylinderShape3D_md0e3")
+
+[node name="Explosion" parent="." unique_id=6587226 instance=ExtResource("4_4ejog")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.962082, 0)
 
 [editable path="turret_enemy"]

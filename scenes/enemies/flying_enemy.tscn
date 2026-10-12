@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://l2san637eugn" path="res://scripts/turret_enemy.gd" id="1_fgwew"]
 [ext_resource type="Script" uid="uid://xj5qxp5jrfxp" path="res://scripts/turret_barrel.gd" id="2_c4a5w"]
 [ext_resource type="PackedScene" uid="uid://bkddimf85yp5y" path="res://models/enemies/flying_enemy_model.tscn" id="3_2pnje"]
+[ext_resource type="PackedScene" uid="uid://dwyall24cm0fn" path="res://scenes/effects/explosion.tscn" id="4_12h4s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2pnje"]
 radius = 2.5646079
@@ -29,5 +30,7 @@ script = ExtResource("2_c4a5w")
 
 [node name="FirePoint" type="Marker3D" parent="flying_enemy_model/targeting" index="2" unique_id=1377199257]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.029801551, -2.4611635)
+
+[node name="Explosion" parent="." unique_id=6587226 instance=ExtResource("4_12h4s")]
 
 [editable path="flying_enemy_model"]

@@ -1,0 +1,346 @@
+[gd_scene format=3 uid="uid://rwvtjgjjbh6k"]
+
+[ext_resource type="Script" uid="uid://cp6tlmw1j5lsq" path="res://scripts/main_menu.gd" id="1_isoef"]
+[ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/environment/ground_plane.tscn" id="1_nl8w3"]
+[ext_resource type="PackedScene" uid="uid://bhrtcn5ldoc2n" path="res://scenes/player/player.tscn" id="2_3rkf3"]
+[ext_resource type="PackedScene" uid="uid://stjwpa14d77h" path="res://scenes/environment/directional_light_3d.tscn" id="3_247la"]
+[ext_resource type="PackedScene" uid="uid://c4bqj3pqyetk2" path="res://scenes/environment/world_environment.tscn" id="4_kiqgm"]
+[ext_resource type="Texture2D" uid="uid://cvj2s4n35u6oj" path="res://assets/art/ui/MainMenuViewport.png" id="4_qgo02"]
+[ext_resource type="Texture2D" uid="uid://b732rv03p0vac" path="res://assets/art/ui/MainMenuKeys.png" id="6_isoef"]
+[ext_resource type="FontFile" uid="uid://bti7l0s1loqws" path="res://fonts/PrStart.ttf" id="6_xn6kt"]
+[ext_resource type="Texture2D" uid="uid://djoaxtidqb1oa" path="res://assets/art/ui/MainMenuBackground.png" id="9_vovv2"]
+[ext_resource type="Texture2D" uid="uid://otau7hetkov" path="res://assets/art/ui/Button.png" id="10_d4hu8"]
+[ext_resource type="Texture2D" uid="uid://smbb8cqrrgbq" path="res://assets/art/ui/ButtonPressed.png" id="11_p1nwe"]
+[ext_resource type="Texture2D" uid="uid://bol1ohkmryojy" path="res://assets/art/ui/ButtonHover.png" id="12_prbor"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3rkf3"]
+size = Vector2(100000, 100000)
+
+[node name="main_menu" type="Node3D" unique_id=292347115]
+script = ExtResource("1_isoef")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=885322477]
+texture_filter = 1
+position = Vector2(576, 324)
+texture = ExtResource("9_vovv2")
+
+[node name="Environment" type="Node3D" parent="." unique_id=1238961029]
+
+[node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("1_nl8w3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
+mesh = SubResource("PlaneMesh_3rkf3")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1373683288]
+offset_left = 158.0
+offset_top = 123.0
+offset_right = 408.0
+offset_bottom = 373.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=759818442]
+handle_input_locally = false
+size = Vector2i(250, 250)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=717577434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.954525, 0)
+current = true
+
+[node name="Player" parent="SubViewportContainer/SubViewport/Camera3D" unique_id=707890230 instance=ExtResource("2_3rkf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.015804)
+maxCameraRotation = 0.0
+x_margin = 5.0
+y_margin = 5.0
+
+[node name="Viewport" type="Sprite2D" parent="SubViewportContainer" unique_id=1714948546]
+texture_filter = 1
+position = Vector2(426, 276)
+texture = ExtResource("4_qgo02")
+
+[node name="DirectionalLight3D" parent="." unique_id=363381807 instance=ExtResource("3_247la")]
+shadow_enabled = false
+directional_shadow_mode = 0
+directional_shadow_max_distance = 1000.0
+
+[node name="WorldEnvironment" parent="." unique_id=2020415190 instance=ExtResource("4_kiqgm")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=750180555]
+
+[node name="Keys" type="Sprite2D" parent="UI" unique_id=1148583120]
+texture_filter = 1
+position = Vector2(1110, 83)
+texture = ExtResource("6_isoef")
+
+[node name="KeySymbols" type="Control" parent="UI/Keys" unique_id=1975472434]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -536.0
+offset_bottom = -284.0
+
+[node name="W" type="RichTextLabel" parent="UI/Keys/KeySymbols" unique_id=975635745]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 431.0
+offset_right = 289.0
+offset_bottom = 461.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]W"
+
+[node name="Q" type="RichTextLabel" parent="UI/Keys/KeySymbols" unique_id=446863375]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 431.0
+offset_right = 227.0
+offset_bottom = 461.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Q"
+
+[node name="E" type="RichTextLabel" parent="UI/Keys/KeySymbols" unique_id=1662490070]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 431.0
+offset_right = 351.0
+offset_bottom = 461.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]E"
+
+[node name="R" type="RichTextLabel" parent="UI/Keys/KeySymbols" unique_id=831838950]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 431.0
+offset_right = 413.0
+offset_bottom = 461.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]R"
+
+[node name="A" type="RichTextLabel" parent="UI/Keys/KeySymbols" unique_id=1296067536]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 474.0
+offset_right = 233.0
+offset_bottom = 504.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]A"
+
+[node name="S" type="RichTextLabel" parent="UI/Keys/KeySymbols" unique_id=2049604256]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 474.0
+offset_right = 295.0
+offset_bottom = 504.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]S"
+
+[node name="D" type="RichTextLabel" parent="UI/Keys/KeySymbols" unique_id=756236960]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 474.0
+offset_right = 357.0
+offset_bottom = 504.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]D"
+
+[node name="CTRL" type="RichTextLabel" parent="UI/Keys/KeySymbols" unique_id=1761810544]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 568.0
+offset_right = 179.0
+offset_bottom = 591.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]CTRL"
+
+[node name="SHIFT" type="RichTextLabel" parent="UI/Keys/KeySymbols" unique_id=814539292]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 524.0
+offset_right = 179.0
+offset_bottom = 547.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]SHFT"
+
+[node name="SPACE" type="RichTextLabel" parent="UI/Keys/KeySymbols" unique_id=1281338444]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 563.0
+offset_right = 413.0
+offset_bottom = 591.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]SPACE"
+
+[node name="Directions" type="Control" parent="UI/Keys" unique_id=1220543617]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -536.0
+offset_bottom = -284.0
+
+[node name="Roll" type="RichTextLabel" parent="UI/Keys/Directions" unique_id=1708014455]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 358.0
+offset_right = 331.0
+offset_bottom = 388.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]ROLL"
+
+[node name="Bomb" type="RichTextLabel" parent="UI/Keys/Directions" unique_id=2031336612]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 429.0
+offset_right = 565.0
+offset_bottom = 459.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]BOMB"
+
+[node name="Move" type="RichTextLabel" parent="UI/Keys/Directions" unique_id=291722973]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 519.0
+offset_right = 565.0
+offset_bottom = 549.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]MOVE"
+
+[node name="Shoot" type="RichTextLabel" parent="UI/Keys/Directions" unique_id=1786255307]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 558.0
+offset_right = 579.0
+offset_bottom = 588.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]SHOOT"
+
+[node name="Speed" type="RichTextLabel" parent="UI/Keys/Directions" unique_id=654586559]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 397.0
+offset_right = 171.0
+offset_bottom = 451.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]ADJUST
+SPEED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=1808392509]
+offset_top = 489.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/separation = 32
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/VBoxContainer" unique_id=2118088695]
+layout_mode = 2
+alignment = 1
+
+[node name="HighScoreText" type="RichTextLabel" parent="UI/VBoxContainer/HBoxContainer2" unique_id=1325864192]
+custom_minimum_size = Vector2(1152, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]HIGH SCORE: XYZ"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer" unique_id=601365560]
+layout_mode = 2
+alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="UI/VBoxContainer/HBoxContainer" unique_id=1280000879]
+layout_mode = 2
+texture_normal = ExtResource("10_d4hu8")
+texture_pressed = ExtResource("11_p1nwe")
+texture_hover = ExtResource("12_prbor")
+
+[node name="StartText" type="RichTextLabel" parent="UI/VBoxContainer/HBoxContainer/StartButton" unique_id=1105766568]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 17.0
+offset_right = 499.0
+offset_bottom = 273.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_xn6kt")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]START GAME"

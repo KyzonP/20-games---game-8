@@ -17,10 +17,10 @@ var healthTween
 
 var speed_node
 
+var end : bool = false
+
 
 func _ready():
-	SaveLoad.load_data()
-	
 	EventBus.dialogue_trigger.connect(trigger_dialogue)
 	EventBus.update_health.connect(update_health)
 	EventBus.give_speed.connect(store_speed)
@@ -33,6 +33,10 @@ func _ready():
 	
 func _physics_process(_delta):
 	update_speed()
+	
+	if end:
+		if Input.is_action_just_pressed("bomb") or Input.is_action_just_pressed("boost") or Input.is_action_just_pressed("brake") or Input.is_action_just_pressed("fire") or Input.is_action_just_pressed("roll_left") or Input.is_action_just_pressed("roll_right") or Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_up"):
+			mainMenu()
 	
 func store_speed(node):
 	speed_node = node
@@ -89,6 +93,10 @@ func decrease_bomb(_pos, _radius):
 func dead_text():
 	endText.visible = true
 	deadText.visible = true
+	
+	SaveLoad.save_game()
+	
+	end = true
 			
 func end_text(score):
 	if score > Global.highScore:
@@ -101,4 +109,9 @@ func end_text(score):
 	endText.visible = true
 	
 	SaveLoad.save_game()
+	
+	end = true
+	
+func mainMenu():
+	get_tree().change_scene_to_file("res://scenes/menu/main_menu.tscn")
 	

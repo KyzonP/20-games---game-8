@@ -14,6 +14,8 @@ extends Area3D
 var target : Marker3D
 var shooting : bool = false
 
+@onready var explosion = $Explosion
+
 @onready var fire_point = find_child("FirePoint")
 @onready var targeting = find_child("targeting")
 
@@ -56,7 +58,7 @@ func _physics_process(delta):
 
 func _shoot():
 	var bullet = bulletObject.instantiate()
-	get_tree().root.get_child(0).add_child(bullet)
+	get_tree().root.get_child(3).add_child(bullet)
 	bullet.global_position = fire_point.global_position
 	bullet.rotation = fire_point.global_rotation
 	bullet.enemyBullet()
@@ -64,6 +66,8 @@ func _shoot():
 func destroy():
 	defeated.emit(self)
 	EventBus.score_increased.emit(points_value)
+	explosion.reparent(self.get_parent())
+	explosion.explode()
 	queue_free()
 	
 func collide(_area):

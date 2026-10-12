@@ -1,7 +1,7 @@
 extends Node3D
 
 ### Stats ###
-@export var hp : float = 1.0
+@export var hp : float = 100.0
 @export var speed : float = 15.0
 
 @export var moveTime : float = 10.0
@@ -173,7 +173,7 @@ func spawn_to_fire():
 	
 func _shoot(fire_point):
 	var bullet = bulletObject.instantiate()
-	get_tree().root.get_child(0).add_child(bullet)
+	get_tree().root.get_child(3).add_child(bullet)
 	bullet.global_position = fire_point.global_position
 	
 	bullet.rotation = fire_point.global_rotation

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bhrtcn5ldoc2n"]
+
+[ext_resource type="Script" uid="uid://dtwhchf2wnite" path="res://scripts/player_controller.gd" id="1_p47bc"]
+[ext_resource type="Material" uid="uid://cxp04r0fvg7i3" path="res://materials/test_aim_ring.tres" id="2_75vfm"]
+[ext_resource type="PackedScene" uid="uid://d1jh0l1yuh040" path="res://models/player/bunny_model.tscn" id="3_0owmy"]
+[ext_resource type="PackedScene" uid="uid://dwyall24cm0fn" path="res://scenes/effects/explosion.tscn" id="4_qek5x"]
+[ext_resource type="PackedScene" uid="uid://cq7bplwpr2ct7" path="res://scenes/effects/bullet_impact.tscn" id="5_5gtgg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iyx0m"]
+size = Vector3(6.9826202, 1.5612793, 0.9602051)
+
+[node name="Player" type="Area3D" unique_id=707890230 groups=["Player"]]
+collision_mask = 28
+script = ExtResource("1_p47bc")
+rotateAcceleration = 0.5
+rotateDeceleration = 0.25
+
+[node name="FirePoint" type="Marker3D" parent="." unique_id=392885312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32980156, -2.4611635)
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1329918360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017623901, 0.256958, -0.50476074)
+shape = SubResource("BoxShape3D_iyx0m")
+
+[node name="TargetPoint" type="Marker3D" parent="." unique_id=133350294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -20)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1317332738]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0.32, -500)
+visible = false
+radius = 0.1
+height = 1000.0
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=586223486]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -5)
+material_override = ExtResource("2_75vfm")
+outer_radius = 0.55
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="." unique_id=559354099]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -25)
+material_override = ExtResource("2_75vfm")
+inner_radius = 1.0
+outer_radius = 1.1
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="." unique_id=239643020]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -50)
+material_override = ExtResource("2_75vfm")
+inner_radius = 2.0
+outer_radius = 2.2
+
+[node name="CSGTorus3D4" type="CSGTorus3D" parent="." unique_id=356990463]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -150)
+material_override = ExtResource("2_75vfm")
+inner_radius = 5.0
+outer_radius = 5.5
+
+[node name="bunny_model" parent="." unique_id=991197752 instance=ExtResource("3_0owmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+
+[node name="Explosion" parent="." unique_id=6587226 instance=ExtResource("4_qek5x")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Sparks" parent="." unique_id=1690498384 instance=ExtResource("5_5gtgg")]

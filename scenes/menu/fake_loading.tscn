@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c6wmpyfiavl4k"]
+
+[ext_resource type="Script" uid="uid://culp2mkea10ee" path="res://scripts/fake_loading.gd" id="1_71g7l"]
+[ext_resource type="Texture2D" uid="uid://k0syyacautxk" path="res://assets/art/Logo.png" id="2_dnq7y"]
+[ext_resource type="Texture2D" uid="uid://djoaxtidqb1oa" path="res://assets/art/ui/MainMenuBackground.png" id="2_j35lf"]
+[ext_resource type="PackedScene" uid="uid://dgxtxu700bp7v" path="res://scenes/environment/ground_plane.tscn" id="3_n0bs5"]
+[ext_resource type="PackedScene" uid="uid://stjwpa14d77h" path="res://scenes/environment/directional_light_3d.tscn" id="4_ahyx3"]
+[ext_resource type="PackedScene" uid="uid://c4bqj3pqyetk2" path="res://scenes/environment/world_environment.tscn" id="5_j35lf"]
+[ext_resource type="PackedScene" uid="uid://bhrtcn5ldoc2n" path="res://scenes/player/player.tscn" id="6_j35lf"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yuer0"]
+size = Vector2(100000, 100000)
+
+[node name="FakeLoading" type="Node3D" unique_id=1016794936]
+script = ExtResource("1_71g7l")
+
+[node name="Control" type="Control" parent="." unique_id=439507043]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Sprite2D" parent="Control" unique_id=1116618737]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(576, 324)
+texture = ExtResource("2_j35lf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=821718285]
+position = Vector2(588, 314)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_dnq7y")
+
+[node name="Environment" type="Node3D" parent="." unique_id=494558975]
+
+[node name="GroundPlane" parent="Environment" unique_id=1054850341 instance=ExtResource("3_n0bs5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
+mesh = SubResource("PlaneMesh_yuer0")
+
+[node name="DirectionalLight3D" parent="." unique_id=363381807 instance=ExtResource("4_ahyx3")]
+shadow_enabled = false
+directional_shadow_mode = 0
+directional_shadow_max_distance = 1000.0
+
+[node name="WorldEnvironment" parent="." unique_id=2020415190 instance=ExtResource("5_j35lf")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=102668502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.954525, 0)
+
+[node name="Player" parent="Camera3D" unique_id=707890230 instance=ExtResource("6_j35lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.015804)
+maxCameraRotation = 0.0
+x_margin = 5.0
+y_margin = 5.0

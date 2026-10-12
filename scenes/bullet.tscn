@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dpfe8itckay30"]
 
 [ext_resource type="Script" uid="uid://36u6f1kvgmdc" path="res://scripts/bullet.gd" id="1_mkf8s"]
+[ext_resource type="PackedScene" uid="uid://dwyall24cm0fn" path="res://scenes/effects/explosion.tscn" id="2_y25gk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkf8s"]
 albedo_color = Color(1, 0, 0, 1)
@@ -29,3 +30,5 @@ shape = SubResource("CylinderShape3D_mkf8s")
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="Explosion" parent="." unique_id=6587226 instance=ExtResource("2_y25gk")]

@@ -2,6 +2,7 @@ extends Area3D
 
 @export var speed : float = 1.0
 @export var damage : int = 1
+@onready var explosion = $Explosion
 
 func _ready():
 	area_entered.connect(collide)	
@@ -15,6 +16,7 @@ func playerBullet():
 func enemyBullet():
 	set_collision_layer_value(4, true)
 	set_collision_mask_value(4, false)
+	set_collision_mask_value(3, false)
 	set_collision_mask_value(1, true)
 	set_collision_mask_value(2, true)
 
@@ -25,6 +27,9 @@ func _physics_process(_delta):
 		destroy()
 
 func destroy():
+	explosion.reparent(self.get_parent())
+	explosion.explode()
+	
 	queue_free()
 
 func collide(_area):

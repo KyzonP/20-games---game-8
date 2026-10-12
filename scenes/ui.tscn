@@ -65,6 +65,7 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 [node name="UI" type="CanvasLayer" unique_id=780951930]
 script = ExtResource("1_x4jx1")
 dialogueAppearTime = 1.5
+dialogueVanishTime = 2.0
 
 [node name="Portrait" type="AnimatedSprite2D" parent="." unique_id=391890990]
 texture_filter = 1

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c45x7bwpwt020" path="res://models/terrain/small_pillar.tscn" id="2_hov33"]
 [ext_resource type="Texture2D" uid="uid://cjnim0dm4rmk1" path="res://models/enemies/target_0.png" id="3_w0rdg"]
 [ext_resource type="Texture2D" uid="uid://msq4bija8ud3" path="res://models/enemies/target_1.png" id="4_nqfv8"]
+[ext_resource type="PackedScene" uid="uid://dwyall24cm0fn" path="res://scenes/effects/explosion.tscn" id="5_nqfv8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phd7g"]
 resource_name = "material_0"
@@ -154,3 +155,6 @@ mesh = SubResource("ArrayMesh_l6rbb")
 [node name="right" type="MeshInstance3D" parent="TargetModel/frame" unique_id=871311996]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
 mesh = SubResource("ArrayMesh_7h37n")
+
+[node name="Explosion" parent="." unique_id=6587226 instance=ExtResource("5_nqfv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7998548, 0)

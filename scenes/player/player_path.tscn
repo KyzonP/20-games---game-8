@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://bbswvxjqxtgid"]
 
 [ext_resource type="Script" uid="uid://csmfqdei32qoa" path="res://scripts/path_follow.gd" id="1_saahw"]
-[ext_resource type="Script" uid="uid://dtwhchf2wnite" path="res://scripts/player_controller.gd" id="2_o2rvi"]
-[ext_resource type="Material" uid="uid://cxp04r0fvg7i3" path="res://materials/test_aim_ring.tres" id="4_irqw4"]
-[ext_resource type="PackedScene" uid="uid://d1jh0l1yuh040" path="res://models/player/bunny_model.tscn" id="5_n03rm"]
+[ext_resource type="PackedScene" uid="uid://bhrtcn5ldoc2n" path="res://scenes/player/player.tscn" id="2_gpfry"]
 
 [sub_resource type="Curve3D" id="Curve3D_errlg"]
 closed = true
@@ -12,9 +10,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 6
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_iyx0m"]
-size = Vector3(6.9826202, 1.5612793, 0.9602051)
 
 [node name="PlayerPath" type="Path3D" unique_id=750042012]
 curve = SubResource("Curve3D_errlg")
@@ -28,50 +23,5 @@ script = ExtResource("1_saahw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 current = true
 
-[node name="Player" type="Area3D" parent="PathFollow3D/Camera3D" unique_id=1601872703 groups=["Player"]]
+[node name="Player" parent="PathFollow3D/Camera3D" unique_id=707890230 instance=ExtResource("2_gpfry")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-collision_mask = 28
-script = ExtResource("2_o2rvi")
-rotateAcceleration = 0.5
-
-[node name="FirePoint" type="Marker3D" parent="PathFollow3D/Camera3D/Player" unique_id=1155372600]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32980156, -2.4611635)
-
-[node name="Collider" type="CollisionShape3D" parent="PathFollow3D/Camera3D/Player" unique_id=1754407093]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017623901, 0.256958, -0.50476074)
-shape = SubResource("BoxShape3D_iyx0m")
-
-[node name="TargetPoint" type="Marker3D" parent="PathFollow3D/Camera3D/Player" unique_id=1888237902]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -20)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PathFollow3D/Camera3D/Player" unique_id=1741014832]
-transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0.32, -500)
-visible = false
-radius = 0.1
-height = 1000.0
-
-[node name="CSGTorus3D" type="CSGTorus3D" parent="PathFollow3D/Camera3D/Player" unique_id=995911914]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -5)
-material_override = ExtResource("4_irqw4")
-outer_radius = 0.55
-
-[node name="CSGTorus3D2" type="CSGTorus3D" parent="PathFollow3D/Camera3D/Player" unique_id=748349401]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -25)
-material_override = ExtResource("4_irqw4")
-inner_radius = 1.0
-outer_radius = 1.1
-
-[node name="CSGTorus3D3" type="CSGTorus3D" parent="PathFollow3D/Camera3D/Player" unique_id=2027652723]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -50)
-material_override = ExtResource("4_irqw4")
-inner_radius = 2.0
-outer_radius = 2.2
-
-[node name="CSGTorus3D4" type="CSGTorus3D" parent="PathFollow3D/Camera3D/Player" unique_id=351524730]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.32, -150)
-material_override = ExtResource("4_irqw4")
-inner_radius = 5.0
-outer_radius = 5.5
-
-[node name="bunny_model" parent="PathFollow3D/Camera3D/Player" unique_id=991197752 instance=ExtResource("5_n03rm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)

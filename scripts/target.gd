@@ -2,6 +2,7 @@ extends Node3D
 
 @export var hp : float = 1.0
 @export var points_value : int = 1
+@onready var explosion = $Explosion
 
 signal defeated(enemy_node)
 
@@ -13,6 +14,7 @@ func _ready():
 	
 func destroy():
 	defeated.emit(self)
+	explosion.explode()
 	EventBus.score_increased.emit(points_value)
 	find_child("TargetTrigger").get_parent().queue_free()
 

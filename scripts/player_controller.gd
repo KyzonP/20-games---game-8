@@ -9,6 +9,8 @@ extends Area3D
 @export var maxRotation : float = deg_to_rad(30.0)
 ## Acceleration of rotation
 @export var rotateAcceleration : float = 1.0
+## Deceleration of rotation (returning to forward facing)
+@export var rotateDeceleration : float = 0.5
 ## Maximum speed of player movement
 @export var max_speed : float = 10.0
 ## Player acceleration
@@ -27,6 +29,8 @@ var speed
 ## Time between injuries
 @export var hurtBufferMax : float = 1.0
 var hurtBufferTimer : float = 0.0
+@onready var explosion = $Explosion
+@onready var sparks = $Sparks
 
 # Rolling
 var rollTweenMove
@@ -50,7 +54,7 @@ var bulletVolley : int = 0
 var bulletTimer : float = 0.0
 var bulletObject = load("res://scenes/bullet.tscn")
 
-# bomb
+# Bomb
 ## Maximum number of bombs carried by player
 @export var bomb_max : int = 3
 ## Distance for enemy to be affected by the bomb
@@ -60,6 +64,7 @@ var bulletObject = load("res://scenes/bullet.tscn")
 func _ready():
 	area_entered.connect(_collide)
 	EventBus.powerup_activated.connect(_increase_volley_size)
+	EventBus.player_dead.connect(die)
 
 func _input(_event):
 	if not rolling:
@@ -113,7 +118,7 @@ func move(delta) -> void:
 		camera.rotation.y = move_toward(camera.rotation.y, -maxCameraRotation, delta * cameraRotateAcceleration)
 	else:
 		x_speed = move_toward(x_speed, 0.0, delta * deceleration)
-		rotation.y = move_toward(rotation.y, 0, delta * rotateAcceleration)
+		rotation.y = move_toward(rotation.y, 0, delta * rotateDeceleration)
 		camera.rotation.y = move_toward(camera.rotation.y, 0, delta * cameraRotateAcceleration)
 		
 	if input_dir[1] < 0:
@@ -126,7 +131,7 @@ func move(delta) -> void:
 		camera.rotation.x = move_toward(camera.rotation.x, -maxCameraRotation, delta * cameraRotateAcceleration)
 	else:
 		y_speed = move_toward(y_speed, 0.0, delta * deceleration)
-		rotation.x = move_toward(rotation.x, 0, delta * rotateAcceleration)
+		rotation.x = move_toward(rotation.x, 0, delta * rotateDeceleration)
 		camera.rotation.x = move_toward(camera.rotation.x, 0, delta * cameraRotateAcceleration)
 		
 	position += Vector3(x_speed, y_speed, 0.0) * delta
@@ -146,7 +151,7 @@ func fireBullet() -> void:
 	if bulletVolley < bulletVolleyMax:
 		bulletVolley += 1
 		var bullet = bulletObject.instantiate()
-		get_tree().root.get_child(0).add_child(bullet)
+		get_tree().root.get_child(3).add_child(bullet)
 		bullet.global_position = $FirePoint.global_position
 		bullet.rotation = global_rotation
 		bullet.playerBullet()
@@ -198,6 +203,10 @@ func hurt(damage):
 	if hurtBufferTimer >= hurtBufferMax:
 		hurtBufferTimer = 0.0
 		EventBus.player_hurt.emit(damage)
+		sparks.explode(false)
 	
 func _increase_volley_size() -> void:
 	bulletVolleyMax += 1
+	
+func die():
+	explosion.explode()

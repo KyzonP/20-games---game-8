@@ -23,7 +23,6 @@ point_count = 7
 script = ExtResource("1_3h2pi")
 
 [node name="UI" parent="." unique_id=780951930 instance=ExtResource("3_5pt6r")]
-dialogueVanishTime = 1.5
 
 [node name="DirectionalLight3D" parent="." unique_id=363381807 instance=ExtResource("1_6wlpe")]
 shadow_enabled = false
@@ -38,7 +37,7 @@ curve = SubResource("Curve3D_5pt6r")
 [node name="PathFollow3D" parent="Path3D" index="0" unique_id=66500086]
 transform = Transform3D(-4.3711236e-08, 0, -0.9999939, 0, 0.9999976, 0, 0.99999654, 0, -4.3711122e-08, 0, 15, 0)
 
-[node name="Player" parent="Path3D/PathFollow3D/Camera3D" parent_id_path=PackedInt32Array(750042012, 1485017049) index="0" unique_id=1601872703]
+[node name="Player" parent="Path3D/PathFollow3D/Camera3D" parent_id_path=PackedInt32Array(750042012, 1485017049) index="0" unique_id=707890230]
 cameraRotateAcceleration = 0.25
 
 [node name="region_1" parent="." unique_id=731808048 node_paths=PackedStringArray("next_region") instance=ExtResource("4_xmm5s")]
