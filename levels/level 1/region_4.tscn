@@ -166,12 +166,14 @@ transform = Transform3D(0.29504132, 0, -0.9554852, 0, 1, 0, 0.9554852, 0, 0.2950
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="Enemy9" parent="Environment" unique_id=413292799 instance=ExtResource("6_5ht65")]
 transform = Transform3D(-0.06019492, 0, -0.99818677, 0, 1, 0, 0.99818677, 0, -0.06019492, 681.7913, 34.166225, -130.39151)
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy9" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy9")
@@ -181,42 +183,49 @@ transform = Transform3D(0.56286323, 0, -0.82655126, 0, 1, 0, 0.82655126, 0, 0.56
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="Enemy6" parent="Environment" unique_id=1722514408 instance=ExtResource("6_5ht65")]
 transform = Transform3D(0.4853596, 0, -0.8743159, 0, 1, 0, 0.8743159, 0, 0.4853596, 523.9707, 32.292408, 180.51375)
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="Enemy7" parent="Environment" unique_id=963657406 instance=ExtResource("6_5ht65")]
 transform = Transform3D(-0.04919857, 0, -0.9987905, 0, 1, 0, 0.9987905, 0, -0.04919857, 645.06476, 32.292408, 248.16417)
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="Enemy8" parent="Environment" unique_id=422412144 instance=ExtResource("6_5ht65")]
 transform = Transform3D(0.91317064, 0, -0.4075823, 0, 1, 0, 0.4075823, 0, 0.91317064, 766.5155, 32.292408, 179.8528)
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="Enemy2" parent="Environment" unique_id=1041008605 instance=ExtResource("6_5ht65")]
 transform = Transform3D(-0.14922479, 0, -0.98880404, 0, 1, 0, 0.98880404, 0, -0.14922479, 421.54297, 30.567146, -132.33)
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="Enemy3" parent="Environment" unique_id=1517723275 instance=ExtResource("6_5ht65")]
 transform = Transform3D(-0.35278937, 0, -0.9357039, 0, 1, 0, 0.9357039, 0, -0.35278937, 617.7269, 30.567146, -196.67703)
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="Enemy10" parent="Environment" unique_id=629105349 instance=ExtResource("6_5ht65")]
 transform = Transform3D(-0.14922474, 0, -0.98880357, 0, 1, 0, 0.98880357, 0, -0.14922474, 276.952, 9.290559, -132.33)
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy10" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy10")
@@ -226,6 +235,7 @@ transform = Transform3D(0.36999005, 0, -0.9290358, 0, 1, 0, 0.9290358, 0, 0.3699
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy11" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy11")
@@ -235,6 +245,7 @@ transform = Transform3D(-0.32667366, 0, -0.9451374, 0, 1, 0, 0.9451374, 0, -0.32
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy12" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy12")
@@ -244,6 +255,7 @@ transform = Transform3D(0.37334406, 0, -0.92769307, 0, 1, 0, 0.92769307, 0, 0.37
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy13" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy13")
@@ -253,6 +265,7 @@ transform = Transform3D(0.31505278, 0, -0.94907427, 0, 1, 0, 0.94907427, 0, 0.31
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy14" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy14")
@@ -262,6 +275,7 @@ transform = Transform3D(-0.34477395, 0, -0.9386857, 0, 1, 0, 0.9386857, 0, -0.34
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="VisibleOnScreenEnabler3D" parent="Environment/Enemy15" index="1" unique_id=1247818257]
 enable_node_path = NodePath("../../Enemy15")
@@ -271,6 +285,7 @@ transform = Transform3D(-0.3134788, 0, -0.94959533, 0, 1, 0, 0.94959533, 0, -0.3
 fire_rate = 0.5
 points_value = 15
 lock = true
+fake = true
 
 [node name="aremag" parent="Environment" unique_id=320909641 instance=ExtResource("5_x0hta")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1067.9904, 170.2013, 18.004135)

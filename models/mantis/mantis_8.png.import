@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6bn7yp1od16i"
-path.s3tc="res://.godot/imported/mantis_8.png-805dbd47b925115b5ab1ff9b5e40e24b.s3tc.ctex"
+path="res://.godot/imported/mantis_8.png-805dbd47b925115b5ab1ff9b5e40e24b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "4930ffbf34dae32e66309c6a7c8a2587"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://models/mantis/mantis_8.png"
-dest_files=["res://.godot/imported/mantis_8.png-805dbd47b925115b5ab1ff9b5e40e24b.s3tc.ctex"]
+dest_files=["res://.godot/imported/mantis_8.png-805dbd47b925115b5ab1ff9b5e40e24b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

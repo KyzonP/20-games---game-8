@@ -16,6 +16,9 @@ albedo_color = Color(0.54901963, 0.34117648, 0.1882353, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5lr66"]
 size = Vector3(5, 30, 5)
 
+[sub_resource type="QuadOccluder3D" id="QuadOccluder3D_ar7ph"]
+size = Vector2(500, 500)
+
 [node name="region_3" type="Node3D" unique_id=1383658511]
 script = ExtResource("1_3i7uc")
 
@@ -227,3 +230,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1195.8567, 0, 0)
 
 [node name="Powerup" parent="." unique_id=637849105 instance=ExtResource("7_d7ab5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 10, 0)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1343681159]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1073.2755, 0, 0)
+occluder = SubResource("QuadOccluder3D_ar7ph")
+
+[node name="OccluderInstance3D2" type="OccluderInstance3D" parent="." unique_id=726263097]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+occluder = SubResource("QuadOccluder3D_ar7ph")

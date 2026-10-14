@@ -30,5 +30,5 @@ func load_next_region(_area):
 		entered = true
 		
 		if is_instance_valid(next_region):
-			next_region.process_mode = Node.PROCESS_MODE_INHERIT
+			#next_region.process_mode = Node.PROCESS_MODE_INHERIT
 			next_region.visible = true

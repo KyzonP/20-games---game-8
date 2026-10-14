@@ -88,6 +88,7 @@ func increase_volley():
 func decrease_bomb(_pos, _radius):
 	if is_instance_valid(bombSprite):
 		if bombSprite.region_rect.size.x > 0:
+			bombSprite.position.x += 16
 			bombSprite.region_rect.size.x -= 8
 			
 func dead_text():

@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dkxmi0tvk634n" path="res://assets/art/ui/BunnyPortrait.png" id="3_yev5y"]
 [ext_resource type="Texture2D" uid="uid://dnddgg6vcaygy" path="res://assets/art/ui/VolleySize.png" id="6_8dubc"]
 [ext_resource type="Texture2D" uid="uid://txfjh3snois3" path="res://assets/art/ui/BombSprite.png" id="7_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://cmi5jfbusnr14" path="res://assets/art/mobile/MoveBorder.png" id="8_ktti3"]
+[ext_resource type="Texture2D" uid="uid://bat2rjfwbmg4h" path="res://assets/art/mobile/MoveUp.png" id="9_cgfq5"]
+[ext_resource type="Texture2D" uid="uid://b6ptcogg1p0es" path="res://assets/art/mobile/MoveLeft.png" id="10_7dvkv"]
+[ext_resource type="Texture2D" uid="uid://chqw1kthcfoli" path="res://assets/art/mobile/MoveRight.png" id="11_vdcm2"]
+[ext_resource type="Texture2D" uid="uid://c5oinxrx5p03p" path="res://assets/art/mobile/MoveDown.png" id="12_6rmj2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gdt2y"]
 animations = [{
@@ -195,8 +200,42 @@ region_rect = Rect2(0, 0, 24, 8)
 [node name="BombAmount" type="Sprite2D" parent="." unique_id=1189078228]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(153, 595)
+position = Vector2(1064, 555)
 scale = Vector2(4, 4)
 texture = ExtResource("7_p7vwb")
 region_enabled = true
 region_rect = Rect2(0, 0, 24, 8)
+
+[node name="Move" type="Sprite2D" parent="." unique_id=33421379]
+texture_filter = 1
+position = Vector2(156, 518)
+texture = ExtResource("8_ktti3")
+
+[node name="Up" type="TextureButton" parent="Move" unique_id=408121279]
+texture_filter = 1
+offset_left = -76.0
+offset_top = -76.0
+offset_right = 76.0
+offset_bottom = 76.0
+texture_normal = ExtResource("9_cgfq5")
+
+[node name="Left" type="TextureButton" parent="Move" unique_id=539449891]
+offset_left = -76.0
+offset_top = -76.0
+offset_right = 76.0
+offset_bottom = 76.0
+texture_normal = ExtResource("10_7dvkv")
+
+[node name="Right" type="TextureButton" parent="Move" unique_id=1915686324]
+offset_left = -76.0
+offset_top = -76.0
+offset_right = 76.0
+offset_bottom = 76.0
+texture_normal = ExtResource("11_vdcm2")
+
+[node name="Down" type="TextureButton" parent="Move" unique_id=1783617076]
+offset_left = -76.0
+offset_top = -76.0
+offset_right = 76.0
+offset_bottom = 76.0
+texture_normal = ExtResource("12_6rmj2")

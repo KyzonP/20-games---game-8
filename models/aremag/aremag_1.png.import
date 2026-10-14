@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq3pgfx1kwbrt"
-path.s3tc="res://.godot/imported/aremag_1.png-82b16d2c8184b066ea92811e43e90301.s3tc.ctex"
+path="res://.godot/imported/aremag_1.png-82b16d2c8184b066ea92811e43e90301.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "d96c8f1961ed9610ffa27614e7add57b"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://models/aremag/aremag_1.png"
-dest_files=["res://.godot/imported/aremag_1.png-82b16d2c8184b066ea92811e43e90301.s3tc.ctex"]
+dest_files=["res://.godot/imported/aremag_1.png-82b16d2c8184b066ea92811e43e90301.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

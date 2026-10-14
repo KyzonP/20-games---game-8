@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddupscb4dh7wl"
-path.s3tc="res://.godot/imported/BunnyVehicle_2.png-23467cb8a08134474b16c30db053b5c3.s3tc.ctex"
+path="res://.godot/imported/BunnyVehicle_2.png-23467cb8a08134474b16c30db053b5c3.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "01894954aa4ad3dfeffb433fae0834e5"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://models/player/BunnyVehicle_2.png"
-dest_files=["res://.godot/imported/BunnyVehicle_2.png-23467cb8a08134474b16c30db053b5c3.s3tc.ctex"]
+dest_files=["res://.godot/imported/BunnyVehicle_2.png-23467cb8a08134474b16c30db053b5c3.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
